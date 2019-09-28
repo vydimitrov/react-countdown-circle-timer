@@ -1,0 +1,42 @@
+{
+  "name": "react-countdown-circle-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "webpack",
+    "prepare": "install-peers"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vydimitrov/react-countdown-circle-timer.git"
+  },
+  "keywords": [
+    "React",
+    "Countdown",
+    "Timer",
+    "Circle",
+    "Clock"
+  ],
+  "author": "Vasil Dimitrov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vydimitrov/react-countdown-circle-timer/issues"
+  },
+  "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
+  "peerDependencies": {
+    "prop-types": "^15.7.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "install-peers-cli": "^2.1.1",
+    "path": "^0.12.7",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8"
+  }
+}
