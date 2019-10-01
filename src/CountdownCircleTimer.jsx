@@ -13,8 +13,8 @@ import {
   colorsValidator
 } from '../utils';
 
-const getGradientId = (isGradient, gradientUniqueKey) => (
-  isGradient ? `countdown-circle-timer-gradient-${gradientUniqueKey || uuid()}` : ''
+const getGradientId = (isLinearGradient, gradientUniqueKey) => (
+  isLinearGradient ? `countdown-circle-timer-gradient-${gradientUniqueKey || uuid()}` : ''
 );
 
 const CountdownCircleTimer = props => {
@@ -27,7 +27,7 @@ const CountdownCircleTimer = props => {
     colors,
     strokeLinecap,
     timeFormatter,
-    isGradient,
+    isLinearGradient,
     gradientUniqueKey
   } = props;
 
@@ -35,8 +35,8 @@ const CountdownCircleTimer = props => {
   const [pathTotalLength, setPathTotalLength] = useState(0);
   const path = useMemo(() => getPath(size, strokeWidth), [size, strokeWidth]);
   const durationMilliseconds = useMemo(() => durationSeconds * 1000, [durationSeconds]);
-  const normalizedColors = useMemo(() => getNormalizedColors(colors, durationMilliseconds, isGradient), [colors, durationMilliseconds, isGradient]);
-  const gradientId = useMemo(() => getGradientId(isGradient, gradientUniqueKey), [isGradient, gradientUniqueKey]);
+  const normalizedColors = useMemo(() => getNormalizedColors(colors, durationMilliseconds, isLinearGradient), [colors, durationMilliseconds, isLinearGradient]);
+  const gradientId = useMemo(() => getGradientId(isLinearGradient, gradientUniqueKey), [isLinearGradient, gradientUniqueKey]);
 
   useEffect(() => {
     const totalLength = pathRef.current.getTotalLength().toFixed(2);
@@ -51,7 +51,7 @@ const CountdownCircleTimer = props => {
   return (
     <div style={getWrapperStyle(size)}>
       <svg width={size} height={size} style={svgStyle} xmlns="http://www.w3.org/2000/svg">
-        {isGradient && (
+        {isLinearGradient && (
           <defs>
             <linearGradient id={gradientId} x1="100%" y1="0%" x2="0%" y2="0%">
               {normalizedColors.map(color => <stop {...color.gradient} />)}
@@ -66,7 +66,7 @@ const CountdownCircleTimer = props => {
         />
         <path
           fill="none"
-          stroke={isGradient ? `url(#${gradientId})` : stroke}
+          stroke={isLinearGradient ? `url(#${gradientId})` : stroke}
           d={path}
           ref={pathRef}
           strokeLinecap={strokeLinecap}
@@ -93,7 +93,7 @@ CountdownCircleTimer.propTypes = {
   isPlaying: PropTypes.bool,
   strokeLinecap: PropTypes.oneOf(['round', 'square']),
   timeFormatter: PropTypes.func,
-  isGradient: PropTypes.bool,
+  isLinearGradient: PropTypes.bool,
   gradientUniqueKey: PropTypes.string
 };
 
@@ -103,7 +103,7 @@ CountdownCircleTimer.defaultProps = {
   trailColor: '#d9d9d9',
   isPlaying: false,
   strokeLinecap: 'round',
-  isGradient: false
+  isLinearGradient: false
 };
 
 export {
