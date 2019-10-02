@@ -26,9 +26,10 @@ const CountdownCircleTimer = props => {
     isPlaying,
     colors,
     strokeLinecap,
-    timeFormatter,
+    renderTime,
     isLinearGradient,
-    gradientUniqueKey
+    gradientUniqueKey,
+    onComplete
   } = props;
 
   const pathRef = useRef(null);
@@ -43,7 +44,7 @@ const CountdownCircleTimer = props => {
     setPathTotalLength(totalLength);
   }, []);
 
-  const elapsedTime = useLoop(durationMilliseconds, isPlaying);
+  const elapsedTime = useLoop(durationMilliseconds, isPlaying, onComplete);
   const strokeDasharray = linearEase(elapsedTime, 0, pathTotalLength, durationMilliseconds).toFixed(2);
   const stroke = getStroke(normalizedColors, elapsedTime);
   const remainingTime = Math.ceil((durationMilliseconds - elapsedTime) / 1000);
@@ -76,7 +77,7 @@ const CountdownCircleTimer = props => {
         />
       </svg>
       <div style={getTimeStyle(stroke, size)}>
-        {typeof timeFormatter === 'function' && timeFormatter(remainingTime, elapsedTime)}
+        {typeof renderTime === 'function' && renderTime(remainingTime, elapsedTime, isPlaying)}
       </div>
     </div>
   );
@@ -92,9 +93,10 @@ CountdownCircleTimer.propTypes = {
   trailColor: PropTypes.string,
   isPlaying: PropTypes.bool,
   strokeLinecap: PropTypes.oneOf(['round', 'square']),
-  timeFormatter: PropTypes.func,
+  renderTime: PropTypes.func,
   isLinearGradient: PropTypes.bool,
-  gradientUniqueKey: PropTypes.string
+  gradientUniqueKey: PropTypes.string,
+  onComplete: PropTypes.func
 };
 
 CountdownCircleTimer.defaultProps = {
