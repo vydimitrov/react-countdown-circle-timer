@@ -1,42 +1,43 @@
-import { useEffect, useState, useRef } from 'react';
+import { useLayoutEffect, useState, useRef } from 'react';
 
-export const useLoop = (durationMilliseconds, isPlaying) => {
+export const useLoop = (durationMilliseconds, isPlaying, onComplete) => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const requestRef = useRef();
   const previousTimeRef = useRef();
 
-  if (!isPlaying && requestRef.current !== undefined) {
-    cancelAnimationFrame(requestRef.current);
-    previousTimeRef.current = undefined;
-    requestRef.current = undefined;
-  }
-
   const loop = (time) => {
+    let isCompleted = false;
+
     if (previousTimeRef.current !== undefined) {
       const deltaTime = time - previousTimeRef.current;
 
       setElapsedTime(prevTime => {
         const currentElapsedTime = prevTime + deltaTime;
-        if (currentElapsedTime < durationMilliseconds) {
-          return currentElapsedTime;
-        }
+        isCompleted = currentElapsedTime >= durationMilliseconds;
 
-        cancelAnimationFrame(requestRef.current);
-        return durationMilliseconds;
+        return isCompleted ? durationMilliseconds : currentElapsedTime;
       });
     }
 
-    previousTimeRef.current = time;
-    requestRef.current = requestAnimationFrame(loop);
+    if (isCompleted) {
+      if (typeof onComplete === 'function') {
+        onComplete();
+      }
+    } else {
+      previousTimeRef.current = time;
+      requestRef.current = requestAnimationFrame(loop);
+    }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isPlaying && elapsedTime !== durationMilliseconds) {
       requestRef.current = requestAnimationFrame(loop);
     }
 
     return () => {
       cancelAnimationFrame(requestRef.current);
+      previousTimeRef.current = undefined;
+      requestRef.current = undefined;
     };
   }, [isPlaying]);
 
