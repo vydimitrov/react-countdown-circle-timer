@@ -9,3 +9,29 @@ React countdown timer component in a circle shape with color and progress animat
 * Transition between colors during the countdown
 * Support for linear gradient
 * Fully customizable content in the center of the circle
+
+## Installation
+```
+yarn add react-countdown-circle-time
+```
+or
+```
+npm install react-countdown-circle-time
+```
+
+## Usage
+```
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+
+const UrgeWithPleasureComponent = () => (
+    <CountdownCircleTimer
+        durationSeconds={10}
+        colors={[
+            ['#004777', .33],
+            ['#F7B801', .33],
+            ['#A30000']
+        ]}
+    />
+);
+
+```
