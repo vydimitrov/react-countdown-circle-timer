@@ -1,7 +1,7 @@
 {
   "name": "react-countdown-circle-timer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lightweight React countdown timer component with color and progress animation based on SVG",
   "main": "./lib/index.js",
   "scripts": {
     "build": "webpack",
@@ -16,7 +16,8 @@
     "Countdown",
     "Timer",
     "Circle",
-    "Clock"
+    "Clock",
+    "SVG"
   ],
   "author": "Vasil Dimitrov",
   "license": "MIT",
