@@ -51,3 +51,7 @@ const UrgeWithPleasureComponent = () => (
 | gradientUniqueKey  | string                                                                              | -         | Unique ID for the linearGradient element. It takes random ID if it's not provided.                                                             |
 | renderTime         | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): ReactNode | -         | Render prop function to customize the content in the center of the circle. The content is centered using flexbox.                              |
 | onComplete         | function()                                                                          | -         | On complete handler                                                                                                                            |
+
+## Roadmap
+* Test coverage
+* `a11y` support 
