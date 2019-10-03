@@ -12,11 +12,11 @@ React countdown timer component in a circle shape with color and progress animat
 
 ## Installation
 ```
-yarn add react-countdown-circle-time
+yarn add react-countdown-circle-timer
 ```
 or
 ```
-npm install react-countdown-circle-time
+npm install react-countdown-circle-timer
 ```
 
 ## Basic usage
