@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useLoop } from '../hooks';
+import { useLoop } from './hooks';
 import {
   uuid,
   linearEase,
@@ -11,7 +11,7 @@ import {
   getNormalizedColors,
   getStroke,
   colorsValidator
-} from '../utils';
+} from './utils';
 
 const getGradientId = (isLinearGradient, gradientUniqueKey) => (
   isLinearGradient ? `countdown-circle-timer-gradient-${gradientUniqueKey || uuid()}` : ''
