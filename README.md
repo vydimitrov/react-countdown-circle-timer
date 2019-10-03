@@ -31,6 +31,7 @@ const UrgeWithPleasureComponent = () => (
             ['#F7B801', .33],
             ['#A30000']
         ]}
+        isPlaying
     />
 );
 
