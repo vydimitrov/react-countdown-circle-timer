@@ -20,7 +20,7 @@ npm install react-countdown-circle-timer
 ```
 
 ## Basic usage
-```
+```jsx
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 const UrgeWithPleasureComponent = () => (
