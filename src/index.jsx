@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useLoop } from './hooks';
+import { useElapsedTime } from 'use-elapsed-time';
 import {
   uuid,
   linearEase,
@@ -44,7 +44,7 @@ const CountdownCircleTimer = props => {
     setPathTotalLength(totalLength);
   }, []);
 
-  const elapsedTime = useLoop(durationMilliseconds, isPlaying, onComplete);
+  const elapsedTime = useElapsedTime(isPlaying, { durationMilliseconds, onComplete });
   const strokeDasharray = linearEase(elapsedTime, 0, pathTotalLength, durationMilliseconds).toFixed(2);
   const stroke = getStroke(normalizedColors, elapsedTime);
   const remainingTime = Math.ceil((durationMilliseconds - elapsedTime) / 1000);
@@ -107,6 +107,8 @@ CountdownCircleTimer.defaultProps = {
   strokeLinecap: 'round',
   isLinearGradient: false
 };
+
+CountdownCircleTimer.displayName = 'CountdownCircleTimer';
 
 export {
   CountdownCircleTimer
