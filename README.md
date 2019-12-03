@@ -8,6 +8,7 @@ React countdown timer component in a circle shape with color and progress animat
 * Transition between colors during the countdown
 * Support for linear gradient
 * Fully customizable content in the center of the circle
+* `a11y` support
 
 ## Installation
 ```
@@ -79,4 +80,3 @@ const UrgeWithPleasureComponent = () => (
 
 ## Roadmap
 * Test coverage
-* `a11y` support 

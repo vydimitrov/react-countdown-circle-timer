@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0.4 (December 3rd, 2019)
+
+**Implemented enhancements:**
+- Add `a11y` support by exposing two additional props `ariaLabel` and `renderAriaTime`
+
 ## 1.0.3 (November 16th, 2019)
 
 **Implemented enhancements:**

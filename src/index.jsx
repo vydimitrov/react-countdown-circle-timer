@@ -10,7 +10,8 @@ import {
   getPath,
   getNormalizedColors,
   getStroke,
-  colorsValidator
+  colorsValidator,
+  visuallyHidden
 } from './utils';
 
 const getGradientId = (isLinearGradient, gradientUniqueKey) => (
@@ -29,7 +30,9 @@ const CountdownCircleTimer = props => {
     renderTime,
     isLinearGradient,
     gradientUniqueKey,
-    onComplete
+    onComplete,
+    ariaLabel,
+    renderAriaTime
   } = props;
 
   const pathRef = useRef(null);
@@ -50,7 +53,10 @@ const CountdownCircleTimer = props => {
   const remainingTime = Math.ceil((durationMilliseconds - elapsedTime) / 1000);
 
   return (
-    <div style={getWrapperStyle(size)}>
+    <div
+      style={getWrapperStyle(size)}
+      aria-label={ariaLabel}
+    >
       <svg width={size} height={size} style={svgStyle} xmlns="http://www.w3.org/2000/svg">
         {isLinearGradient && (
           <defs>
@@ -76,9 +82,16 @@ const CountdownCircleTimer = props => {
           strokeDashoffset={strokeDasharray}
         />
       </svg>
-      <div style={getTimeStyle(stroke, size)}>
-        {typeof renderTime === 'function' && renderTime(remainingTime, elapsedTime, isPlaying)}
-      </div>
+      {typeof renderTime === 'function' && (
+        <div aria-hidden="true" style={getTimeStyle(stroke, size)}>
+          {renderTime(remainingTime, elapsedTime, isPlaying)}
+        </div>
+      )}
+      {typeof renderAriaTime === 'function' && (
+        <div role="timer" aria-live="assertive" style={visuallyHidden}>
+          {renderAriaTime(remainingTime, elapsedTime, isPlaying)}
+        </div>
+       )}
     </div>
   );
 };
@@ -96,7 +109,9 @@ CountdownCircleTimer.propTypes = {
   renderTime: PropTypes.func,
   isLinearGradient: PropTypes.bool,
   gradientUniqueKey: PropTypes.string,
-  onComplete: PropTypes.func
+  onComplete: PropTypes.func,
+  ariaLabel: PropTypes.string,
+  renderAriaTime: PropTypes.func
 };
 
 CountdownCircleTimer.defaultProps = {
@@ -105,7 +120,8 @@ CountdownCircleTimer.defaultProps = {
   trailColor: '#d9d9d9',
   isPlaying: false,
   strokeLinecap: 'round',
-  isLinearGradient: false
+  isLinearGradient: false,
+  ariaLabel: 'Countdown timer'
 };
 
 CountdownCircleTimer.displayName = 'CountdownCircleTimer';
