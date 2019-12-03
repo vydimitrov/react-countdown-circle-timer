@@ -3,7 +3,7 @@ React countdown timer component in a circle shape with color and progress animat
 
 <img src="https://user-images.githubusercontent.com/10707142/66097204-ca68c200-e59d-11e9-9b70-688409755aaa.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65935516-a0869280-e419-11e9-9bb0-40c4d1ef2bbe.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
-* Lightweight only 9.5kB
+* Lightweight only 9.9kB
 * Performance optimized with single `requestAnimationFrame` loop to animate color and progress (no `setInterval` used)
 * Transition between colors during the countdown
 * Support for linear gradient
@@ -57,7 +57,7 @@ const UrgeWithPleasureComponent = () => (
 | renderTime         | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): number\|string\|ReactNode | -          | Render prop function to customize the content in the center of the circle. The content is centered using flexbox.                              |
 | onComplete         | function(): undefined \| [shouldRepeat: boolean, delay: number]                                                                          | -          | On complete handler. It can be used to repeat the countdown by returning an array where the first element `shouldRepeat` indicates if the loop should start over and second element `delay` specifies the delay before looping again in milliseconds. | 
 | ariaLabel | string | Countdown timer | Aria label for the whole component |
-| renderAriaTime | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): number\|string\|ReactNode | - | Render prop function to customize the text message that will be red by the screen reader. |
+| renderAriaTime | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): string | - | Render prop function to customize the text message that will be read by the screen reader during the countdown. |
 
 ## Recipes
 ### Restart timer at any given time
