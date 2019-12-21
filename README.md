@@ -47,7 +47,7 @@ const UrgeWithPleasureComponent = () => (
 |--------------------|-------------------------------------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | durationSeconds    | number                                                                              | *required* | Countdown duration in seconds                                                                                                                  |
 | colors             | Array<[color HEX: string, transition duration: float number between 0 and 1]>       | *required* | Array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration |
-| startAt | number | - | Set the start time to a different value than 0 |
+| startAt | number | 0 | Set the start time to a different value than 0 |
 | size | number | 180 | Width and height of the SVG element |
 | strokeWidth | number | 12 | Path stroke width |
 | strokeLinecap | Enum{ 'round', 'square' } | round | Path stroke line cap |
