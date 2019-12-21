@@ -41,6 +41,6 @@
     "webpack-cli": "^3.3.8"
   },
   "dependencies": {
-    "use-elapsed-time": "^1.1.1"
+    "use-elapsed-time": "^1.1.5"
   }
 }

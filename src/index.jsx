@@ -32,13 +32,15 @@ const CountdownCircleTimer = props => {
     gradientUniqueKey,
     onComplete,
     ariaLabel,
-    renderAriaTime
+    renderAriaTime,
+    startAt: startAtSeconds
   } = props;
 
   const pathRef = useRef(null);
   const [pathTotalLength, setPathTotalLength] = useState(0);
   const path = useMemo(() => getPath(size, strokeWidth), [size, strokeWidth]);
   const durationMilliseconds = useMemo(() => durationSeconds * 1000, [durationSeconds]);
+  const startAt = useMemo(() => startAtSeconds * 1000, [startAtSeconds]);
   const normalizedColors = useMemo(() => getNormalizedColors(colors, durationMilliseconds, isLinearGradient), [colors, durationMilliseconds, isLinearGradient]);
   const gradientId = useMemo(() => getGradientId(isLinearGradient, gradientUniqueKey), [isLinearGradient, gradientUniqueKey]);
 
@@ -47,8 +49,8 @@ const CountdownCircleTimer = props => {
     setPathTotalLength(totalLength);
   }, []);
 
-  const elapsedTime = useElapsedTime(isPlaying, { durationMilliseconds, onComplete });
-  const strokeDasharray = linearEase(elapsedTime, 0, pathTotalLength, durationMilliseconds).toFixed(2);
+  const elapsedTime = useElapsedTime(isPlaying, { durationMilliseconds, onComplete, startAt });
+  const strokeDashoffset = linearEase(elapsedTime, 0, pathTotalLength, durationMilliseconds).toFixed(2);
   const stroke = getStroke(normalizedColors, elapsedTime);
   const remainingTime = Math.ceil((durationMilliseconds - elapsedTime) / 1000);
 
@@ -77,9 +79,9 @@ const CountdownCircleTimer = props => {
           d={path}
           ref={pathRef}
           strokeLinecap={strokeLinecap}
-          strokeWidth={strokeWidth}
+          strokeWidth={pathTotalLength === 0 ? 0 : strokeWidth}
           strokeDasharray={pathTotalLength}
-          strokeDashoffset={strokeDasharray}
+          strokeDashoffset={strokeDashoffset}
         />
       </svg>
       {typeof renderTime === 'function' && (
@@ -111,7 +113,8 @@ CountdownCircleTimer.propTypes = {
   gradientUniqueKey: PropTypes.string,
   onComplete: PropTypes.func,
   ariaLabel: PropTypes.string,
-  renderAriaTime: PropTypes.func
+  renderAriaTime: PropTypes.func,
+  startAt: PropTypes.number
 };
 
 CountdownCircleTimer.defaultProps = {
