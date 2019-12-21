@@ -47,14 +47,15 @@ const UrgeWithPleasureComponent = () => (
 |--------------------|-------------------------------------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | durationSeconds    | number                                                                              | *required* | Countdown duration in seconds                                                                                                                  |
 | colors             | Array<[color HEX: string, transition duration: float number between 0 and 1]>       | *required* | Array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration |
-| size               | number                                                                              | 180        | Width and height of the SVG element                                                                                                            |
-| strokeWidth        | number                                                                              | 12         | Path stroke width                                                                                                                              |
-| strokeLinecap      | Enum{ 'round', 'square' }                                                           | round    | Path stroke line cap                                                                                                                           |
-| trailColor         | string                                                                              | #d9d9d9  | Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.)                                                                       |
-| isPlaying          | boolean                                                                             | false      | Play and pause animation                                                                                                                       |
-| * isLinearGradient | boolean                                                                             | false      | * Apples linear gradient on top of the circle. The gradient doesn't follow the circle path. Works best with two colors.                        |
-| gradientUniqueKey  | string                                                                              | -          | Unique ID for the linearGradient element. It takes random ID if it's not provided.                                                             |
-| renderTime         | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): number\|string\|ReactNode | -          | Render prop function to customize the content in the center of the circle. The content is centered using flexbox.                              |
+| startAt | number | - | Set the start time to a different value than 0 |
+| size | number | 180 | Width and height of the SVG element |
+| strokeWidth | number | 12 | Path stroke width |
+| strokeLinecap | Enum{ 'round', 'square' } | round | Path stroke line cap |
+| trailColor | string | #d9d9d9 | Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.) |
+| isPlaying | boolean | false | Play and pause animation |
+| * isLinearGradient | boolean | false | * Apples linear gradient on top of the circle. The gradient doesn't follow the circle path. Works best with two colors. |
+| gradientUniqueKey  | string | - | Unique ID for the linearGradient element. It takes random ID if it's not provided.|
+| renderTime | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): number\|string\|ReactNode | -          | Render prop function to customize the content in the center of the circle. The content is centered using flexbox.                              |
 | onComplete         | function(): undefined \| [shouldRepeat: boolean, delay: number]                                                                          | -          | On complete handler. It can be used to repeat the countdown by returning an array where the first element `shouldRepeat` indicates if the loop should start over and second element `delay` specifies the delay before looping again in milliseconds. | 
 | ariaLabel | string | Countdown timer | Aria label for the whole component |
 | renderAriaTime | function(remainingTime: number, elapsedTime: number, isPlaying: boolean): string | - | Render prop function to customize the text message that will be read by the screen reader during the countdown. |
@@ -79,6 +80,21 @@ const UrgeWithPleasureComponent = () => (
 );
 
 ```
+
+### Set initial start time different than 0
+Pass the initial start time to `startAt` prop. Example:
+```jsx
+const UrgeWithPleasureComponent = () => (
+    <CountdownCircleTimer
+        isPlaying
+        durationSeconds={60}
+        startAt={20}
+        colors={[['#A30000']]}
+    />
+);
+
+```
+In the example above, the countdown will start at 20 seconds and it will animate for the rest of the time (40 seconds) until it reaches the duration of 60 seconds.
 
 ## Roadmap
 * Test coverage
