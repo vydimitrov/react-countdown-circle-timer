@@ -5,7 +5,9 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "webpack",
-    "prepare": "install-peers"
+    "prepare": "install-peers",
+    "test": "jest --config jestconfig.json",
+    "test-watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -32,11 +34,17 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
     "babel-loader": "^8.0.6",
+    "codecov": "^3.6.1",
     "install-peers-cli": "^2.1.1",
+    "jest": "^24.9.0",
     "path": "^0.12.7",
+    "react-test-renderer": "^16.8.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8"
   },

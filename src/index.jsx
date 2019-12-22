@@ -11,7 +11,8 @@ import {
   getNormalizedColors,
   getStroke,
   colorsValidator,
-  visuallyHidden
+  visuallyHidden,
+  getPathTotalLength
 } from './utils';
 
 const getGradientId = (isLinearGradient, gradientUniqueKey) => (
@@ -38,6 +39,9 @@ const CountdownCircleTimer = props => {
 
   const pathRef = useRef(null);
   const [pathTotalLength, setPathTotalLength] = useState(0);
+
+  // useElapsedTime will make this component rerender on every frame.
+  // We memo all props that need to be computed to avoid doing that on every render 
   const path = useMemo(() => getPath(size, strokeWidth), [size, strokeWidth]);
   const durationMilliseconds = useMemo(() => durationSeconds * 1000, [durationSeconds]);
   const startAt = useMemo(() => startAtSeconds * 1000, [startAtSeconds]);
@@ -45,7 +49,7 @@ const CountdownCircleTimer = props => {
   const gradientId = useMemo(() => getGradientId(isLinearGradient, gradientUniqueKey), [isLinearGradient, gradientUniqueKey]);
 
   useEffect(() => {
-    const totalLength = pathRef.current.getTotalLength().toFixed(2);
+    const totalLength = getPathTotalLength(pathRef.current);
     setPathTotalLength(totalLength);
   }, []);
 
@@ -124,7 +128,8 @@ CountdownCircleTimer.defaultProps = {
   isPlaying: false,
   strokeLinecap: 'round',
   isLinearGradient: false,
-  ariaLabel: 'Countdown timer'
+  ariaLabel: 'Countdown timer',
+  startAt: 0
 };
 
 CountdownCircleTimer.displayName = 'CountdownCircleTimer';

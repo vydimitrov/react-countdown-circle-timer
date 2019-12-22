@@ -6,7 +6,16 @@ module.exports = (api) => {
     '@babel/preset-react'
   ];
 
+  const env = {
+    test: {
+      plugins: [
+        '@babel/plugin-transform-modules-commonjs'
+      ]
+    }
+  };
+
   return {
-    presets
+    presets,
+    env
   };
 };

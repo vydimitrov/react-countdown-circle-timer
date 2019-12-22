@@ -1,0 +1,4 @@
+{
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+}
