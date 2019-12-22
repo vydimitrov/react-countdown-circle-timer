@@ -1,9 +1,12 @@
 # React Countdown Circle Timer
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-countdown-circle-timer)
+![Codecov](https://img.shields.io/codecov/c/gh/vydimitrov/react-countdown-circle-timer)
+![npm](https://img.shields.io/npm/v/react-countdown-circle-timer)
+
 React countdown timer component in a circle shape with color and progress animation to urge with pleasure your users. 
 
 <img src="https://user-images.githubusercontent.com/10707142/66097204-ca68c200-e59d-11e9-9b70-688409755aaa.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65935516-a0869280-e419-11e9-9bb0-40c4d1ef2bbe.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
-* Lightweight only 9.9kB
 * Performance optimized with single `requestAnimationFrame` loop to animate color and progress (no `setInterval` used)
 * Transition between colors during the countdown
 * Support for linear gradient
@@ -97,4 +100,4 @@ const UrgeWithPleasureComponent = () => (
 In the example above, the countdown will start at 20 seconds and it will animate for the rest of the time (40 seconds) until it reaches the duration of 60 seconds.
 
 ## Roadmap
-* Test coverage
+* Typescript type definitions

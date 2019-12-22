@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0.5 (December 22nd, 2019)
+
+**Implemented enhancements:**
+- Add test coverage
+
 ## 1.0.4 (December 3rd, 2019)
 
 **Implemented enhancements:**
