@@ -12,6 +12,7 @@ React countdown timer component in a circle shape with color and progress animat
 * Support for linear gradient
 * Fully customizable content in the center of the circle
 * `a11y` support
+* Built-in and ready-to-use TypeScript type definitions.
 
 ## Installation
 ```
@@ -98,6 +99,3 @@ const UrgeWithPleasureComponent = () => (
 
 ```
 In the example above, the countdown will start at 20 seconds and it will animate for the rest of the time (40 seconds) until it reaches the duration of 60 seconds.
-
-## Roadmap
-* Typescript type definitions
