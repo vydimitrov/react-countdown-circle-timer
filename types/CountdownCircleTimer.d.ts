@@ -33,7 +33,12 @@ export interface CountdownCircleTimerProps {
     gradientUniqueKey?: string,
     /** Render prop function to customize the content in the center of the circle */
     renderTime?: RenderTime<number | string | React.ReactNode>,
-    /** Play and pause animation. Default: false */
+    /** 
+     * On animation complete event handler. It can be used to restart the animation by returning an array
+     * where the first element "shouldRepeat" indicates if the loop should start over
+     * and second element "delay" specifies the delay before looping again in milliseconds.
+     * 
+     */
     onComplete?: useElapsedTime.Config.onComplete,
     /** Aria label for the whole component. Default: "Countdown timer" */
     ariaLabel?: string,
