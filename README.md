@@ -99,3 +99,89 @@ const UrgeWithPleasureComponent = () => (
 
 ```
 In the example above, the countdown will start at 20 seconds and it will animate for the rest of the time (40 seconds) until it reaches the duration of 60 seconds.
+
+### Slide down time animation 
+Here is an example on how you can achieve the animation below:  
+<img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
+
+```jsx
+const renderTime = time => {
+  const currentTime = useRef(time);
+  const prevTime = useRef(null);
+  const isNewTimeFirstTick = useRef(false);
+  const [_, setOneLastRerender] = useState(0);
+
+  if (currentTime.current !== time) {
+    isNewTimeFirstTick.current = true;
+    prevTime.current = currentTime.current;
+    currentTime.current = time
+  } else {
+    isNewTimeFirstTick.current = false;
+  }
+
+  // force one last re-render when the time is over to tirgger the last animation
+  if (time === 0) {
+    setTimeout(() => {
+      setOneLastRerender(val => val + 1);
+    }, 20);
+  }
+
+  const isTimeUp = isNewTimeFirstTick.current;
+
+  return (
+    <div className="time-wrapper">
+      <div
+        key={time}
+        className={`time ${isTimeUp ? 'up' : ''}`}
+      >
+        {time}
+      </div>
+      {prevTime.current !== null && (
+        <div
+          key={prevTime.current}
+          className={`time ${!isTimeUp ? 'down' : ''}`}
+        >
+          {prevTime.current}
+        </div>
+      )}
+    </div>
+  );
+};
+
+```
+
+```css
+.time-wrapper {
+  position: relative;
+  // change width and height if needed
+  width: 80px;
+  height: 60px;
+}
+
+.time-wrapper .time {
+  position: absolute;
+  left:0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0);
+  opacity: 1;
+  transition: all .2s;
+}
+
+.time-wrapper .time.up {
+  opacity: 0;
+  transform: translateY(-100%)
+}
+
+.time-wrapper .time.down {
+  opacity: 0;
+  transform: translateY(100%)
+}
+
+```
+
+Feed the `renderTime` function above to the `CountdownCircleTimer` `renderTime` prop and add the styles above to your stylesheet.
