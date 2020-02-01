@@ -2,10 +2,7 @@ name: Codecov Coverage
 on: [push]
 jobs:
   run:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix: 
-        os: [macos-latest]
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@master
     - name: Setup Node  
