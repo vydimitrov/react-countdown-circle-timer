@@ -13,12 +13,10 @@ jobs:
       run: |
         yarn install
         yarn test
-    - name: Upload coverage to Codecov  
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
-        yml: ./codecov.yml 
-        fail_ci_if_error: true
+    - name: Upload coverage
+      if: success()
+      run: |
+        curl -s https://codecov.io/bash | bash
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      shell: bash
