@@ -1,7 +1,7 @@
 # React Countdown Circle Timer
-![npm bundle size](https://img.shields.io/bundlephobia/min/react-countdown-circle-timer)
-![Codecov](https://img.shields.io/codecov/c/gh/vydimitrov/react-countdown-circle-timer)
-![npm](https://img.shields.io/npm/v/react-countdown-circle-timer)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/react-countdown-circle-timer)](https://bundlephobia.com/result?p=react-countdown-circle-timer@1.0.6)
+[![Codecov](https://img.shields.io/codecov/c/gh/vydimitrov/react-countdown-circle-timer)](https://codecov.io/gh/vydimitrov/react-countdown-circle-timer)
+[![npm](https://img.shields.io/npm/v/react-countdown-circle-timer)](https://www.npmjs.com/package/react-countdown-circle-timer)
 
 React countdown timer component in a circle shape with color and progress animation to urge with pleasure your users. 
 
