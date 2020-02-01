@@ -15,8 +15,8 @@ export interface CountdownCircleTimerProps {
     durationSeconds: number,
      /** Array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration */
     colors: Colors,
-    /** Set the start time to a different value than 0. Default: 0 */
-    startAt?: number,
+    /** Set the initial remaining time if it is diffrent than the duration */
+    initialRemainingTime?: number,
     /** Width and height of the SVG element. Default: 180 */
     size?: number,
     /** Path stroke width. Default: 12 */

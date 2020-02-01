@@ -19,6 +19,14 @@ const getGradientId = (isLinearGradient, gradientUniqueKey) => (
   isLinearGradient ? `countdown-circle-timer-gradient-${gradientUniqueKey || uuid()}` : ''
 );
 
+const getStartAt = (initialRemainingTime, startAtSeconds, durationSeconds) => {
+  if (typeof initialRemainingTime === 'number') {
+    return (durationSeconds - initialRemainingTime) * 1000;
+  }
+
+  return startAtSeconds ? startAtSeconds * 1000 : 0;
+};
+
 const CountdownCircleTimer = props => {
   const {
     size,
@@ -34,6 +42,7 @@ const CountdownCircleTimer = props => {
     onComplete,
     ariaLabel,
     renderAriaTime,
+    initialRemainingTime,
     startAt: startAtSeconds
   } = props;
 
@@ -44,7 +53,7 @@ const CountdownCircleTimer = props => {
   // We memo all props that need to be computed to avoid doing that on every render 
   const path = useMemo(() => getPath(size, strokeWidth), [size, strokeWidth]);
   const durationMilliseconds = useMemo(() => durationSeconds * 1000, [durationSeconds]);
-  const startAt = useMemo(() => startAtSeconds * 1000, [startAtSeconds]);
+  const startAt = useMemo(() => getStartAt(initialRemainingTime, startAtSeconds, durationSeconds), [initialRemainingTime, startAtSeconds, durationSeconds]);
   const normalizedColors = useMemo(() => getNormalizedColors(colors, durationMilliseconds, isLinearGradient), [colors, durationMilliseconds, isLinearGradient]);
   const gradientId = useMemo(() => getGradientId(isLinearGradient, gradientUniqueKey), [isLinearGradient, gradientUniqueKey]);
 
@@ -118,7 +127,8 @@ CountdownCircleTimer.propTypes = {
   onComplete: PropTypes.func,
   ariaLabel: PropTypes.string,
   renderAriaTime: PropTypes.func,
-  startAt: PropTypes.number
+  initialRemainingTime: PropTypes.number,
+  startAt: PropTypes.number // To be removed in next major release v.2 use initialRemainingTime instead
 };
 
 CountdownCircleTimer.defaultProps = {

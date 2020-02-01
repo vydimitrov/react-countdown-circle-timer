@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.1.0 (February 1st, 2020)
+
+**Implemented enhancements:**
+- replace `startAt` with `initialRemainingTime` because the name did not explain well what it does in the context of countdown
+- `startAt` can be used until the next major release for backward compatibility
+- `initialRemainingTime` sets the initial remaining time when the countdown starts
+
 ## 1.0.6 (January 12th, 2020)
 
 **Implemented enhancements:**

@@ -212,6 +212,29 @@ describe('functional tests', () => {
         useElapsedTime.__resetIsPlaying();
         useElapsedTime.__resetConfig();
     });
+
+    it('should set startAt prop on useElapsedTime based on the initial remaining time', () => {  
+        const isPlaying = true;
+        const initialRemainingTime = 7;
+
+        render(
+            <CountdownCircleTimer
+            {...fixture}
+            initialRemainingTime={initialRemainingTime}
+            isPlaying={isPlaying}
+            />
+        );
+
+        expect(useElapsedTime.__getIsPlaying()).toBe(true);
+        expect(useElapsedTime.__getConfig()).toEqual({
+            durationMilliseconds: 10000,
+            onComplete: undefined,
+            startAt: 3000
+        });
+
+        useElapsedTime.__resetIsPlaying();
+        useElapsedTime.__resetConfig();
+    });
 });
 
 describe('behaviour tests', () => {

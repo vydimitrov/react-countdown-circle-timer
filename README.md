@@ -51,7 +51,7 @@ const UrgeWithPleasureComponent = () => (
 |--------------------|-------------------------------------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | durationSeconds    | number                                                                              | *required* | Countdown duration in seconds                                                                                                                  |
 | colors             | Array<[color HEX: string, transition duration: float number between 0 and 1]>       | *required* | Array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration |
-| startAt | number | 0 | Set the start time to a different value than 0 |
+| initialRemainingTime | number | - | Sets the initial remaining time when the countdown starts. By default the countdown starts at the duration provided. |
 | size | number | 180 | Width and height of the SVG element |
 | strokeWidth | number | 12 | Path stroke width |
 | strokeLinecap | Enum{ 'round', 'square' } | round | Path stroke line cap |
@@ -85,20 +85,20 @@ const UrgeWithPleasureComponent = () => (
 
 ```
 
-### Set initial start time different than 0
-Pass the initial start time to `startAt` prop. Example:
+### Set the initial remaining time different then the duration provided
+Pass the remaining time to `initialRemainingTime` prop. Example:
 ```jsx
 const UrgeWithPleasureComponent = () => (
     <CountdownCircleTimer
         isPlaying
         durationSeconds={60}
-        startAt={20}
+        initialRemainingTime={15}
         colors={[['#A30000']]}
     />
 );
 
 ```
-In the example above, the countdown will start at 20 seconds and it will animate for the rest of the time (40 seconds) until it reaches the duration of 60 seconds.
+In the example above, the countdown will start at 15 seconds (one quarter before it's done) and it will animate for 15 seconds until reaches 0. 
 
 ### Slide down time animation 
 Here is an example on how you can achieve the animation below:  

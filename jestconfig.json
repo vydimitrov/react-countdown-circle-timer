@@ -1,4 +1,5 @@
 {
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": ["src/utils/index.js"]
 }
