@@ -2,7 +2,7 @@ name: Codecov Coverage
 on: [push]
 jobs:
   run:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Setup Node  
