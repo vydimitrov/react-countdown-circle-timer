@@ -1,9 +1,15 @@
 # Change Log
 
+## 1.1.1 (February 23th, 2020)
+
+**Implemented enhancements:**
+- Add GitHub workflow to report test coverage and build status
+- Add a new badge for weekly downloads
+
 ## 1.1.0 (February 1st, 2020)
 
 **Implemented enhancements:**
-- replace `startAt` with `initialRemainingTime` because the name did not explain well what it does in the context of countdown
+- Replace `startAt` with `initialRemainingTime`. Using `startAt` in the context of countdown is confusing
 - `startAt` can be used until the next major release for backward compatibility
 - `initialRemainingTime` sets the initial remaining time when the countdown starts
 
