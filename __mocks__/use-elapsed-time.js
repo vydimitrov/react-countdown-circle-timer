@@ -1,40 +1,40 @@
-let elapsedTime = 0;
-let config = undefined;
-let isPlaying = false;
+let elapsedTime = 0
+let config = undefined
+let isPlaying = false
 
 module.exports = {
-    useElapsedTime(isPlayingBool, configObj = {}) {
-        config = configObj;
-        isPlaying = isPlayingBool;
-        
-        return elapsedTime;
-    },
+  useElapsedTime(isPlayingBool, configObj = {}) {
+    config = configObj
+    isPlaying = isPlayingBool
 
-    __setElapsedTime(time) {
-        elapsedTime = time;
-    },
+    return elapsedTime
+  },
 
-    __resetElapsedTime() {
-        elapsedTime = 0;
-    },
+  __setElapsedTime(time) {
+    elapsedTime = time
+  },
 
-    __fireOnComplete() {
-        config.onComplete();
-    },
+  __resetElapsedTime() {
+    elapsedTime = 0
+  },
 
-    __getConfig() {
-        return config;
-    },
+  __fireOnComplete() {
+    config.onComplete()
+  },
 
-    __resetConfig() {
-        config = undefined;
-    },
+  __getConfig() {
+    return config
+  },
 
-    __getIsPlaying() {
-        return isPlaying;
-    },
+  __resetConfig() {
+    config = undefined
+  },
 
-    __resetIsPlaying() {
-        isPlaying = undefined;
-    }
-};
+  __getIsPlaying() {
+    return isPlaying
+  },
+
+  __resetIsPlaying() {
+    isPlaying = undefined
+  },
+}

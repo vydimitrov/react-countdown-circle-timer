@@ -1,1 +1,1 @@
-export { CountdownCircleTimer } from "./CountdownCircleTimer";
+export { CountdownCircleTimer } from './CountdownCircleTimer'
