@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useElapsedTime } from 'use-elapsed-time'
 import {
@@ -7,12 +7,11 @@ import {
   getWrapperStyle,
   getTimeStyle,
   svgStyle,
-  getPath,
+  getPathProps,
   getNormalizedColors,
   getStroke,
   colorsValidator,
   visuallyHidden,
-  getPathTotalLength,
 } from '../utils'
 
 const getGradientId = (isLinearGradient, gradientUniqueKey) =>
@@ -47,12 +46,12 @@ const CountdownCircleTimer = (props) => {
     startAt: startAtSeconds,
   } = props
 
-  const pathRef = useRef(null)
-  const [pathTotalLength, setPathTotalLength] = useState(0)
-
   // useElapsedTime will make this component rerender on every frame.
   // We memo all props that need to be computed to avoid doing that on every render
-  const path = useMemo(() => getPath(size, strokeWidth), [size, strokeWidth])
+  const { path, pathLength } = useMemo(() => getPathProps(size, strokeWidth), [
+    size,
+    strokeWidth,
+  ])
   const durationMilliseconds = useMemo(() => durationSeconds * 1000, [
     durationSeconds,
   ])
@@ -69,11 +68,6 @@ const CountdownCircleTimer = (props) => {
     [isLinearGradient, gradientUniqueKey]
   )
 
-  useEffect(() => {
-    const totalLength = getPathTotalLength(pathRef.current)
-    setPathTotalLength(totalLength)
-  }, [])
-
   const elapsedTime = useElapsedTime(isPlaying, {
     durationMilliseconds,
     onComplete,
@@ -82,9 +76,9 @@ const CountdownCircleTimer = (props) => {
   const strokeDashoffset = linearEase(
     elapsedTime,
     0,
-    pathTotalLength,
+    pathLength,
     durationMilliseconds
-  ).toFixed(2)
+  ).toFixed(3)
   const stroke = getStroke(normalizedColors, elapsedTime)
   const remainingTime = Math.ceil((durationMilliseconds - elapsedTime) / 1000)
 
@@ -115,10 +109,9 @@ const CountdownCircleTimer = (props) => {
           fill="none"
           stroke={isLinearGradient ? `url(#${gradientId})` : stroke}
           d={path}
-          ref={pathRef}
           strokeLinecap={strokeLinecap}
-          strokeWidth={pathTotalLength === 0 ? 0 : strokeWidth}
-          strokeDasharray={pathTotalLength}
+          strokeWidth={strokeWidth}
+          strokeDasharray={pathLength}
           strokeDashoffset={strokeDashoffset}
         />
       </svg>

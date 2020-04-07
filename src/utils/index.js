@@ -1,7 +1,6 @@
 export { uuid } from './uuid'
 export { linearEase } from './linearEase'
-export { getPath } from './getPath'
-export { getPathTotalLength } from './getPathTotalLength'
+export { getPathProps } from './getPathProps'
 export {
   getWrapperStyle,
   getTimeStyle,

@@ -5,13 +5,7 @@ import '@testing-library/jest-dom/extend-expect'
 
 import { CountdownCircleTimer } from '../src'
 
-jest.mock('../src/utils/getPathTotalLength', () => ({
-  getPathTotalLength: () => 500,
-}))
-
-jest.mock('../src/utils/uuid', () => ({
-  uuid: () => '124578',
-}))
+Math.random = () => 0.124578
 
 const useElapsedTime = require('use-elapsed-time')
 
@@ -107,7 +101,7 @@ describe('functional tests', () => {
     expect(linearGradient).toBeInTheDocument()
     expect(linearGradient).toHaveAttribute(
       'id',
-      'countdown-circle-timer-gradient-124578'
+      'countdown-circle-timer-gradient-4hgb79ur1xg'
     )
   })
 
@@ -134,7 +128,7 @@ describe('functional tests', () => {
     const path = container.querySelectorAll('path')[1]
     expect(path).toHaveAttribute('stroke-width', '13')
     expect(path).toHaveAttribute('stroke-linecap', 'round')
-    expect(path).toHaveAttribute('stroke-dasharray', '500')
+    expect(path).toHaveAttribute('stroke-dasharray', '524.6459731494955')
     const d = path
       .getAttribute('d')
       .replace(/\r?\n|\r/g, '')
@@ -146,7 +140,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '0.00')
+    expect(path).toHaveAttribute('stroke-dashoffset', '0.000')
     expect(path).toHaveAttribute('stroke', 'rgba(0, 71, 119, 1)')
   })
 
@@ -155,7 +149,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '250.00')
+    expect(path).toHaveAttribute('stroke-dashoffset', '263.894')
     expect(path).toHaveAttribute('stroke', 'rgba(203, 89, 0, 1)')
   })
 
@@ -164,7 +158,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '500.00')
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.788')
     expect(path).toHaveAttribute('stroke', 'rgba(163, 0, 0, 1)')
   })
 
