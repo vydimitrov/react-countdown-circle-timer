@@ -9,3 +9,5 @@ export {
 } from './styles'
 export { getColorsRGB, getNormalizedColors, getStroke } from './colors'
 export { colorsValidator } from './colorsValidator'
+export { getGradientId } from './getGradientId'
+export { getStartAt } from './getStartAt'

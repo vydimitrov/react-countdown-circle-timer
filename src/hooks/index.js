@@ -1,0 +1,1 @@
+export { useMemoizedProps } from './useMemoizedProps'
