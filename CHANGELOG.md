@@ -5,7 +5,7 @@
 **Implemented enhancements:**
 
 - Refactor internal logic to prep the code for monorepo
-- Remove `path.getTotalLength()` dependency and add logic to calucate the path length
+- Remove `path.getTotalLength()` dependency and add logic to calculate the path length
 - Improve test coverage
 - Add Prettier
 
