@@ -40,10 +40,10 @@ exports[`snapshot tests renders 1`] = `
           a 84,84 0 1,0 0,-168"
       fill="none"
       stroke="rgba(0, 71, 119, 1)"
-      strokeDasharray={0}
-      strokeDashoffset="0.00"
+      strokeDasharray={527.7875658030853}
+      strokeDashoffset="0.000"
       strokeLinecap="round"
-      strokeWidth={0}
+      strokeWidth={12}
     />
   </svg>
 </div>
@@ -89,8 +89,8 @@ exports[`snapshot tests renders with time 1`] = `
           a 84,84 0 1,0 0,-168"
       fill="none"
       stroke="rgba(0, 71, 119, 1)"
-      strokeDasharray={500}
-      strokeDashoffset="0.00"
+      strokeDasharray={527.7875658030853}
+      strokeDashoffset="0.000"
       strokeLinecap="round"
       strokeWidth={12}
     />

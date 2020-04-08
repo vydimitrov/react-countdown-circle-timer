@@ -1,9 +1,9 @@
-export const getWrapperStyle = size => ({
+export const getWrapperStyle = (size) => ({
   position: 'relative',
   width: size,
   height: size,
-  margin: '0 auto'
-});
+  margin: '0 auto',
+})
 
 export const getTimeStyle = (stroke, size) => ({
   display: 'flex',
@@ -16,16 +16,16 @@ export const getTimeStyle = (stroke, size) => ({
   position: 'relative',
   width: size,
   height: size,
-  color: stroke
-});
+  color: stroke,
+})
 
 export const svgStyle = {
   position: 'absolute',
   left: 0,
   top: 0,
   width: '100%',
-  height: '100%'
-};
+  height: '100%',
+}
 
 export const visuallyHidden = {
   position: 'absolute',
@@ -37,5 +37,5 @@ export const visuallyHidden = {
   padding: 0,
   overflow: 'hidden',
   whiteSpace: 'nowrap',
-  wordWrap: 'normal'
-};
+  wordWrap: 'normal',
+}
