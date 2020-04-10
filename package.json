@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna exec yarn build",
+    "build": "lerna run build",
     "bootstrap": "lerna bootstrap",
     "test": "jest",
     "test-watch": "jest --watch",

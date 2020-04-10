@@ -41,6 +41,7 @@
     "webpack-cli": "^3.3.8"
   },
   "dependencies": {
+    "@countdown-circle-timer/shared": "^1.0.0",
     "use-elapsed-time": "^1.1.5"
   },
   "files": [

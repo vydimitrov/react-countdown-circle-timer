@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useElapsedTime } from 'use-elapsed-time'
-import { useMemoizedProps } from '../hooks'
 import {
   linearEase,
   getWrapperStyle,
@@ -10,7 +9,8 @@ import {
   getStroke,
   colorsValidator,
   visuallyHidden,
-} from '../utils'
+  useMemoizedProps,
+} from '@countdown-circle-timer/shared'
 
 const CountdownCircleTimer = (props) => {
   const {
