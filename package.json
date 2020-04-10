@@ -1,20 +1,25 @@
 {
-  "name": "react-countdown-circle-timer",
-  "version": "1.2.1",
-  "description": "Lightweight React countdown timer component with color and progress animation based on SVG",
-  "main": "./lib/index.js",
+  "name": "countdown-circle-timer-monorepo",
+  "private": true,
+  "description": "Lightweight countdown timer component with color and progress animation based on SVG",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "webpack",
-    "prepare": "install-peers",
-    "test": "jest --config jestconfig.json",
-    "test-watch": "jest --watch"
+    "build": "lerna exec yarn build",
+    "bootstrap": "lerna bootstrap",
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\""
   },
+  "homepage": "https://github.com/vydimitrov/countdown-circle-timer#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vydimitrov/react-countdown-circle-timer.git"
+    "url": "git+https://github.com/vydimitrov/countdown-circle-timer.git"
   },
   "keywords": [
     "React",
+    "React native",
     "Countdown",
     "Timer",
     "Circle",
@@ -23,37 +28,17 @@
   ],
   "author": "Vasil Dimitrov",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vydimitrov/react-countdown-circle-timer/issues"
-  },
-  "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
-  "peerDependencies": {
+  "devDependencies": {
+    "lerna": "^3.20.2",
     "prop-types": "^15.7.0",
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
-  "devDependencies": {
+    "react-dom": "^16.8.0",
+    "codecov": "^3.6.1",
+    "jest": "^24.9.0",
+    "path": "^0.12.7",
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-modules-commonjs": "^7.7.5",
     "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "babel-loader": "^8.0.6",
-    "codecov": "^3.6.1",
-    "install-peers-cli": "^2.1.1",
-    "jest": "^24.9.0",
-    "path": "^0.12.7",
-    "react-test-renderer": "^16.8.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.8"
-  },
-  "dependencies": {
-    "use-elapsed-time": "^1.1.5"
-  },
-  "files": [
-    "lib",
-    "types"
-  ],
-  "types": "types/CountdownCircleTimer.d.ts"
+    "@babel/preset-react": "^7.0.0"
+  }
 }
