@@ -5,7 +5,6 @@ import {
   linearEase,
   getWrapperStyle,
   getTimeStyle,
-  svgStyle,
   getStroke,
   colorsValidator,
   visuallyHidden,
@@ -63,12 +62,7 @@ const CountdownCircleTimer = (props) => {
 
   return (
     <div style={getWrapperStyle(size)} aria-label={ariaLabel}>
-      <svg
-        width={size}
-        height={size}
-        style={svgStyle}
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg width={size} height={size} xmlns="http://www.w3.org/2000/svg">
         {isLinearGradient && (
           <defs>
             <linearGradient id={gradientId} x1="100%" y1="0%" x2="0%" y2="0%">
