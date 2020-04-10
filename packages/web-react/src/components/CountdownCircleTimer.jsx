@@ -28,7 +28,6 @@ const CountdownCircleTimer = (props) => {
     ariaLabel,
     renderAriaTime,
     initialRemainingTime,
-    startAt: startAtSeconds,
   } = props
 
   const {
@@ -43,7 +42,6 @@ const CountdownCircleTimer = (props) => {
     strokeWidth,
     durationSeconds,
     initialRemainingTime,
-    startAtSeconds,
     colors,
     isLinearGradient,
     gradientUniqueKey,
@@ -126,7 +124,6 @@ CountdownCircleTimer.propTypes = {
   ariaLabel: PropTypes.string,
   renderAriaTime: PropTypes.func,
   initialRemainingTime: PropTypes.number,
-  startAt: PropTypes.number, // To be removed in next major release v.2 use initialRemainingTime instead
 }
 
 CountdownCircleTimer.defaultProps = {
@@ -137,7 +134,6 @@ CountdownCircleTimer.defaultProps = {
   strokeLinecap: 'round',
   isLinearGradient: false,
   ariaLabel: 'Countdown timer',
-  startAt: 0,
 }
 
 CountdownCircleTimer.displayName = 'CountdownCircleTimer'

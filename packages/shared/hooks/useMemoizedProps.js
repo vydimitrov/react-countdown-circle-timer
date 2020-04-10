@@ -12,7 +12,6 @@ export const useMemoizedProps = (props) => {
     strokeWidth,
     durationSeconds,
     initialRemainingTime,
-    startAtSeconds,
     colors,
     isLinearGradient,
     gradientUniqueKey,
@@ -30,8 +29,8 @@ export const useMemoizedProps = (props) => {
   ])
 
   const startAt = useMemo(
-    () => getStartAt(initialRemainingTime, startAtSeconds, durationSeconds),
-    [initialRemainingTime, startAtSeconds, durationSeconds]
+    () => getStartAt(initialRemainingTime, durationSeconds),
+    [initialRemainingTime, durationSeconds]
   )
 
   const normalizedColors = useMemo(

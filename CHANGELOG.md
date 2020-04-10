@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.0
+
+**Implemented enhancements:**
+
+- Make the repo monorepo handled by Lerna
+- Breaking changes: Remove the old `startAt` prop. The recommended prop to use it `initialRemainingTime` instead.
+
 ## 1.2.1 (April 8th, 2020)
 
 **Implemented enhancements:**
