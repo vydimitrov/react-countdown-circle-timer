@@ -6,7 +6,6 @@ exports[`snapshot tests renders 1`] = `
   style={
     Object {
       "height": 180,
-      "margin": "0 auto",
       "position": "relative",
       "width": 180,
     }
@@ -14,15 +13,6 @@ exports[`snapshot tests renders 1`] = `
 >
   <svg
     height={180}
-    style={
-      Object {
-        "height": "100%",
-        "left": 0,
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      }
-    }
     width={180}
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -55,7 +45,6 @@ exports[`snapshot tests renders with time 1`] = `
   style={
     Object {
       "height": 180,
-      "margin": "0 auto",
       "position": "relative",
       "width": 180,
     }
@@ -63,15 +52,6 @@ exports[`snapshot tests renders with time 1`] = `
 >
   <svg
     height={180}
-    style={
-      Object {
-        "height": "100%",
-        "left": 0,
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      }
-    }
     width={180}
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -99,16 +79,14 @@ exports[`snapshot tests renders with time 1`] = `
     aria-hidden="true"
     style={
       Object {
-        "MsFlexAlign": "center",
-        "MsFlexPack": "center",
-        "WebkitBoxAlign": "center",
-        "WebkitBoxPack": "center",
         "alignItems": "center",
         "color": "rgba(0, 71, 119, 1)",
         "display": "flex",
         "height": 180,
         "justifyContent": "center",
-        "position": "relative",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
         "width": 180,
       }
     }

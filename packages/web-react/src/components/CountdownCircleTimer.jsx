@@ -16,7 +16,7 @@ const CountdownCircleTimer = (props) => {
     size,
     strokeWidth,
     trailColor,
-    durationSeconds,
+    duration,
     isPlaying,
     colors,
     strokeLinecap,
@@ -39,7 +39,7 @@ const CountdownCircleTimer = (props) => {
   } = useMemoizedProps({
     size,
     strokeWidth,
-    durationSeconds,
+    duration,
     initialRemainingTime,
     colors,
     isLinearGradient,
@@ -103,7 +103,7 @@ const CountdownCircleTimer = (props) => {
 }
 
 CountdownCircleTimer.propTypes = {
-  durationSeconds: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
   colors: PropTypes.arrayOf(PropTypes.arrayOf(colorsValidator).isRequired)
     .isRequired,
   size: PropTypes.number,

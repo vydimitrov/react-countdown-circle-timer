@@ -10,7 +10,7 @@ Math.random = () => 0.124578
 const useElapsedTime = require('use-elapsed-time')
 
 const fixture = {
-  durationSeconds: 10,
+  duration: 10,
   colors: [['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']],
 }
 
@@ -48,7 +48,6 @@ describe('functional tests', () => {
             position: relative;
             width: 240px;
             height: 240px;
-            margin: 0 auto;
         `)
   })
 
@@ -58,7 +57,7 @@ describe('functional tests', () => {
     expect(screen.getByLabelText('Nedtællingsur')).toBeInTheDocument()
   })
 
-  it('should set width, height and style attributes on the svg element', () => {
+  it('should set width and height attributes on the svg element', () => {
     const { container } = render(
       <CountdownCircleTimer {...fixture} size={360} />
     )
@@ -66,13 +65,6 @@ describe('functional tests', () => {
     const svg = container.querySelector('svg')
     expect(svg).toHaveAttribute('width', '360')
     expect(svg).toHaveAttribute('height', '360')
-    expect(svg).toHaveStyle(`
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        `)
   })
 
   it('should add linearGradient tag with the ID provided when isLinearGradient is true', () => {
@@ -209,7 +201,9 @@ describe('functional tests', () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 180px;
             height: 180px;
             color: rgba(163, 0, 0, 1);

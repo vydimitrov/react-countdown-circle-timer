@@ -6,8 +6,9 @@
 
 - Make the repo monorepo handled by Lerna
 - Breaking changes:
-  - Remove the old `startAt` prop. The recommended prop to use it `initialRemainingTime` instead.
+  - Remove the old `startAt` prop. The recommended prop to use is `initialRemainingTime` instead.
   - Remove `margin` styles from the wrapper and svg styles
+  - `durationSeconds` is renamed to just `duration`
 
 ## 1.2.1 (April 8th, 2020)
 
