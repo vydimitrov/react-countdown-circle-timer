@@ -22,13 +22,12 @@ describe('snapshot tests', () => {
   })
 
   it('renders with time', () => {
+    const renderTime = ({ remainingTime }) => remainingTime
     const tree = renderer
       .create(
-        <CountdownCircleTimer
-          {...fixture}
-          renderAriaTime={(value) => value}
-          renderTime={(value) => value}
-        />
+        <CountdownCircleTimer {...fixture} renderAriaTime={renderTime}>
+          {renderTime}
+        </CountdownCircleTimer>
       )
       .toJSON()
 
@@ -189,14 +188,16 @@ describe('functional tests', () => {
     )
   })
 
-  it('should render the time', () => {
+  it('should add correct styles to the time wrapper', () => {
     useElapsedTime.__setElapsedTime(8000)
-    const renderTime = (value) => `${value} seconds remaining`
 
-    render(<CountdownCircleTimer {...fixture} renderTime={renderTime} />)
+    render(
+      <CountdownCircleTimer {...fixture}>
+        {({ remainingTime }) => `${remainingTime} seconds remaining`}
+      </CountdownCircleTimer>
+    )
 
     const time = screen.getByText('2 seconds remaining')
-    expect(time).toBeInTheDocument()
     expect(time).toHaveStyle(`
             display: flex;
             justify-content: center;
@@ -210,9 +211,41 @@ describe('functional tests', () => {
         `)
   })
 
+  it('should render the time when the children prop is a function', () => {
+    useElapsedTime.__setElapsedTime(8000)
+
+    render(
+      <CountdownCircleTimer {...fixture}>
+        {({ remainingTime }) => `${remainingTime} seconds remaining`}
+      </CountdownCircleTimer>
+    )
+
+    const time = screen.getByText('2 seconds remaining')
+    expect(time).toBeInTheDocument()
+  })
+
+  it('should render the time when the children prop is a component', () => {
+    useElapsedTime.__setElapsedTime(8000)
+
+    const TimeComponent = ({ remainingTime, format }) => (
+      <div>
+        {remainingTime} {format} remaining
+      </div>
+    )
+
+    render(
+      <CountdownCircleTimer {...fixture}>
+        <TimeComponent format="seconds" />
+      </CountdownCircleTimer>
+    )
+
+    const time = screen.getByText('2 seconds remaining')
+    expect(time).toBeInTheDocument()
+  })
+
   it('should render the aria time', () => {
     useElapsedTime.__setElapsedTime(3000)
-    const renderAriaTime = (value) => `${value} seconds`
+    const renderAriaTime = ({ remainingTime }) => `${remainingTime} seconds`
 
     render(
       <CountdownCircleTimer {...fixture} renderAriaTime={renderAriaTime} />

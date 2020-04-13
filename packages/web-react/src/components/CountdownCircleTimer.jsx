@@ -20,7 +20,7 @@ const CountdownCircleTimer = (props) => {
     isPlaying,
     colors,
     strokeLinecap,
-    renderTime,
+    children,
     isLinearGradient,
     gradientUniqueKey,
     onComplete,
@@ -51,14 +51,17 @@ const CountdownCircleTimer = (props) => {
     onComplete,
     startAt,
   })
+  const stroke = getStroke(normalizedColors, elapsedTime)
   const strokeDashoffset = linearEase(
     elapsedTime,
     0,
     pathLength,
     durationMilliseconds
   ).toFixed(3)
-  const stroke = getStroke(normalizedColors, elapsedTime)
-  const remainingTime = Math.ceil((durationMilliseconds - elapsedTime) / 1000)
+  const timeProps = {
+    remainingTime: Math.ceil((durationMilliseconds - elapsedTime) / 1000),
+    elapsedTime,
+  }
 
   return (
     <div style={getWrapperStyle(size)} aria-label={ariaLabel}>
@@ -88,14 +91,16 @@ const CountdownCircleTimer = (props) => {
           strokeDashoffset={strokeDashoffset}
         />
       </svg>
-      {typeof renderTime === 'function' && (
+      {children !== null && (
         <div aria-hidden="true" style={getTimeStyle(stroke, size)}>
-          {renderTime(remainingTime, elapsedTime, isPlaying)}
+          {React.isValidElement(children)
+            ? React.cloneElement(React.Children.only(children), timeProps)
+            : children(timeProps)}
         </div>
       )}
       {typeof renderAriaTime === 'function' && (
         <div role="timer" aria-live="assertive" style={visuallyHidden}>
-          {renderAriaTime(remainingTime, elapsedTime, isPlaying)}
+          {renderAriaTime(timeProps)}
         </div>
       )}
     </div>
@@ -104,6 +109,7 @@ const CountdownCircleTimer = (props) => {
 
 CountdownCircleTimer.propTypes = {
   duration: PropTypes.number.isRequired,
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   colors: PropTypes.arrayOf(PropTypes.arrayOf(colorsValidator).isRequired)
     .isRequired,
   size: PropTypes.number,
@@ -111,7 +117,6 @@ CountdownCircleTimer.propTypes = {
   trailColor: PropTypes.string,
   isPlaying: PropTypes.bool,
   strokeLinecap: PropTypes.oneOf(['round', 'square']),
-  renderTime: PropTypes.func,
   isLinearGradient: PropTypes.bool,
   gradientUniqueKey: PropTypes.string,
   onComplete: PropTypes.func,
@@ -128,6 +133,7 @@ CountdownCircleTimer.defaultProps = {
   strokeLinecap: 'round',
   isLinearGradient: false,
   ariaLabel: 'Countdown timer',
+  children: null,
 }
 
 CountdownCircleTimer.displayName = 'CountdownCircleTimer'

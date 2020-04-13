@@ -1,8 +1,15 @@
 import * as React from 'react'
-import * as useElapsedTime from 'use-elapsed-time'
+import { Config } from 'use-elapsed-time'
 
-interface RenderTime<T> {
-  (remainingTime: number, elapsedTime: number, isPlaying: boolean): T
+export type OnComplete = Config['onComplete']
+
+export interface TimeProps {
+  remainingTime?: number
+  elapsedTime?: number
+}
+
+type ChildAsFunc = {
+  (props: TimeProps): number | string | React.ReactNode
 }
 
 type Color = [string, number]
@@ -15,7 +22,7 @@ export interface CountdownCircleTimerProps {
   duration: number
   /** Array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration */
   colors: Colors
-  /** Set the initial remaining time if it is diffrent than the duration */
+  /** Set the initial remaining time if it is different than the duration */
   initialRemainingTime?: number
   /** Width and height of the SVG element. Default: 180 */
   size?: number
@@ -31,19 +38,19 @@ export interface CountdownCircleTimerProps {
   isLinearGradient?: boolean
   /** Unique ID for the linearGradient element. It takes random ID if it's not provided */
   gradientUniqueKey?: string
-  /** Render prop function to customize the content in the center of the circle */
-  renderTime?: RenderTime<number | string | React.ReactNode>
+  /** Render function or component to customize the time/content in the center of the circle */
+  children?: React.ReactNode | ChildAsFunc
   /**
    * On animation complete event handler. It can be used to restart the animation by returning an array
    * where the first element "shouldRepeat" indicates if the loop should start over
    * and second element "delay" specifies the delay before looping again in milliseconds.
    *
    */
-  onComplete?: useElapsedTime.Config.onComplete
+  onComplete?: OnComplete
   /** Aria label for the whole component. Default: "Countdown timer" */
   ariaLabel?: string
   /** Render prop function to customize the text message that will be read by the screen reader during the countdown */
-  renderAriaTime?: RenderTime<string>
+  renderAriaTime?: (props: TimeProps) => string
 }
 
 declare const CountdownCircleTimer: React.FunctionComponent<CountdownCircleTimerProps>

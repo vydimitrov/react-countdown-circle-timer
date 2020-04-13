@@ -17,7 +17,7 @@ export const getColorsRGB = (colors) =>
     return [{ r: rgb[0], g: rgb[1], b: rgb[2], opacity: 1 }, color[1]]
   })
 
-const getColorsBase = (colors, durationMilliseconds, isGradient) => {
+const getColorsBase = (colors, isGradient) => {
   const colorsRGB = getColorsRGB(colors)
   if (!isGradient) {
     return colorsRGB
@@ -54,7 +54,7 @@ export const getNormalizedColors = (
   durationMilliseconds,
   isGradient
 ) => {
-  const colorsBase = getColorsBase(colors, durationMilliseconds, isGradient)
+  const colorsBase = getColorsBase(colors, isGradient)
   let colorsTotalDuration = 0
 
   return colorsBase.map((color, index) => {

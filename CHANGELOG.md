@@ -7,8 +7,9 @@
 - Make the repo monorepo handled by Lerna
 - Breaking changes:
   - Remove the old `startAt` prop. The recommended prop to use is `initialRemainingTime` instead.
-  - Remove `margin` styles from the wrapper and svg styles
-  - `durationSeconds` is renamed to just `duration`
+  - Remove `margin` styles from the wrapper and all svg styles
+  - `durationSeconds` is renamed to just `duration`. The duration is still in **seconds**
+  - `renderTime` prop is now deprecated. React `children` should be used instead. The `children` prop accepts a render function or a component where `remainingTime` and `elapsedTime` are passed as props.
 
 ## 1.2.1 (April 8th, 2020)
 
