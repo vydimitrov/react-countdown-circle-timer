@@ -40,7 +40,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 const UrgeWithPleasureComponent = () => (
   <CountdownCircleTimer
     isPlaying
-    durationSeconds={10}
+    duration={10}
     colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']]}
   />
 )
@@ -83,7 +83,7 @@ const UrgeWithPleasureComponent = () => (
       return [true, 1500] // repeat animation in 1.5 seconds
     }}
     isPlaying
-    durationSeconds={10}
+    duration={10}
     colors={[['#A30000']]}
   />
 )
@@ -97,7 +97,7 @@ Pass the remaining time to `initialRemainingTime` prop. Example:
 const UrgeWithPleasureComponent = () => (
   <CountdownCircleTimer
     isPlaying
-    durationSeconds={60}
+    duration={60}
     initialRemainingTime={15}
     colors={[['#A30000']]}
   />
