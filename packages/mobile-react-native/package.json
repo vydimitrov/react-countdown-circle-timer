@@ -7,7 +7,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "prepublish": "yarn run build",
+    "dev:push": "yarn run build && yalc push"
   },
   "repository": {
     "type": "git",

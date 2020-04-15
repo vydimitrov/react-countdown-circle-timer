@@ -10,7 +10,8 @@
     "bootstrap": "lerna bootstrap",
     "test": "jest",
     "test-watch": "jest --watch",
-    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\""
+    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\"",
+    "dev:push": "lerna run dev:push"
   },
   "homepage": "https://github.com/vydimitrov/countdown-circle-timer#readme",
   "repository": {
