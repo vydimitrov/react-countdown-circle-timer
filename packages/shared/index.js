@@ -3,7 +3,6 @@ export {
   linearEase,
   getWrapperStyle,
   getTimeStyle,
-  svgStyle,
   getStroke,
   colorsValidator,
   visuallyHidden,

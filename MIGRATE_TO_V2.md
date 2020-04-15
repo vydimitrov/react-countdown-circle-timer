@@ -6,3 +6,4 @@ The component API is updated in v2 to make it more robust and developer-friendly
 - `renderTime` prop is now deprecated. React `children` should be used instead. The `children` prop accepts a render function or a component where `remainingTime` and `elapsedTime` are passed as props.
 - `startAt` prop is deprecated. The recommended prop to use is `initialRemainingTime` instead.
 - `margin` styles from the wrapper and all svg styles are now removed.
+- `renderAriaTime` prop receives as an argument an object with the `remainingTime` and `elapsedTime`

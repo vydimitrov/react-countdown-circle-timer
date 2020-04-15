@@ -10,6 +10,7 @@
   - Remove `margin` styles from the wrapper and all svg styles
   - `durationSeconds` is renamed to just `duration`. The duration is still in **seconds**
   - `renderTime` prop is now deprecated. React `children` should be used instead. The `children` prop accepts a render function or a component where `remainingTime` and `elapsedTime` are passed as props.
+  - `renderAriaTime` prop will receive as an argument an object with the `remainingTime` and `elapsedTime`
 
 ## 1.2.1 (April 8th, 2020)
 

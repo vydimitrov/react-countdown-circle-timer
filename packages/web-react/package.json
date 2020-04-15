@@ -7,18 +7,19 @@
     "access": "public"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "prepublish": "yarn run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vydimitrov/react-countdown-circle-timer.git"
   },
   "keywords": [
-    "React",
-    "Countdown",
-    "Timer",
-    "Circle",
-    "Clock",
+    "react",
+    "countdown",
+    "timer",
+    "circle",
+    "clock",
     "SVG"
   ],
   "author": "Vasil Dimitrov",
@@ -28,17 +29,15 @@
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
   "peerDependencies": {
-    "prop-types": "^15.7.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "prop-types": ">=15.7.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
-    "babel-loader": "^8.0.6",
-    "react-test-renderer": "^16.8.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.8"
+    "react-test-renderer": "^16.8.0"
   },
   "dependencies": {
     "@countdown-circle-timer/shared": "^1.0.0",

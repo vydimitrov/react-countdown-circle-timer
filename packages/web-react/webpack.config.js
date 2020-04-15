@@ -3,6 +3,7 @@ var path = require('path')
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
+  devtool: 'source-map',
   output: {
     path: path.resolve('lib'),
     filename: 'index.js',
