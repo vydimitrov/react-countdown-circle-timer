@@ -1,4 +1,4 @@
-export const getStartAt = (initialRemainingTime, durationSeconds) =>
+export const getStartAt = (initialRemainingTime, duration) =>
   typeof initialRemainingTime === 'number'
-    ? (durationSeconds - initialRemainingTime) * 1000
+    ? (duration - initialRemainingTime) * 1000
     : 0

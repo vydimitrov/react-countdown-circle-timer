@@ -36,10 +36,9 @@ export const useMemoizedProps = (props) => {
     [colors, durationMilliseconds, isLinearGradient]
   )
 
-  const gradientId = useMemo(
-    () => getGradientId(isLinearGradient, gradientUniqueKey),
-    [isLinearGradient, gradientUniqueKey]
-  )
+  const gradientId = useMemo(() => getGradientId(gradientUniqueKey), [
+    gradientUniqueKey,
+  ])
 
   return {
     path,

@@ -1,15 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { StyleSheet, View } from 'react-native'
-import Svg, { Path, Defs, LinearGradient } from 'react-native-svg'
+import { View, Animated } from 'react-native'
+import Svg, { Path, Defs, LinearGradient, Stop } from 'react-native-svg'
 import {
-  linearEase,
-  getWrapperStyle,
-  getTimeStyle,
-  getStroke,
-  colorsValidator,
-  useMemoizedProps,
+  DefsLinearGradient,
+  countdownCircleTimerProps,
+  countdownCircleTimerDefaultProps,
 } from '@countdown-circle-timer/shared'
+import { TimeWrapper } from '.'
+import { useCountdown } from '../hooks'
+
+const AnimatedPath = Animated.createAnimatedComponent(Path)
 
 const CountdownCircleTimer = (props) => {
   const {
@@ -32,36 +32,21 @@ const CountdownCircleTimer = (props) => {
   const {
     path,
     pathLength,
-    durationMilliseconds,
-    startAt,
-    normalizedColors,
+    styles,
     gradientId,
-  } = useMemoizedProps({
+    animatedElapsedTime,
+    animatedStroke,
+    strokeDashoffset,
+    durationMilliseconds,
+  } = useCountdown({
+    isPlaying,
+    duration,
     size,
     strokeWidth,
-    duration,
-    initialRemainingTime,
     colors,
-    isLinearGradient,
+    initialRemainingTime,
+    onComplete,
     gradientUniqueKey,
-  })
-
-  const elapsedTime = 0
-  const stroke = getStroke(normalizedColors, elapsedTime)
-  const strokeDashoffset = linearEase(
-    elapsedTime,
-    0,
-    pathLength,
-    durationMilliseconds
-  ).toFixed(3)
-  const timeProps = {
-    remainingTime: Math.ceil((durationMilliseconds - elapsedTime) / 1000),
-    elapsedTime,
-  }
-
-  const styles = StyleSheet.create({
-    wrapper: getWrapperStyle(size),
-    time: getTimeStyle(stroke, size),
   })
 
   return (
@@ -72,13 +57,13 @@ const CountdownCircleTimer = (props) => {
     >
       <Svg width={size} height={size}>
         {isLinearGradient && (
-          <Defs>
-            <LinearGradient id={gradientId} x1="100%" y1="0%" x2="0%" y2="0%">
-              {normalizedColors.map((color) => (
-                <stop {...color.gradient} />
-              ))}
-            </LinearGradient>
-          </Defs>
+          <DefsLinearGradient
+            colors={colors}
+            gradientId={gradientId}
+            defs={Defs}
+            linearGradient={LinearGradient}
+            stop={Stop}
+          />
         )}
         <Path
           fill="none"
@@ -86,9 +71,9 @@ const CountdownCircleTimer = (props) => {
           stroke={trailColor}
           d={path}
         />
-        <Path
+        <AnimatedPath
           fill="none"
-          stroke={isLinearGradient ? `url(#${gradientId})` : stroke}
+          stroke={isLinearGradient ? `url(#${gradientId})` : animatedStroke}
           d={path}
           strokeLinecap={strokeLinecap}
           strokeWidth={strokeWidth}
@@ -96,51 +81,22 @@ const CountdownCircleTimer = (props) => {
           strokeDashoffset={strokeDashoffset}
         />
       </Svg>
-      {children !== null && (
-        <View accessibilityElementsHidden={true} style={styles.time}>
-          {React.isValidElement(children)
-            ? React.cloneElement(React.Children.only(children), timeProps)
-            : children(timeProps)}
-        </View>
-      )}
-      {typeof renderAriaTime === 'function' && (
-        <View accessibilityRole="timer" accessibilityLiveRegion="assertive">
-          {renderAriaTime(timeProps)}
-        </View>
+      {(children !== null || typeof renderAriaTime === 'function') && (
+        <TimeWrapper
+          animatedColor={animatedStroke}
+          animatedElapsedTime={animatedElapsedTime}
+          durationMilliseconds={durationMilliseconds}
+          renderAriaTime={renderAriaTime}
+        >
+          {children}
+        </TimeWrapper>
       )}
     </View>
   )
 }
 
-CountdownCircleTimer.propTypes = {
-  duration: PropTypes.number.isRequired,
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  colors: PropTypes.arrayOf(PropTypes.arrayOf(colorsValidator).isRequired)
-    .isRequired,
-  size: PropTypes.number,
-  strokeWidth: PropTypes.number,
-  trailColor: PropTypes.string,
-  isPlaying: PropTypes.bool,
-  strokeLinecap: PropTypes.oneOf(['round', 'square']),
-  isLinearGradient: PropTypes.bool,
-  gradientUniqueKey: PropTypes.string,
-  onComplete: PropTypes.func,
-  ariaLabel: PropTypes.string,
-  renderAriaTime: PropTypes.func,
-  initialRemainingTime: PropTypes.number,
-}
-
-CountdownCircleTimer.defaultProps = {
-  size: 180,
-  strokeWidth: 12,
-  trailColor: '#d9d9d9',
-  isPlaying: false,
-  strokeLinecap: 'round',
-  isLinearGradient: false,
-  ariaLabel: 'Countdown timer',
-  children: null,
-}
-
+CountdownCircleTimer.propTypes = countdownCircleTimerProps
+CountdownCircleTimer.defaultProps = countdownCircleTimerDefaultProps
 CountdownCircleTimer.displayName = 'CountdownCircleTimer'
 
 export { CountdownCircleTimer }

@@ -1,0 +1,1 @@
+export { DefsLinearGradient } from './DefsLinearGradient'

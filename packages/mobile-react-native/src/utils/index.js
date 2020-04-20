@@ -1,0 +1,1 @@
+export { getStroke } from './getStroke'

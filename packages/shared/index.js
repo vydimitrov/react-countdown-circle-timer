@@ -2,8 +2,14 @@ export { useMemoizedProps } from './hooks'
 export {
   linearEase,
   getWrapperStyle,
-  getTimeStyle,
+  timeStyle,
   getStroke,
   colorsValidator,
   visuallyHidden,
+  getPathProps,
+  getStartAt,
+  getGradientId,
+  countdownCircleTimerProps,
+  countdownCircleTimerDefaultProps,
 } from './utils'
+export { DefsLinearGradient } from './components'

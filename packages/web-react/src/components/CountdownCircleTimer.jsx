@@ -4,7 +4,7 @@ import { useElapsedTime } from 'use-elapsed-time'
 import {
   linearEase,
   getWrapperStyle,
-  getTimeStyle,
+  timeStyle,
   getStroke,
   colorsValidator,
   visuallyHidden,
@@ -92,7 +92,7 @@ const CountdownCircleTimer = (props) => {
         />
       </svg>
       {children !== null && (
-        <div aria-hidden="true" style={getTimeStyle(stroke, size)}>
+        <div aria-hidden="true" style={{ ...timeStyle, color: stroke }}>
           {React.isValidElement(children)
             ? React.cloneElement(React.Children.only(children), timeProps)
             : children(timeProps)}
