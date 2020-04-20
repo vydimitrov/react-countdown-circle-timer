@@ -1,22 +1,35 @@
 import { useMemo } from 'react'
+import { useElapsedTime } from 'use-elapsed-time'
 import {
   getPathProps,
   getStartAt,
   getGradientId,
+  getWrapperStyle,
+  timeStyle,
+} from '@countdown-circle-timer/shared'
+import {
+  linearEase,
   getNormalizedColors,
+  getStroke,
+  visuallyHidden,
 } from '../utils'
 
-export const useMemoizedProps = (props) => {
-  const {
-    size,
-    strokeWidth,
-    duration,
-    initialRemainingTime,
-    colors,
-    isLinearGradient,
-    gradientUniqueKey,
-  } = props
-
+export const useCountdown = ({
+  isPlaying,
+  size,
+  strokeWidth,
+  duration,
+  initialRemainingTime,
+  colors,
+  isLinearGradient,
+  gradientUniqueKey,
+  onComplete,
+}) => {
+  const styles = {
+    wrapperStyle: getWrapperStyle(size),
+    timeStyle,
+    visuallyHidden,
+  }
   // useElapsedTime will make this component rerender on every frame.
   // We memo all props that need to be computed to avoid doing that on every render
   const { path, pathLength } = useMemo(() => getPathProps(size, strokeWidth), [
@@ -40,12 +53,32 @@ export const useMemoizedProps = (props) => {
     gradientUniqueKey,
   ])
 
+  const elapsedTime = useElapsedTime(isPlaying, {
+    durationMilliseconds,
+    onComplete,
+    startAt,
+  })
+
+  const stroke = getStroke(normalizedColors, elapsedTime)
+  const strokeDashoffset = linearEase(
+    elapsedTime,
+    0,
+    pathLength,
+    durationMilliseconds
+  ).toFixed(3)
+
+  const timeProps = {
+    remainingTime: Math.ceil((durationMilliseconds - elapsedTime) / 1000),
+    elapsedTime,
+  }
+
   return {
     path,
     pathLength,
-    durationMilliseconds,
-    startAt,
-    normalizedColors,
+    stroke,
+    strokeDashoffset,
     gradientId,
+    styles,
+    timeProps,
   }
 }

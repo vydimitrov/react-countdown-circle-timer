@@ -9,7 +9,7 @@ export interface TimeProps {
 }
 
 type ChildAsFunc = {
-  (props: TimeProps): number | string | React.ReactNode
+  (props: TimeProps): React.ReactNode
 }
 
 type Color = [string, number]

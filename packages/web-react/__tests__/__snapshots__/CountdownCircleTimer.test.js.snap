@@ -82,12 +82,12 @@ exports[`snapshot tests renders with time 1`] = `
         "alignItems": "center",
         "color": "rgba(0, 71, 119, 1)",
         "display": "flex",
-        "height": 180,
+        "height": "100%",
         "justifyContent": "center",
         "left": 0,
         "position": "absolute",
         "top": 0,
-        "width": 180,
+        "width": "100%",
       }
     }
   >

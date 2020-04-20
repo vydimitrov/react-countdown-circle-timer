@@ -43,5 +43,9 @@
   "dependencies": {
     "@countdown-circle-timer/shared": "^1.0.0"
   },
+  "files": [
+    "lib",
+    "types"
+  ],
   "types": "types/CountdownCircleTimer.d.ts"
 }

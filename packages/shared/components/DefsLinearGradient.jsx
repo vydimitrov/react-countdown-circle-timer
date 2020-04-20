@@ -27,9 +27,9 @@ const getStopProps = (colors) => {
 const DefsLinearGradient = ({
   gradientId,
   colors,
-  defs: Defs = defs,
-  linearGradient: LinearGradient = linearGradient,
-  stop: Stop = stop,
+  defs: Defs = 'defs',
+  linearGradient: LinearGradient = 'linearGradient',
+  stop: Stop = 'stop',
 }) => (
   <Defs>
     <LinearGradient id={gradientId} x1="1" y1="0" x2="0" y2="0">
@@ -41,11 +41,11 @@ const DefsLinearGradient = ({
 )
 
 DefsLinearGradient.propTypes = {
+  gradientId: PropTypes.string.isRequired,
+  colors: countdownCircleTimerProps.colors,
   defs: PropTypes.node,
   linearGradient: PropTypes.node,
   stop: PropTypes.node,
-  gradientId: PropTypes.string,
-  colors: countdownCircleTimerProps.colors,
 }
 
 export { DefsLinearGradient }

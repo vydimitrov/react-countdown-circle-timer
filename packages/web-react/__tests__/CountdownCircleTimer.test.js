@@ -205,8 +205,8 @@ describe('functional tests', () => {
             position: absolute;
             left: 0;
             top: 0;
-            width: 180px;
-            height: 180px;
+            width: 100%;
+            height: 100%;
             color: rgba(163, 0, 0, 1);
         `)
   })

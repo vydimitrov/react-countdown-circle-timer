@@ -1,4 +1,4 @@
-import { colorsValidator } from '..'
+import { colorsValidator } from '../utils'
 
 describe('functional tests', () => {
   it('should return undefined if the color is valid HEX color', () => {
