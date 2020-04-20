@@ -40,12 +40,14 @@ const DefsLinearGradient = ({
   </Defs>
 )
 
+const TagType = PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+
 DefsLinearGradient.propTypes = {
   gradientId: PropTypes.string.isRequired,
   colors: countdownCircleTimerProps.colors,
-  defs: PropTypes.node,
-  linearGradient: PropTypes.node,
-  stop: PropTypes.node,
+  defs: TagType,
+  linearGradient: TagType,
+  stop: TagType,
 }
 
 export { DefsLinearGradient }

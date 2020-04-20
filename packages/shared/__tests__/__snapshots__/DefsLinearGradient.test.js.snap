@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot tests renders with custom tags 1`] = `null`;
+
+exports[`snapshot tests renders with default tags 1`] = `
+<defs>
+  <linearGradient
+    id="123-abc"
+    x1="1"
+    x2="0"
+    y1="0"
+    y2="0"
+  >
+    <stop
+      offset={0}
+      stopColor="#004777"
+    />
+    <stop
+      offset={0.33}
+      stopColor="#004777"
+    />
+    <stop
+      offset={0.66}
+      stopColor="#F7B801"
+    />
+    <stop
+      offset={1}
+      stopColor="#A30000"
+    />
+  </linearGradient>
+</defs>
+`;
