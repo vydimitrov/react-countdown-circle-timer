@@ -11,7 +11,7 @@ jobs:
           node-version: '13.x'
       - name: Generate coverage report
         run: |
-          yarn install
+          yarn bootstrap
           yarn test-coverage
       - name: Upload coverage
         if: success()
