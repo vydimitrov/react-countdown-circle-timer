@@ -16,7 +16,7 @@ jobs:
       - name: Upload coverage
         if: success()
         run: |
-          curl -s https://codecov.io/bash | bash
+          curl -s https://codecov.io/bash -f packages/web/coverage/clover.xml -F web | bash
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         shell: bash

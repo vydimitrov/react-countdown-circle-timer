@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
-    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\"",
+    "test-coverage": "lerna run test-coverage",
     "dev:push": "lerna run dev:push"
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",

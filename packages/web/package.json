@@ -11,7 +11,8 @@
     "prepublish": "yarn run build",
     "dev:push": "yarn run build && yalc push",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\""
   },
   "repository": {
     "type": "git",
