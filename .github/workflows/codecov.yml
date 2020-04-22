@@ -11,12 +11,13 @@ jobs:
           node-version: '13.x'
       - name: Generate coverage report
         run: |
+          yarn install
           yarn bootstrap
           yarn test-coverage
-      - name: Upload coverage
+      - name: Upload coverage for Web package
         if: success()
-        run: |
-          curl -s https://codecov.io/bash -f packages/web/coverage/clover.xml -F web | bash
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        shell: bash
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: packages/web/coverage/clover.xml # optional
+          flags: web # optional
