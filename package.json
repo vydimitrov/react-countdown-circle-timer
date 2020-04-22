@@ -8,8 +8,7 @@
   "scripts": {
     "build": "lerna run build",
     "bootstrap": "lerna bootstrap",
-    "test": "jest",
-    "test-watch": "jest --watch",
+    "test": "lerna run test",
     "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\"",
     "dev:push": "lerna run dev:push"
   },
@@ -34,12 +33,14 @@
     "prop-types": ">=15.7.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
+    "react-test-renderer": ">=16.8.0",
     "codecov": "^3.6.1",
     "jest": "^24.9.0",
     "path": "^0.12.7",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.0",
     "babel-loader": "^8.0.6",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8"

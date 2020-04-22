@@ -1,4 +1,4 @@
-const webpackBaseConfig = require('../../webpack-react-base-config')
+const webpackBaseConfig = require('../../webpack-base-config')
 
 module.exports = {
   ...webpackBaseConfig,

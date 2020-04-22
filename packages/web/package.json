@@ -9,7 +9,9 @@
   "scripts": {
     "build": "webpack",
     "prepublish": "yarn run build",
-    "dev:push": "yarn run build && yalc push"
+    "dev:push": "yarn run build && yalc push",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -35,10 +37,8 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.0.0",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "react-test-renderer": "^16.8.0"
+    "@testing-library/react": "^9.4.0"
   },
   "dependencies": {
     "@countdown-circle-timer/shared": "^1.0.0",
