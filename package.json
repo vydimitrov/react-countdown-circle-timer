@@ -10,7 +10,8 @@
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "test-coverage": "lerna run test-coverage",
-    "dev:push": "lerna run dev:push"
+    "dev:push": "lerna run dev:push",
+    "release": "lerna publish"
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
   "repository": {
