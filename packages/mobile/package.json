@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/vydimitrov/react-countdown-circle-timer/issues"
   },
-  "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
+  "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/mobile#readme",
   "peerDependencies": {
     "prop-types": ">=15.7.0",
     "react": ">=16.8.0",
