@@ -19,4 +19,12 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          file: packages/web/coverage/clover.xml
           flags: web
+      - name: Upload coverage for Mobile package
+        if: success()
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: packages/mobile/coverage/clover.xml
+          flags: mobile
