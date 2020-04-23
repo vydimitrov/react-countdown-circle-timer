@@ -19,5 +19,4 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: packages/web/coverage/clover.xml # optional
-          flags: web # optional
+          flags: web
