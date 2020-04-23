@@ -38,7 +38,11 @@ const UrgeWithPleasureComponent = () => (
     duration={10}
     colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']]}
   >
-    {({ remainingTime }) => remainingTime}
+    {({ remainingTime, animatedColor }) => (
+      <Animated.Text style={{ color: animatedColor }}>
+        {remainingTime}
+      </Animated.Text>
+    )}
   </CountdownCircleTimer>
 )
 ```
