@@ -1,6 +1,6 @@
 {
   "name": "react-native-countdown-circle-timer",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Lightweight React Native countdown timer component with color and progress animation based on SVG",
   "main": "./lib/index.js",
   "publishConfig": {
@@ -39,12 +39,12 @@
     "react-native-svg": ">=6.2.1"
   },
   "devDependencies": {
+    "metro-react-native-babel-preset": "^0.59.0",
     "react-native": ">=0.50.0",
-    "react-native-svg": ">=6.2.1",
-    "metro-react-native-babel-preset": "^0.59.0"
+    "react-native-svg": ">=6.2.1"
   },
   "dependencies": {
-    "@countdown-circle-timer/shared": "^1.0.0"
+    "@countdown-circle-timer/shared": "^1.0.3"
   },
   "files": [
     "lib",
