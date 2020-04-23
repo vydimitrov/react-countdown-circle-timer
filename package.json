@@ -38,7 +38,6 @@
     "jest": "^24.9.0",
     "path": "^0.12.7",
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.0",
     "babel-loader": "^8.0.6",
