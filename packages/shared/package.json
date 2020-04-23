@@ -1,7 +1,7 @@
 {
   "name": "@countdown-circle-timer/shared",
   "version": "1.0.2",
-  "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {},
   "author": "Vasil Dimitrov",
