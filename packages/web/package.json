@@ -36,10 +36,10 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0"
+    "@testing-library/react": "^9.4.0",
+    "@countdown-circle-timer/shared": "^1.0.3"
   },
   "dependencies": {
-    "@countdown-circle-timer/shared": "^1.0.3",
     "use-elapsed-time": "^1.1.5"
   },
   "files": [

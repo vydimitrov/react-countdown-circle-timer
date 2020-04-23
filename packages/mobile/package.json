@@ -38,9 +38,7 @@
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.59.0",
     "react-native": ">=0.50.0",
-    "react-native-svg": ">=6.2.1"
-  },
-  "dependencies": {
+    "react-native-svg": ">=6.2.1",
     "@countdown-circle-timer/shared": "^1.0.3"
   },
   "files": [
