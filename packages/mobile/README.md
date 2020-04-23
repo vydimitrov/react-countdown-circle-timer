@@ -24,8 +24,7 @@ This component has a peer dependency on `react-native-svg` to draw the countdown
 
 ## Demo
 
-Check the demo on CodeSandbox to get started  
-[![Edit stoic-cache-e7cie](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/stoic-cache-e7cie?fontsize=14&hidenavigation=1&theme=dark)
+Check the [Expo Snack](https://snack.expo.io/@vydimitrov/countdown-circle-timer?session_id=snack-session-8tgDhia5f&preview=true&platform=ios&iframeId=4a80oah677&theme=light) demo to get started
 
 ## Basic usage
 
