@@ -25,7 +25,7 @@ yarn add react-countdown-circle-timer
 
 ## Migrating from v1.x.x to v2.x.x?
 
-There are a few small API changes to consider before switching to v2.x.x. Read [Migrate to v2.x.x](https://github.com/vydimitrov/react-countdown-circle-timer/blob/master/MIGRATE_TO_v2.md) docs for more info.
+There are a few small API changes to consider before switching to v2.x.x. Read [Migrate to v2.x.x](https://github.com/vydimitrov/react-countdown-circle-timer/blob/master/packages/web/MIGRATE_TO_V2.md) docs for more info.
 
 ## Demo
 
