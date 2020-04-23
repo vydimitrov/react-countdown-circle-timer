@@ -51,7 +51,7 @@ const UrgeWithPleasureComponent = () => (
 
 ## Props
 
-Refer to the [list of props](https://github.com/vydimitrov/react-countdown-circle-timer#props)
+Refer to the [list of props](https://github.com/vydimitrov/react-countdown-circle-timer#props-for-both-reactreact-native)
 
 ## Road Map
 
