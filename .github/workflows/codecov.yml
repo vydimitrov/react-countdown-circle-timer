@@ -4,19 +4,19 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Setup Node  
-      uses: actions/setup-node@v1
-      with:
-        node-version: '13.x'
-    - name: Generate coverage report
-      run: |
-        yarn install
-        yarn test
-    - name: Upload coverage
-      if: success()
-      run: |
-        curl -s https://codecov.io/bash | bash
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      shell: bash
+      - uses: actions/checkout@master
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+      - name: Generate coverage report
+        run: |
+          yarn install
+          yarn bootstrap
+          yarn test-coverage
+      - name: Upload coverage for Web package
+        if: success()
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: web
