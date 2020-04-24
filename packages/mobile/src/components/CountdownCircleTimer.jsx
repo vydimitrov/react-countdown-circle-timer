@@ -38,6 +38,7 @@ const CountdownCircleTimer = (props) => {
     animatedStroke,
     strokeDashoffset,
     durationMilliseconds,
+    isProgressPathVisible,
   } = useCountdown({
     isPlaying,
     duration,
@@ -71,15 +72,17 @@ const CountdownCircleTimer = (props) => {
           stroke={trailColor}
           d={path}
         />
-        <AnimatedPath
-          fill="none"
-          stroke={isLinearGradient ? `url(#${gradientId})` : animatedStroke}
-          d={path}
-          strokeLinecap={strokeLinecap}
-          strokeWidth={strokeWidth}
-          strokeDasharray={pathLength}
-          strokeDashoffset={strokeDashoffset}
-        />
+        {isProgressPathVisible && (
+          <AnimatedPath
+            fill="none"
+            stroke={isLinearGradient ? `url(#${gradientId})` : animatedStroke}
+            d={path}
+            strokeLinecap={strokeLinecap}
+            strokeWidth={strokeWidth}
+            strokeDasharray={pathLength}
+            strokeDashoffset={strokeDashoffset}
+          />
+        )}
       </Svg>
       {(children !== null || typeof renderAriaTime === 'function') && (
         <TimeWrapper

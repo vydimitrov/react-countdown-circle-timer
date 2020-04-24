@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react'
+import { useRef, useState, useEffect, useMemo } from 'react'
 import { Animated, Easing, StyleSheet } from 'react-native'
 import {
   getPathProps,
@@ -19,6 +19,7 @@ export const useCountdown = ({
   gradientUniqueKey,
 }) => {
   const elapsedTime = useRef(0)
+  const [isProgressPathVisible, setIsProgressPathVisible] = useState(true)
   const animatedElapsedTime = useRef(new Animated.Value(0)).current
   const durationMilliseconds = duration * 1000
   const { path, pathLength } = getPathProps(size, strokeWidth)
@@ -62,19 +63,19 @@ export const useCountdown = ({
         easing: Easing.linear,
         duration: durationMilliseconds - elapsedTime.current,
       }).start(({ finished }) => {
-        if (
-          finished &&
-          typeof onComplete === 'function' &&
-          elapsedTime.current === durationMilliseconds
-        ) {
-          const [shouldRepeat = false, delay = 0] = onComplete() || []
+        if (finished && elapsedTime.current === durationMilliseconds) {
+          setIsProgressPathVisible(false)
+          if (typeof onComplete === 'function') {
+            const [shouldRepeat = false, delay = 0] = onComplete() || []
 
-          if (shouldRepeat) {
-            setTimeout(() => {
-              elapsedTime.current = 0
-              animatedElapsedTime.resetAnimation()
-              animateTime()
-            }, delay)
+            if (shouldRepeat) {
+              setTimeout(() => {
+                elapsedTime.current = 0
+                animatedElapsedTime.resetAnimation()
+                setIsProgressPathVisible(true)
+                animateTime()
+              }, delay)
+            }
           }
         }
       })
@@ -98,5 +99,6 @@ export const useCountdown = ({
     animatedStroke,
     strokeDashoffset,
     durationMilliseconds,
+    isProgressPathVisible,
   }
 }
