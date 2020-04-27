@@ -40,7 +40,7 @@
     "@testing-library/react": "^9.4.0"
   },
   "dependencies": {
-    "use-elapsed-time": "^1.1.5"
+    "use-elapsed-time": "^1.2.1"
   },
   "files": [
     "lib",

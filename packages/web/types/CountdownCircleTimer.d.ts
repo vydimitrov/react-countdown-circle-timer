@@ -44,6 +44,7 @@ export interface CountdownCircleTimerProps {
    * On animation complete event handler. It can be used to restart the animation by returning an array
    * where the first element "shouldRepeat" indicates if the loop should start over
    * and second element "delay" specifies the delay before looping again in milliseconds.
+   * The callback receives as an argument the total elapsed time
    *
    */
   onComplete?: OnComplete

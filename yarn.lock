@@ -9886,10 +9886,10 @@ urlgrey@0.4.4:
   resolved "https://registry.yarnpkg.com/urlgrey/-/urlgrey-0.4.4.tgz#892fe95960805e85519f1cd4389f2cb4cbb7652f"
   integrity sha1-iS/pWWCAXoVRnxzUOJ8stMu3ZS8=
 
-use-elapsed-time@^1.1.5:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/use-elapsed-time/-/use-elapsed-time-1.1.6.tgz#5639828f540d7b2d2454d56671c9615fb6751abd"
-  integrity sha512-hjsniIKkRslgcWiU1KRoLnxoBy+YyuizpeHC3nqbSQKkzWI2r7pPue8fdgbUGT4yfULDb6PkvJsH5hpgAykg4A==
+use-elapsed-time@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/use-elapsed-time/-/use-elapsed-time-1.2.1.tgz#5c313ea78be9750a4d7173c7bfe900ee011af730"
+  integrity sha512-dbZ3XXOPMu8KPgr+4Vwhl4XU0m84s4KSIMq+M3mmKWnZrau28YyEi0QCsf/69QznXo1535FlWL8TILWe08IrhQ==
 
 use-subscription@^1.0.0:
   version "1.4.1"
