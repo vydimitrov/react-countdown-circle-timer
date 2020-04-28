@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.0.5...react-native-countdown-circle-timer@2.1.0) (2020-04-28)
+
+
+### Features
+
+* **mobile:** pass totalElapsedTime as an argument to onComplete callback ([9909f01](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9909f016ea2885b3f16cc84da1c4a39125e729f6))
+
+
+
+
+
 ## [2.0.5](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.0.4...react-native-countdown-circle-timer@2.0.5) (2020-04-24)
 
 ### Bug Fixes
