@@ -5,14 +5,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.1.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.0.5...react-native-countdown-circle-timer@2.1.0) (2020-04-28)
 
-
 ### Features
 
-* **mobile:** pass totalElapsedTime as an argument to onComplete callback ([9909f01](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9909f016ea2885b3f16cc84da1c4a39125e729f6))
+- **mobile:** pass `totalElapsedTime` as an argument to `onComplete` callback ([9909f01](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9909f016ea2885b3f16cc84da1c4a39125e729f6))
 
-
-
-
+`onComplete` callback will receive as an argument the `totalElapsedTime` in seconds. This is the total duration since the countdown has started running. It's mainly used when the countdown is repeated and the total duration has to be known. Example: countdown of days, hours, minutes and seconds.
 
 ## [2.0.5](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.0.4...react-native-countdown-circle-timer@2.0.5) (2020-04-24)
 
