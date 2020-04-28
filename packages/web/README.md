@@ -103,5 +103,5 @@ Check the CodeSandbox below to find out how you can implement it yourself
 
 <img src="https://user-images.githubusercontent.com/10707142/80461739-04ccee80-8936-11ea-9bb2-e05c6055f9ad.gif" width="500">
 
-Check the demo below for one possible solution
+Check the demo below for one possible solution  
 [![Edit musing-davinci-mqssz](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark)
