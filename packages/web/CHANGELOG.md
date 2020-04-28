@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.0.5...react-countdown-circle-timer@2.1.0) (2020-04-28)
+
+
+### Features
+
+* **web:** pass totalElapsedTime as an argument to onComplete callback ([dfd33ce](https://github.com/vydimitrov/react-countdown-circle-timer/commit/dfd33ce05431c43540f384bbd554e14f620e28af))
+
+
+
+
+
 ## [2.0.5](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.0.4...react-countdown-circle-timer@2.0.5) (2020-04-27)
 
 ### Chore
