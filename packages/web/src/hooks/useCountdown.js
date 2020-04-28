@@ -54,9 +54,14 @@ export const useCountdown = ({
   ])
 
   const elapsedTime = useElapsedTime(isPlaying, {
-    durationMilliseconds,
-    onComplete,
     startAt,
+    durationMilliseconds,
+    onComplete:
+      typeof onComplete === 'function'
+        ? (totalElapsedTime, ...rest) =>
+            // convert totalElapsedTime from milliseconds to seconds, as the duration of the countdown
+            onComplete(totalElapsedTime / 1000, ...rest)
+        : undefined,
   })
 
   const stroke = getStroke(normalizedColors, elapsedTime)

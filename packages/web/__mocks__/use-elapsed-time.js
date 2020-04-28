@@ -18,8 +18,8 @@ module.exports = {
     elapsedTime = 0
   },
 
-  __fireOnComplete() {
-    config.onComplete()
+  __fireOnComplete(...rest) {
+    config.onComplete(...rest)
   },
 
   __getConfig() {

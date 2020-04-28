@@ -290,4 +290,16 @@ describe('behaviour tests', () => {
 
     useElapsedTime.__resetConfig()
   })
+
+  it('should pass as an argument the total elapsed time in seconds to onComplete callback', () => {
+    const onComplete = jest.fn()
+
+    render(<CountdownCircleTimer {...fixture} onComplete={onComplete} />)
+
+    useElapsedTime.__fireOnComplete(3612, 'second argument')
+
+    expect(onComplete).toHaveBeenCalledWith(3.612, 'second argument')
+
+    useElapsedTime.__resetConfig()
+  })
 })
