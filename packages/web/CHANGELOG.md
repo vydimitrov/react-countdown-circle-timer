@@ -10,8 +10,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **web:** pass totalElapsedTime as an argument to onComplete callback ([dfd33ce](https://github.com/vydimitrov/react-countdown-circle-timer/commit/dfd33ce05431c43540f384bbd554e14f620e28af))
 
-
-
+`onComplete` callback will receive as an argument the `totalElapsedTime` in seconds. This is the total duration since the countdown has started running. It's  mainly used when the countdown is repeated and the total duration has to be known. Example: countdown of days, hours, minutes and seconds.
 
 
 ## [2.0.5](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.0.4...react-countdown-circle-timer@2.0.5) (2020-04-27)
