@@ -22,6 +22,8 @@ export const useCountdown = ({
   const [isProgressPathVisible, setIsProgressPathVisible] = useState(true)
   const animatedElapsedTime = useRef(new Animated.Value(0)).current
   const durationMilliseconds = duration * 1000
+  const startAt = getStartAt(initialRemainingTime, duration) // in milliseconds
+  const totalElapsedTime = useRef((startAt / 1000) * -1) // in seconds
   const { path, pathLength } = getPathProps(size, strokeWidth)
   const gradientId = useMemo(() => getGradientId(gradientUniqueKey), [
     gradientUniqueKey,
@@ -39,7 +41,6 @@ export const useCountdown = ({
 
   useEffect(() => {
     // set initial remaining time if it is provided
-    const startAt = getStartAt(initialRemainingTime, duration)
     if (startAt) {
       elapsedTime.current = startAt
       animatedElapsedTime.setValue(startAt)
@@ -66,7 +67,10 @@ export const useCountdown = ({
         if (finished && elapsedTime.current === durationMilliseconds) {
           setIsProgressPathVisible(false)
           if (typeof onComplete === 'function') {
-            const [shouldRepeat = false, delay = 0] = onComplete() || []
+            totalElapsedTime.current += duration
+
+            const [shouldRepeat = false, delay = 0] =
+              onComplete(totalElapsedTime.current) || []
 
             if (shouldRepeat) {
               setTimeout(() => {
