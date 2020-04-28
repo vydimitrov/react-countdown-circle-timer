@@ -96,6 +96,12 @@ In the example above, the countdown will start at 15 seconds (one quarter before
 
 <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
-Check the CodeSandbox below to find out how you can implment it yourself  
+Check the CodeSandbox below to find out how you can implement it yourself  
 [![Edit silly-night-d3s70](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/silly-night-d3s70?fontsize=14&hidenavigation=1&theme=dark)
 
+### Days, hours, minutes, seconds countdown
+
+<img src="https://user-images.githubusercontent.com/10707142/80461739-04ccee80-8936-11ea-9bb2-e05c6055f9ad.gif" width="500">
+
+Check the demo below for one possible solution
+[![Edit musing-davinci-mqssz](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark)
