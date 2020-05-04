@@ -172,6 +172,18 @@ describe('functional tests', () => {
     expect(pathEnd).toHaveAttribute(...expectedPathProps)
   })
 
+  it('should set stroke of the path that animates correctly when the colors are shorthanded', () => {
+    const { container } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        colors={[['#abc', 0.45], ['#fa4', 0.45], ['#ccc']]}
+      />
+    )
+
+    const path = container.querySelectorAll('path')[1]
+    expect(path).toHaveAttribute('stroke', 'rgba(170, 187, 204, 1)')
+  })
+
   it('should set stroke as the gradient Id on the path that animates if isLinearGradient is true', () => {
     const { container } = render(
       <CountdownCircleTimer
@@ -267,6 +279,39 @@ describe('functional tests', () => {
     )
 
     expect(useElapsedTime.__getIsPlaying()).toBe(true)
+    expect(useElapsedTime.__getConfig()).toEqual({
+      durationMilliseconds: 10000,
+      onComplete: undefined,
+      startAt: 3000,
+    })
+
+    useElapsedTime.__resetIsPlaying()
+    useElapsedTime.__resetConfig()
+  })
+
+  it('should not change the duration and startAt if new values for them are provided after the component is mounted', () => {
+    const initialRemainingTime = 7
+    const { rerender } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        initialRemainingTime={initialRemainingTime}
+      />
+    )
+
+    expect(useElapsedTime.__getConfig()).toEqual({
+      durationMilliseconds: 10000,
+      onComplete: undefined,
+      startAt: 3000,
+    })
+
+    rerender(
+      <CountdownCircleTimer
+        {...fixture}
+        duration={4}
+        initialRemainingTime={2}
+      />
+    )
+
     expect(useElapsedTime.__getConfig()).toEqual({
       durationMilliseconds: 10000,
       onComplete: undefined,

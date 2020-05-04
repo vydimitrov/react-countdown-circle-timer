@@ -30,19 +30,22 @@ export const useCountdown = ({
     timeStyle,
     visuallyHidden,
   }
-  // useElapsedTime will make this component rerender on every frame.
+  // useElapsedTime will cause the component to re-render on every frame.
   // We memo all props that need to be computed to avoid doing that on every render
   const { path, pathLength } = useMemo(() => getPathProps(size, strokeWidth), [
     size,
     strokeWidth,
   ])
 
-  const durationMilliseconds = useMemo(() => duration * 1000, [duration])
-
-  const startAt = useMemo(() => getStartAt(initialRemainingTime, duration), [
-    initialRemainingTime,
-    duration,
-  ])
+  // time related props can NOT be changed once the component is mounted because animation relays on elapsed time since the timer is running
+  // to change them pass a new value to the "key" prop of the component, which will reinitialize/restart the timer and use the new props
+  const { durationMilliseconds, startAt } = useMemo(
+    () => ({
+      durationMilliseconds: duration * 1000,
+      startAt: getStartAt(initialRemainingTime, duration),
+    }),
+    [] // time related props are computed only once when component is mounted
+  )
 
   const normalizedColors = useMemo(
     () => getNormalizedColors(colors, durationMilliseconds, isLinearGradient),
