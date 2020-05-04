@@ -321,6 +321,30 @@ describe('functional tests', () => {
     useElapsedTime.__resetIsPlaying()
     useElapsedTime.__resetConfig()
   })
+
+  it('should set strokeDasharray to the total path length if the duration provided is 0', () => {
+    const { container } = render(
+      <CountdownCircleTimer {...fixture} duration={0} />
+    )
+
+    const path = container.querySelectorAll('path')[1]
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.788')
+  })
+
+  it('should set statAt prop to 0 if the duration provided is 0', () => {
+    const { container } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        duration={0}
+        initialRemainingTime={4}
+      />
+    )
+
+    const { durationMilliseconds, startAt } = useElapsedTime.__getConfig()
+
+    expect(durationMilliseconds).toBe(0)
+    expect(startAt).toBe(0)
+  })
 })
 
 describe('behaviour tests', () => {
