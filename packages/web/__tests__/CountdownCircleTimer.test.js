@@ -131,7 +131,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '0.000')
+    expect(path).toHaveAttribute('stroke-dashoffset', '0')
     expect(path).toHaveAttribute('stroke', 'rgba(0, 71, 119, 1)')
   })
 
@@ -140,7 +140,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '263.894')
+    expect(path).toHaveAttribute('stroke-dashoffset', '263.89378290154264')
     expect(path).toHaveAttribute('stroke', 'rgba(203, 89, 0, 1)')
   })
 
@@ -149,7 +149,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '527.788')
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.7875658030853')
     expect(path).toHaveAttribute('stroke', 'rgba(163, 0, 0, 1)')
   })
 
@@ -328,7 +328,7 @@ describe('functional tests', () => {
     )
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '527.788')
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.7875658030853')
   })
 
   it('should set statAt prop to 0 if the duration provided is 0', () => {

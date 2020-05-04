@@ -73,7 +73,7 @@ export const useCountdown = ({
     0,
     pathLength,
     durationMilliseconds
-  ).toFixed(3)
+  )
 
   const timeProps = {
     remainingTime: Math.ceil((durationMilliseconds - elapsedTime) / 1000),
