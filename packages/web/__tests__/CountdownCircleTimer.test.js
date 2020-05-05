@@ -131,7 +131,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '0.000')
+    expect(path).toHaveAttribute('stroke-dashoffset', '0')
     expect(path).toHaveAttribute('stroke', 'rgba(0, 71, 119, 1)')
   })
 
@@ -140,7 +140,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '263.894')
+    expect(path).toHaveAttribute('stroke-dashoffset', '263.89378290154264')
     expect(path).toHaveAttribute('stroke', 'rgba(203, 89, 0, 1)')
   })
 
@@ -149,7 +149,7 @@ describe('functional tests', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
-    expect(path).toHaveAttribute('stroke-dashoffset', '527.788')
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.7875658030853')
     expect(path).toHaveAttribute('stroke', 'rgba(163, 0, 0, 1)')
   })
 
@@ -170,6 +170,18 @@ describe('functional tests', () => {
 
     const pathEnd = container.querySelectorAll('path')[1]
     expect(pathEnd).toHaveAttribute(...expectedPathProps)
+  })
+
+  it('should set stroke of the path that animates correctly when the colors are shorthanded', () => {
+    const { container } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        colors={[['#abc', 0.45], ['#fa4', 0.45], ['#ccc']]}
+      />
+    )
+
+    const path = container.querySelectorAll('path')[1]
+    expect(path).toHaveAttribute('stroke', 'rgba(170, 187, 204, 1)')
   })
 
   it('should set stroke as the gradient Id on the path that animates if isLinearGradient is true', () => {
@@ -275,6 +287,63 @@ describe('functional tests', () => {
 
     useElapsedTime.__resetIsPlaying()
     useElapsedTime.__resetConfig()
+  })
+
+  it('should not change the duration and startAt if new values for them are provided after the component is mounted', () => {
+    const initialRemainingTime = 7
+    const { rerender } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        initialRemainingTime={initialRemainingTime}
+      />
+    )
+
+    expect(useElapsedTime.__getConfig()).toEqual({
+      durationMilliseconds: 10000,
+      onComplete: undefined,
+      startAt: 3000,
+    })
+
+    rerender(
+      <CountdownCircleTimer
+        {...fixture}
+        duration={4}
+        initialRemainingTime={2}
+      />
+    )
+
+    expect(useElapsedTime.__getConfig()).toEqual({
+      durationMilliseconds: 10000,
+      onComplete: undefined,
+      startAt: 3000,
+    })
+
+    useElapsedTime.__resetIsPlaying()
+    useElapsedTime.__resetConfig()
+  })
+
+  it('should set strokeDasharray to the total path length if the duration provided is 0', () => {
+    const { container } = render(
+      <CountdownCircleTimer {...fixture} duration={0} />
+    )
+
+    const path = container.querySelectorAll('path')[1]
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.7875658030853')
+  })
+
+  it('should set statAt prop to 0 if the duration provided is 0', () => {
+    const { container } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        duration={0}
+        initialRemainingTime={4}
+      />
+    )
+
+    const { durationMilliseconds, startAt } = useElapsedTime.__getConfig()
+
+    expect(durationMilliseconds).toBe(0)
+    expect(startAt).toBe(0)
   })
 })
 

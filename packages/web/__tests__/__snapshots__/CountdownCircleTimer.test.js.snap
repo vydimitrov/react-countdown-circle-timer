@@ -31,7 +31,7 @@ exports[`snapshot tests renders 1`] = `
       fill="none"
       stroke="rgba(0, 71, 119, 1)"
       strokeDasharray={527.7875658030853}
-      strokeDashoffset="0.000"
+      strokeDashoffset={0}
       strokeLinecap="round"
       strokeWidth={12}
     />
@@ -70,7 +70,7 @@ exports[`snapshot tests renders with time 1`] = `
       fill="none"
       stroke="rgba(0, 71, 119, 1)"
       strokeDasharray={527.7875658030853}
-      strokeDashoffset="0.000"
+      strokeDashoffset={0}
       strokeLinecap="round"
       strokeWidth={12}
     />

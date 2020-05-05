@@ -20,9 +20,13 @@ export const useCountdown = ({
 }) => {
   const elapsedTime = useRef(0)
   const [isProgressPathVisible, setIsProgressPathVisible] = useState(true)
+  // time related props can NOT be changed once the component is mounted because animation relays on elapsed time since the timer is running
+  // to change them pass a new value to the "key" prop of the component, which will reinitialize/restart the timer and use the new props
+  const { durationMilliseconds, startAt } = useRef({
+    durationMilliseconds: duration * 1000,
+    startAt: getStartAt(initialRemainingTime, duration), // in milliseconds
+  }).current
   const animatedElapsedTime = useRef(new Animated.Value(0)).current
-  const durationMilliseconds = duration * 1000
-  const startAt = getStartAt(initialRemainingTime, duration) // in milliseconds
   const totalElapsedTime = useRef((startAt / 1000) * -1) // in seconds
   const { path, pathLength } = getPathProps(size, strokeWidth)
   const gradientId = useMemo(() => getGradientId(gradientUniqueKey), [
