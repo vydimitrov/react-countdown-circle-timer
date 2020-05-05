@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.0...react-native-countdown-circle-timer@2.1.1) (2020-05-05)
+
+
+### Bug Fixes
+
+* **mobile:** time props can not be changed once component is mounted ([4f9d40a](https://github.com/vydimitrov/react-countdown-circle-timer/commit/4f9d40a739c86ed9b0faed2307a81a3127701d8d))
+
+
+
+
+
 # [2.1.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.0.5...react-native-countdown-circle-timer@2.1.0) (2020-04-28)
 
 ### Features

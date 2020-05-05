@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.1.1...react-countdown-circle-timer@2.1.2) (2020-05-05)
+
+
+### Bug Fixes
+
+* **web:** Cannot read property 'duration' of undefined - fix [#20](https://github.com/vydimitrov/react-countdown-circle-timer/issues/20) ([bcdb595](https://github.com/vydimitrov/react-countdown-circle-timer/commit/bcdb59595d5fcaa9c7d7f9b357d21dc0af856dde))
+* **web:** hide progress path when the duration provided is 0 ([fa48e3d](https://github.com/vydimitrov/react-countdown-circle-timer/commit/fa48e3d5e90e18c25968f0e18d0ca10931e54807))
+* **web:** progress path not hidden when countdown is done ([dfe3b2b](https://github.com/vydimitrov/react-countdown-circle-timer/commit/dfe3b2b325ab58c06afed946c9c625ae40737f22))
+
+
+
+
+
+
 ## [2.1.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.1.0...react-countdown-circle-timer@2.1.1) (2020-04-28)
 
 ### Docs

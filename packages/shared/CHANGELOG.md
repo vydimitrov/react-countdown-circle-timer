@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/vydimitrov/react-countdown-circle-timer/compare/@countdown-circle-timer/shared@1.0.4...@countdown-circle-timer/shared@1.0.5) (2020-05-05)
+
+
+### Bug Fixes
+
+* **web:** hide progress path when the duration provided is 0 ([fa48e3d](https://github.com/vydimitrov/react-countdown-circle-timer/commit/fa48e3d5e90e18c25968f0e18d0ca10931e54807))
+
+
+
+
+
 ## [1.0.4](https://github.com/vydimitrov/react-countdown-circle-timer/compare/@countdown-circle-timer/shared@1.0.3...@countdown-circle-timer/shared@1.0.4) (2020-04-23)
 
 
