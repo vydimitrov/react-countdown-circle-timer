@@ -67,6 +67,7 @@ export const useCountdown = ({
         toValue: durationMilliseconds,
         easing: Easing.linear,
         duration: durationMilliseconds - elapsedTime.current,
+        useNativeDriver: false,
       }).start(({ finished }) => {
         if (finished && elapsedTime.current === durationMilliseconds) {
           setIsProgressPathVisible(false)
