@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.1...react-native-countdown-circle-timer@2.1.2) (2020-05-21)
+
+
+### Bug Fixes
+
+* **mobile:** set explicitly useNativeDriver to false ([0d703b3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/0d703b38369f2dc5e3c2c538fa2203415cf4e4ea))
+
+
+
+
+
 ## [2.1.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.0...react-native-countdown-circle-timer@2.1.1) (2020-05-05)
 
 
