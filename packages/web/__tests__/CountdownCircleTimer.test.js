@@ -136,7 +136,7 @@ describe('functional tests', () => {
   })
 
   it('should set stroke and stroke-dashoffset on the path that animates at the middle of the animation', () => {
-    useElapsedTime.__setElapsedTime(5000)
+    useElapsedTime.__setElapsedTime(5)
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
@@ -145,7 +145,7 @@ describe('functional tests', () => {
   })
 
   it('should set stroke and stroke-dashoffset on the path that animates at the end of the animation', () => {
-    useElapsedTime.__setElapsedTime(10000)
+    useElapsedTime.__setElapsedTime(10)
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 
     const path = container.querySelectorAll('path')[1]
@@ -165,7 +165,7 @@ describe('functional tests', () => {
     const pathBeginning = container.querySelectorAll('path')[1]
     expect(pathBeginning).toHaveAttribute(...expectedPathProps)
 
-    useElapsedTime.__setElapsedTime(10000)
+    useElapsedTime.__setElapsedTime(10)
     rerender(component)
 
     const pathEnd = container.querySelectorAll('path')[1]
@@ -201,7 +201,7 @@ describe('functional tests', () => {
   })
 
   it('should add correct styles to the time wrapper', () => {
-    useElapsedTime.__setElapsedTime(8000)
+    useElapsedTime.__setElapsedTime(8)
 
     render(
       <CountdownCircleTimer {...fixture}>
@@ -224,7 +224,7 @@ describe('functional tests', () => {
   })
 
   it('should render the time when the children prop is a function', () => {
-    useElapsedTime.__setElapsedTime(8000)
+    useElapsedTime.__setElapsedTime(8)
 
     render(
       <CountdownCircleTimer {...fixture}>
@@ -237,7 +237,7 @@ describe('functional tests', () => {
   })
 
   it('should render the time when the children prop is a component', () => {
-    useElapsedTime.__setElapsedTime(8000)
+    useElapsedTime.__setElapsedTime(8)
 
     const TimeComponent = ({ remainingTime, format }) => (
       <div>
@@ -256,7 +256,7 @@ describe('functional tests', () => {
   })
 
   it('should render the aria time', () => {
-    useElapsedTime.__setElapsedTime(3000)
+    useElapsedTime.__setElapsedTime(3)
     const renderAriaTime = ({ remainingTime }) => `${remainingTime} seconds`
 
     render(
@@ -280,9 +280,9 @@ describe('functional tests', () => {
 
     expect(useElapsedTime.__getIsPlaying()).toBe(true)
     expect(useElapsedTime.__getConfig()).toEqual({
-      durationMilliseconds: 10000,
+      duration: 10,
       onComplete: undefined,
-      startAt: 3000,
+      startAt: 3,
     })
 
     useElapsedTime.__resetIsPlaying()
@@ -299,9 +299,9 @@ describe('functional tests', () => {
     )
 
     expect(useElapsedTime.__getConfig()).toEqual({
-      durationMilliseconds: 10000,
+      duration: 10,
       onComplete: undefined,
-      startAt: 3000,
+      startAt: 3,
     })
 
     rerender(
@@ -313,9 +313,9 @@ describe('functional tests', () => {
     )
 
     expect(useElapsedTime.__getConfig()).toEqual({
-      durationMilliseconds: 10000,
+      duration: 10,
       onComplete: undefined,
-      startAt: 3000,
+      startAt: 3,
     })
 
     useElapsedTime.__resetIsPlaying()
@@ -340,9 +340,9 @@ describe('functional tests', () => {
       />
     )
 
-    const { durationMilliseconds, startAt } = useElapsedTime.__getConfig()
+    const { duration, startAt } = useElapsedTime.__getConfig()
 
-    expect(durationMilliseconds).toBe(0)
+    expect(duration).toBe(0)
     expect(startAt).toBe(0)
   })
 })
@@ -365,7 +365,7 @@ describe('behaviour tests', () => {
 
     render(<CountdownCircleTimer {...fixture} onComplete={onComplete} />)
 
-    useElapsedTime.__fireOnComplete(3612, 'second argument')
+    useElapsedTime.__fireOnComplete(3.612, 'second argument')
 
     expect(onComplete).toHaveBeenCalledWith(3.612, 'second argument')
 

@@ -49,30 +49,24 @@ const getColorsBase = (colors, isGradient) => {
   })
 }
 
-export const getNormalizedColors = (
-  colors,
-  durationMilliseconds,
-  isGradient
-) => {
+export const getNormalizedColors = (colors, duration, isGradient) => {
   const colorsBase = getColorsBase(colors, isGradient)
   let colorsTotalDuration = 0
 
   return colorsBase.map((color, index) => {
     const isLastColor = colorsBase.length === index + 1
-    if (colorsTotalDuration >= durationMilliseconds || isLastColor) {
-      colorsTotalDuration = durationMilliseconds
+    if (colorsTotalDuration >= duration || isLastColor) {
+      colorsTotalDuration = duration
       return { ...color[0], colorEndTime: colorsTotalDuration }
     }
 
     const colorStartTime = colorsTotalDuration
     const colorEndTimeTemp =
       color[1] !== undefined
-        ? colorStartTime + color[1] * durationMilliseconds
-        : durationMilliseconds - colorsTotalDuration
+        ? colorStartTime + color[1] * duration
+        : duration - colorsTotalDuration
     const colorEndTime =
-      colorEndTimeTemp >= durationMilliseconds
-        ? durationMilliseconds
-        : colorEndTimeTemp
+      colorEndTimeTemp >= duration ? duration : colorEndTimeTemp
 
     const nextColor = colorsBase[index + 1][0]
     const goals = {

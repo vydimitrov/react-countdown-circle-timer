@@ -1,33 +1,42 @@
-let elapsedTime = 0
-let config = undefined
 let isPlaying = false
+let elapsedTime = 0
+let options = {}
+let reset = () => {}
 
 module.exports = {
-  useElapsedTime(isPlayingBool, configObj = {}) {
-    config = configObj
+  useElapsedTime(isPlayingBool, configObj) {
+    options = configObj
     isPlaying = isPlayingBool
 
-    return elapsedTime
+    return { elapsedTime, reset }
   },
 
   __setElapsedTime(time) {
     elapsedTime = time
   },
 
+  __setResetMethod(resetFn) {
+    reset = resetFn
+  },
+
   __resetElapsedTime() {
     elapsedTime = 0
   },
 
+  __resetResetMethod() {
+    reset = () => {}
+  },
+
   __fireOnComplete(...rest) {
-    config.onComplete(...rest)
+    options.onComplete(...rest)
   },
 
   __getConfig() {
-    return config
+    return options
   },
 
   __resetConfig() {
-    config = undefined
+    options = {}
   },
 
   __getIsPlaying() {
@@ -35,6 +44,6 @@ module.exports = {
   },
 
   __resetIsPlaying() {
-    isPlaying = undefined
+    isPlaying = false
   },
 }

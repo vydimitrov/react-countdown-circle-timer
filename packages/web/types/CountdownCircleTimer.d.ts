@@ -1,7 +1,4 @@
 import * as React from 'react'
-import { Config } from 'use-elapsed-time'
-
-export type OnComplete = Config['onComplete']
 
 export interface TimeProps {
   remainingTime?: number
@@ -44,10 +41,10 @@ export interface CountdownCircleTimerProps {
    * On animation complete event handler. It can be used to restart the animation by returning an array
    * where the first element "shouldRepeat" indicates if the loop should start over
    * and second element "delay" specifies the delay before looping again in milliseconds.
-   * The callback receives as an argument the total elapsed time
+   * The callback receives as an argument the total elapsed time in seconds
    *
    */
-  onComplete?: OnComplete
+  onComplete?: (totalElapsedTime: number) => void | [boolean, number] // [shouldRepeat: boolean, delay: number]
   /** Aria label for the whole component. Default: "Countdown timer" */
   ariaLabel?: string
   /** Render prop function to customize the text message that will be read by the screen reader during the countdown */
