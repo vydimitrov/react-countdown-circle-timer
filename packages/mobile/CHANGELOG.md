@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.2...react-native-countdown-circle-timer@2.1.3) (2020-05-30)
+
+**Note:** Version bump only for package react-native-countdown-circle-timer
+
+
+
+
+
 ## [2.1.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.1...react-native-countdown-circle-timer@2.1.2) (2020-05-21)
 
 

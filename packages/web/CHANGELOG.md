@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.1.2...react-countdown-circle-timer@2.1.3) (2020-05-30)
+
+
+### Bug Fixes
+
+* **web:** upgrade useElapsedTime to 2.1.3, which fixes [#24](https://github.com/vydimitrov/react-countdown-circle-timer/issues/24) and fixes [#6](https://github.com/vydimitrov/react-countdown-circle-timer/issues/6) ([0668a6d](https://github.com/vydimitrov/react-countdown-circle-timer/commit/0668a6d3e7558c94103cf40dec6ffd9ad7ddf4b7))
+
+
+
+
+
 ## [2.1.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.1.1...react-countdown-circle-timer@2.1.2) (2020-05-05)
 
 
