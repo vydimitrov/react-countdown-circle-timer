@@ -4,6 +4,6 @@ export const getStartAt = (initialRemainingTime, duration) => {
   }
 
   return typeof initialRemainingTime === 'number'
-    ? (duration - initialRemainingTime) * 1000
+    ? duration - initialRemainingTime
     : 0
 }

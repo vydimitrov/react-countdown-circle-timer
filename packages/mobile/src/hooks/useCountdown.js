@@ -24,7 +24,7 @@ export const useCountdown = ({
   // to change them pass a new value to the "key" prop of the component, which will reinitialize/restart the timer and use the new props
   const { durationMilliseconds, startAt } = useRef({
     durationMilliseconds: duration * 1000,
-    startAt: getStartAt(initialRemainingTime, duration), // in milliseconds
+    startAt: getStartAt(initialRemainingTime, duration) * 1000, // in milliseconds
   }).current
   const animatedElapsedTime = useRef(new Animated.Value(0)).current
   const totalElapsedTime = useRef((startAt / 1000) * -1) // in seconds
