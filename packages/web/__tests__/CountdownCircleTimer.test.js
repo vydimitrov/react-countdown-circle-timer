@@ -157,19 +157,78 @@ describe('functional tests', () => {
     useElapsedTime.__setElapsedTime(0)
 
     const expectedPathProps = ['stroke', 'rgba(0, 71, 119, 1)']
-    const component = (
+    const component = () => (
       <CountdownCircleTimer {...fixture} colors={[['#004777']]} />
     )
-    const { container, rerender } = render(component)
+    const { container, rerender } = render(component())
 
     const pathBeginning = container.querySelectorAll('path')[1]
     expect(pathBeginning).toHaveAttribute(...expectedPathProps)
 
     useElapsedTime.__setElapsedTime(10)
-    rerender(component)
+    rerender(component())
 
     const pathEnd = container.querySelectorAll('path')[1]
     expect(pathEnd).toHaveAttribute(...expectedPathProps)
+  })
+
+  it('should transition colors for which the durations sums up to 1', () => {
+    useElapsedTime.__setElapsedTime(0)
+
+    const component = () => (
+      <CountdownCircleTimer
+        {...fixture}
+        colors={[
+          ['#fff', 0.6],
+          ['#ccc', 0.6], // all colors after this one should be ignored since transition duration is >= 1
+          ['#000', 0.4],
+        ]}
+      />
+    )
+    const { container, rerender } = render(component())
+
+    const pathBeginning = container.querySelectorAll('path')[1]
+    expect(pathBeginning).toHaveAttribute('stroke', 'rgba(255, 255, 255, 1)')
+
+    useElapsedTime.__setElapsedTime(9.9)
+    rerender(component())
+
+    let pathEnd = container.querySelectorAll('path')[1]
+    expect(pathEnd).toHaveAttribute('stroke', 'rgba(5, 5, 5, 1)')
+
+    useElapsedTime.__setElapsedTime(10)
+    rerender(component())
+
+    pathEnd = container.querySelectorAll('path')[1]
+    expect(pathEnd).toHaveAttribute('stroke', 'rgba(0, 0, 0, 1)')
+  })
+
+  it('should use the first color without duration to fill in the whole duration. All color after that one should just be shown in the end - edge case', () => {
+    useElapsedTime.__setElapsedTime(3)
+
+    const component = () => (
+      <CountdownCircleTimer
+        {...fixture}
+        colors={[['#fff', 0.3], ['#ccc'], ['#000']]} // color #ccc fills in duration and color #000 is shown at the end
+      />
+    )
+
+    const { container, rerender } = render(component())
+
+    const pathBeginning = container.querySelectorAll('path')[1]
+    expect(pathBeginning).toHaveAttribute('stroke', 'rgba(204, 204, 204, 1)')
+
+    useElapsedTime.__setElapsedTime(9.9)
+    rerender(component())
+
+    let pathEnd = container.querySelectorAll('path')[1]
+    expect(pathEnd).toHaveAttribute('stroke', 'rgba(2, 2, 2, 1)')
+
+    useElapsedTime.__setElapsedTime(10)
+    rerender(component())
+
+    pathEnd = container.querySelectorAll('path')[1]
+    expect(pathEnd).toHaveAttribute('stroke', 'rgba(0, 0, 0, 1)')
   })
 
   it('should set stroke of the path that animates correctly when the colors are shorthanded', () => {
@@ -298,11 +357,13 @@ describe('functional tests', () => {
       />
     )
 
-    expect(useElapsedTime.__getConfig()).toEqual({
+    const expectedOptions = {
       duration: 10,
       onComplete: undefined,
       startAt: 3,
-    })
+    }
+
+    expect(useElapsedTime.__getConfig()).toEqual(expectedOptions)
 
     rerender(
       <CountdownCircleTimer
@@ -312,11 +373,7 @@ describe('functional tests', () => {
       />
     )
 
-    expect(useElapsedTime.__getConfig()).toEqual({
-      duration: 10,
-      onComplete: undefined,
-      startAt: 3,
-    })
+    expect(useElapsedTime.__getConfig()).toEqual(expectedOptions)
 
     useElapsedTime.__resetIsPlaying()
     useElapsedTime.__resetConfig()

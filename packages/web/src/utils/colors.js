@@ -31,9 +31,7 @@ const getColorsBase = (colors, isGradient) => {
 
     if (index > 0) {
       const prevColorDuration = colorsRGB[index - 1][1]
-      const offsetPct = Math.round(
-        prevColorDuration ? prevColorDuration * 100 : 100
-      )
+      const offsetPct = Math.round(prevColorDuration * 100)
       colorsTotalDurationPct += offsetPct
 
       if (colorsTotalDurationPct > 100 || isLastColor) {
@@ -62,9 +60,7 @@ export const getNormalizedColors = (colors, duration, isGradient) => {
 
     const colorStartTime = colorsTotalDuration
     const colorEndTimeTemp =
-      color[1] !== undefined
-        ? colorStartTime + color[1] * duration
-        : duration - colorsTotalDuration
+      color[1] !== undefined ? colorStartTime + color[1] * duration : duration
     const colorEndTime =
       colorEndTimeTemp >= duration ? duration : colorEndTimeTemp
 
