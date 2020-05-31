@@ -21,6 +21,8 @@ React countdown timer component in a circle shape with color and progress animat
 
 ```
 yarn add react-countdown-circle-timer
+or
+npm install react-countdown-circle-timer
 ```
 
 ## Migrating from v1.x.x to v2.x.x?
