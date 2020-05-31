@@ -7,4 +7,5 @@ export const countdownCircleTimerDefaultProps = {
   isLinearGradient: false,
   ariaLabel: 'Countdown timer',
   children: null,
+  rotation: 'clockwise',
 }

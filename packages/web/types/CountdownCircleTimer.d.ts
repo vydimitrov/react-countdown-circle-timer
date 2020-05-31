@@ -27,6 +27,8 @@ export interface CountdownCircleTimerProps {
   strokeWidth?: number
   /** Path stroke line cap. Default: "round" */
   strokeLinecap?: 'round' | 'square'
+  /** Progress path rotation direction. Default: "clockwise" */
+  rotation?: 'clockwise' | 'counterclockwise'
   /** Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.). Default: #d9d9d9 */
   trailColor?: string
   /** Play and pause animation. Default: false */

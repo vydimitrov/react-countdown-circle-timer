@@ -27,6 +27,7 @@ const CountdownCircleTimer = (props) => {
     ariaLabel,
     renderAriaTime,
     initialRemainingTime,
+    rotation,
   } = props
 
   const {
@@ -48,6 +49,7 @@ const CountdownCircleTimer = (props) => {
     initialRemainingTime,
     onComplete,
     gradientUniqueKey,
+    rotation,
   })
 
   return (

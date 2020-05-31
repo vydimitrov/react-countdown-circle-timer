@@ -127,6 +127,23 @@ describe('functional tests', () => {
     expect(d).toBe('m 90,6.5 a 83.5,83.5 0 1,0 0,167 a 83.5,83.5 0 1,0 0,-167')
   })
 
+  it('should set the path that animates to "counterclockwise" rotation when rotation prop is "counterclockwise"', () => {
+    const { container } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        strokeWidth={13}
+        rotation="counterclockwise"
+      />
+    )
+
+    const path = container.querySelectorAll('path')[1]
+    const d = path
+      .getAttribute('d')
+      .replace(/\r?\n|\r/g, '')
+      .replace(/\s+/g, ' ')
+    expect(d).toBe('m 90,6.5 a 83.5,83.5 0 0,1 0,167 a 83.5,83.5 0 0,1 0,-167')
+  })
+
   it('should set stroke and stroke-dashoffset on the path that animates at the beginning of the animation', () => {
     const { container } = render(<CountdownCircleTimer {...fixture} />)
 

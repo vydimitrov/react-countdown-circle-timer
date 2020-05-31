@@ -17,4 +17,5 @@ export const countdownCircleTimerProps = {
   ariaLabel: PropTypes.string,
   renderAriaTime: PropTypes.func,
   initialRemainingTime: PropTypes.number,
+  rotation: PropTypes.oneOf(['clockwise', 'counterclockwise']),
 }

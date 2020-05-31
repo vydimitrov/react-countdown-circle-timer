@@ -24,6 +24,7 @@ export const useCountdown = ({
   isLinearGradient,
   gradientUniqueKey,
   onComplete,
+  rotation,
 }) => {
   // time related props can NOT be changed once the component is mounted because animation relays on elapsed time since the timer is running
   // to change them pass a new value to the "key" prop of the component, which will reinitialize/restart the timer and use the new props
@@ -34,10 +35,10 @@ export const useCountdown = ({
 
   // useElapsedTime will cause the component to re-render on every frame.
   // We memo all props that need to be computed to avoid doing that on every render
-  const { path, pathLength } = useMemo(() => getPathProps(size, strokeWidth), [
-    size,
-    strokeWidth,
-  ])
+  const { path, pathLength } = useMemo(
+    () => getPathProps(size, strokeWidth, rotation),
+    [size, strokeWidth, rotation]
+  )
 
   const normalizedColors = useMemo(
     () => getNormalizedColors(colors, duration, isLinearGradient),

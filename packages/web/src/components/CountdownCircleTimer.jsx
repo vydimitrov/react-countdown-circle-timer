@@ -21,6 +21,7 @@ const CountdownCircleTimer = ({
   ariaLabel,
   renderAriaTime,
   initialRemainingTime,
+  rotation,
 }) => {
   const {
     path,
@@ -40,6 +41,7 @@ const CountdownCircleTimer = ({
     isLinearGradient,
     gradientUniqueKey,
     onComplete,
+    rotation,
   })
 
   return (

@@ -17,6 +17,7 @@ export const useCountdown = ({
   initialRemainingTime,
   onComplete,
   gradientUniqueKey,
+  rotation,
 }) => {
   const elapsedTime = useRef(0)
   const [isProgressPathVisible, setIsProgressPathVisible] = useState(true)
@@ -28,7 +29,7 @@ export const useCountdown = ({
   }).current
   const animatedElapsedTime = useRef(new Animated.Value(0)).current
   const totalElapsedTime = useRef((startAt / 1000) * -1) // in seconds
-  const { path, pathLength } = getPathProps(size, strokeWidth)
+  const { path, pathLength } = getPathProps(size, strokeWidth, rotation)
   const gradientId = useMemo(() => getGradientId(gradientUniqueKey), [
     gradientUniqueKey,
   ])
