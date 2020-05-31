@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.1.3...react-countdown-circle-timer@2.2.0) (2020-05-31)
+
+
+### Bug Fixes
+
+* **web:** fix edge-case issues with colors transition and improve test coverage ([979d363](https://github.com/vydimitrov/react-countdown-circle-timer/commit/979d363c2bd7105fa23abde9c3592bd094b172ad))
+
+
+### Features
+
+* **web, mobile:** add 'rotation' prop to control progress path rotation direction ([6477bfc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/6477bfca722ace184f9d8282ba072c9e4805a645))
+
+
+
+
+
 ## [2.1.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.1.2...react-countdown-circle-timer@2.1.3) (2020-05-30)
 
 

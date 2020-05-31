@@ -1,6 +1,6 @@
 {
   "name": "react-countdown-circle-timer",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "Lightweight React countdown timer component with color and progress animation based on SVG",
   "main": "./lib/index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@countdown-circle-timer/shared": "^1.0.6",
+    "@countdown-circle-timer/shared": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0"
   },

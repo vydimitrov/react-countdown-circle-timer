@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.3...react-native-countdown-circle-timer@2.2.0) (2020-05-31)
+
+
+### Features
+
+* **web, mobile:** add 'rotation' prop to control progress path rotation direction ([6477bfc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/6477bfca722ace184f9d8282ba072c9e4805a645))
+
+
+
+
+
 ## [2.1.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.2...react-native-countdown-circle-timer@2.1.3) (2020-05-30)
 
 **Note:** Version bump only for package react-native-countdown-circle-timer
