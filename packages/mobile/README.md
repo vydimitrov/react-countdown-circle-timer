@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/react-native-countdown-circle-timer)](https://www.npmjs.com/package/react-native-countdown-circle-timer)
 [![npm](https://img.shields.io/npm/dw/react-native-countdown-circle-timer)](https://www.npmtrends.com/react-native-countdown-circle-timer)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/vydimitrov/react-countdown-circle-timer/Codecov%20Coverage)](https://codecov.io/gh/vydimitrov/react-countdown-circle-timer)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/react-native-countdown-circle-timer)](https://bundlephobia.com/result?p=react-native-countdown-circle-timer)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-native-countdown-circle-timer)](https://bundlephobia.com/result?p=react-native-countdown-circle-timer)
 
 React Native countdown timer component for iOS and Android in a circle shape with color and progress animation.
 
