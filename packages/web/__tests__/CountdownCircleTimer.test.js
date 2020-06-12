@@ -406,7 +406,7 @@ describe('functional tests', () => {
   })
 
   it('should set statAt prop to 0 if the duration provided is 0', () => {
-    const { container } = render(
+    render(
       <CountdownCircleTimer
         {...fixture}
         duration={0}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 import renderer from 'react-test-renderer'
+import { render, act } from 'react-native-testing-library'
 
 import { CountdownCircleTimer } from '../src'
 
@@ -31,5 +32,114 @@ describe('snapshot tests', () => {
       .toJSON()
 
     expect(tree).toMatchSnapshot()
+  })
+
+  it('renders with single color', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer duration={5} colors={[['#004777']]}>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders with gradient', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer
+          duration={5}
+          colors={[['#004777', 0.4], ['#aabbcc']]}
+          isLinearGradient
+        >
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+})
+
+describe('functional tests', () => {
+  it('should start the timer from value provided in initialRemainingTime', () => {
+    const { getByText } = render(
+      <CountdownCircleTimer {...fixture} initialRemainingTime={3.7}>
+        {({ remainingTime }) => <Text>{remainingTime}</Text>}
+      </CountdownCircleTimer>
+    )
+
+    expect(getByText('4')).toBeTruthy()
+  })
+
+  it('should display 0 at the end of the countdown', () => {
+    global.withAnimatedTimeTravelEnabled(() => {
+      const { getByText } = render(
+        <CountdownCircleTimer {...fixture} isPlaying>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+
+      act(() => {
+        global.timeTravel(10000)
+      })
+
+      expect(getByText('0')).toBeTruthy()
+    })
+  })
+})
+
+describe('behaviour tests', () => {
+  it('should call onComplete at the end of the countdown', () => {
+    global.withAnimatedTimeTravelEnabled(() => {
+      const onComplete = jest.fn()
+      const { getByText } = render(
+        <CountdownCircleTimer {...fixture} isPlaying onComplete={onComplete}>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+
+      act(() => {
+        global.timeTravel(10000)
+      })
+
+      expect(getByText('0')).toBeTruthy()
+      expect(onComplete).toHaveBeenCalledWith(10)
+    })
+  })
+
+  it('should repeat the countdown when onComplete return an array with shouldRepeat = true', () => {
+    global.withAnimatedTimeTravelEnabled(() => {
+      const duration = 1
+      const shouldRepeat = true
+      const onComplete = jest.fn().mockReturnValueOnce([shouldRepeat])
+      const component = (isPlaying) => (
+        <CountdownCircleTimer
+          {...fixture}
+          duration={duration}
+          isPlaying={isPlaying}
+          onComplete={onComplete}
+        >
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      const { getByText, rerender } = render(component(true))
+
+      act(() => {
+        global.timeTravel(1000)
+      })
+
+      expect(getByText('0')).toBeTruthy()
+      expect(onComplete).toHaveBeenCalledWith(1)
+
+      act(() => {
+        jest.runOnlyPendingTimers()
+      })
+
+      expect(getByText('1')).toBeTruthy()
+      rerender(component(false))
+    })
   })
 })

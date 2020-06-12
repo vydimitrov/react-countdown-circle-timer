@@ -37,9 +37,12 @@
   },
   "devDependencies": {
     "@countdown-circle-timer/shared": "^1.1.0",
+    "@testing-library/jest-native": "^3.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "mockdate": "^3.0.2",
     "react-native": ">=0.50.0",
-    "react-native-svg": ">=6.2.1"
+    "react-native-svg": ">=6.2.1",
+    "react-native-testing-library": "^2.1.0"
   },
   "files": [
     "lib",
