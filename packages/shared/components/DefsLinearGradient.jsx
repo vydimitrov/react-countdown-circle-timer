@@ -34,7 +34,7 @@ const DefsLinearGradient = ({
   <Defs>
     <LinearGradient id={gradientId} x1="1" y1="0" x2="0" y2="0">
       {getStopProps(colors).map((gradient) => (
-        <Stop {...gradient} />
+        <Stop {...gradient} key={gradient.key} />
       ))}
     </LinearGradient>
   </Defs>

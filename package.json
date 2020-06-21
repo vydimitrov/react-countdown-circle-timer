@@ -11,7 +11,8 @@
     "test": "lerna run test",
     "test-coverage": "lerna run test-coverage",
     "dev:push": "lerna run dev:push",
-    "release": "lerna publish"
+    "release": "lerna publish",
+    "lint": "eslint --ext js,jsx ."
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
   "repository": {
@@ -30,19 +31,39 @@
   "author": "Vasil Dimitrov",
   "license": "MIT",
   "devDependencies": {
-    "lerna": "^3.20.2",
-    "prop-types": ">=15.7.0",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "react-test-renderer": ">=16.8.0",
-    "codecov": "^3.6.1",
-    "jest": "^24.9.0",
-    "path": "^0.12.7",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.0",
     "babel-loader": "^8.0.6",
+    "codecov": "^3.6.1",
+    "eslint": "^7.3.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "jest": "^24.9.0",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.2.11",
+    "path": "^0.12.7",
+    "prettier": "^2.0.5",
+    "prop-types": ">=15.7.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-test-renderer": ">=16.8.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --fix"
   }
 }
