@@ -66,7 +66,9 @@ const TimeWrapper = (props) => {
 TimeWrapper.propTypes = {
   durationMilliseconds: PropTypes.number.isRequired,
   animatedElapsedTime: PropTypes.object.isRequired,
-  animatedColor: PropTypes.object,
+  // when there is a single color we just past the color string
+  // when there are more colors it is an interpolate object
+  animatedColor: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   children: countdownCircleTimerProps.children,
   renderAriaTime: countdownCircleTimerProps.renderAriaTime,
 }

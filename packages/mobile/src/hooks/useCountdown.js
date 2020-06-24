@@ -27,6 +27,8 @@ export const useCountdown = ({
     durationMilliseconds: duration * 1000,
     startAt: getStartAt(initialRemainingTime, duration) * 1000, // in milliseconds
   }).current
+  const repeatTimeoutRef = useRef(null)
+  const isMountedRef = useRef(false)
   const animatedElapsedTime = useRef(new Animated.Value(0)).current
   const totalElapsedTime = useRef((startAt / 1000) * -1) // in seconds
   const { path, pathLength } = getPathProps(size, strokeWidth, rotation)
@@ -45,6 +47,9 @@ export const useCountdown = ({
   })
 
   useEffect(() => {
+    // set isMounted prop to true when the component is mounted
+    isMountedRef.current = true
+
     // set initial remaining time if it is provided
     if (startAt) {
       elapsedTime.current = startAt
@@ -56,8 +61,11 @@ export const useCountdown = ({
       elapsedTime.current = value
     })
 
+    // final cleanup
     return () => {
+      isMountedRef.current = false
       animatedElapsedTime.removeAllListeners()
+      clearTimeout(repeatTimeoutRef.current)
     }
   }, [])
 
@@ -78,8 +86,8 @@ export const useCountdown = ({
             const [shouldRepeat = false, delay = 0] =
               onComplete(totalElapsedTime.current) || []
 
-            if (shouldRepeat) {
-              setTimeout(() => {
+            if (shouldRepeat && isMountedRef.current) {
+              repeatTimeoutRef.current = setTimeout(() => {
                 elapsedTime.current = 0
                 animatedElapsedTime.resetAnimation()
                 setIsProgressPathVisible(true)

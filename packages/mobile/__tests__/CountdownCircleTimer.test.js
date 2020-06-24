@@ -142,4 +142,17 @@ describe('behaviour tests', () => {
       rerender(component(false))
     })
   })
+
+  it('should clear repeat timeout when the component is unmounted', () => {
+    const clearTimeoutMock = jest.fn()
+    const cancelAnimationFrameMock = jest.fn()
+
+    global.clearTimeout = clearTimeoutMock
+
+    const { unmount } = render(<CountdownCircleTimer {...fixture} />)
+
+    unmount()
+
+    expect(clearTimeoutMock).toHaveBeenCalled()
+  })
 })
