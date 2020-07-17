@@ -47,7 +47,7 @@ const UrgeWithPleasureComponent = () => (
   <CountdownCircleTimer
     isPlaying
     duration={10}
-    colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']]}
+    colors={[['#004777', 0.33], ['#F7B801', 0.33], ['#A30000',0]]}
   >
     {({ remainingTime }) => remainingTime}
   </CountdownCircleTimer>
@@ -77,7 +77,7 @@ const UrgeWithPleasureComponent = () => (
     }}
     isPlaying
     duration={10}
-    colors={[['#A30000']]}
+    colors={[['#A30000',0]]}
   />
 )
 ```
@@ -92,7 +92,7 @@ const UrgeWithPleasureComponent = () => (
     isPlaying
     duration={60}
     initialRemainingTime={15}
-    colors={[['#A30000']]}
+    colors={[['#A30000'],0]}
   />
 )
 ```
