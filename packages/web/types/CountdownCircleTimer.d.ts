@@ -9,10 +9,8 @@ type ChildAsFunc = {
   (props: TimeProps): number | string | React.ReactNode
 }
 
-type Color = [string, number]
-type Colors = {
-  0: Color
-} & Array<Color>
+type Color = [string, number?];
+type Colors = Color[];
 
 export interface CountdownCircleTimerProps {
   /** Countdown duration in seconds */
