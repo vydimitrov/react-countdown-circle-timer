@@ -1,13 +1,19 @@
 {
-  "lerna": "3.20.2",
+  "version": "2.2.2",
   "packages": ["packages/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "independent",
   "command": {
-    "publish": {
+    "version": {
+      "preid": "next",
+      "ignoreChanges": ["**/__tests__/**", "**/*.md", "lerna.json"],
+      "allowBranch": ["master", "next", "develop", "release-*"],
       "conventionalCommits": true,
-      "yes": true
+      "createRelease": "github",
+      "message": "chore(release): publish %s :confetti_ball: :rocket:"
+    },
+    "publish": {
+      "conventionalCommits": true
     }
   }
 }
