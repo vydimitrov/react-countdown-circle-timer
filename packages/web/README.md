@@ -60,45 +60,6 @@ Refer to the [list of props](https://github.com/vydimitrov/react-countdown-circl
 
 ## Recipes
 
-### Restart timer at any given time
-
-Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer should be restarted.
-
-### Repeat timer when countdown is completed
-
-Return an array from `onComplete` handler, which indicates if the animation should be repeated. Example:
-
-```jsx
-const UrgeWithPleasureComponent = () => (
-  <CountdownCircleTimer
-    onComplete={() => {
-      // do your stuff here
-      return [true, 1500] // repeat animation in 1.5 seconds
-    }}
-    isPlaying
-    duration={10}
-    colors={[['#A30000']]}
-  />
-)
-```
-
-### Set the initial remaining time different then the duration provided
-
-Pass the remaining time to `initialRemainingTime` prop. Example:
-
-```jsx
-const UrgeWithPleasureComponent = () => (
-  <CountdownCircleTimer
-    isPlaying
-    duration={60}
-    initialRemainingTime={15}
-    colors={[['#A30000']]}
-  />
-)
-```
-
-In the example above, the countdown will start at 15 seconds (one quarter before it's done) and it will animate for 15 seconds until reaches 0.
-
 ### Slide down time animation
 
 <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
