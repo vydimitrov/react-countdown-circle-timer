@@ -1,5 +1,5 @@
 {
-  "version": "2.3.0",
+  "version": "2.3.1",
   "packages": [
     "packages/*"
   ],
@@ -21,7 +21,7 @@
       ],
       "conventionalCommits": true,
       "createRelease": "github",
-      "message": "chore(release): publish %s :confetti_ball: :rocket:"
+      "message": "chore(release): publish %s :tada: :rocket:"
     },
     "publish": {
       "conventionalCommits": true
