@@ -69,7 +69,7 @@ const UrgeWithPleasureComponent = () => (
     }}
     isPlaying
     duration={10}
-    colors={[['#A30000']]}
+    colors="#A30000"
   />
 )
 ```
@@ -84,7 +84,7 @@ const UrgeWithPleasureComponent = () => (
     isPlaying
     duration={60}
     initialRemainingTime={15}
-    colors={[['#A30000']]}
+    colors="#A30000"
   />
 )
 ```
@@ -110,7 +110,7 @@ const children = ({ remainingTime }) => {
 
 ```js
 const children = ({ remainingTime }) => {
-  const hours = Math.floor(time / 3600)
+  const hours = Math.floor(remainingTime / 3600)
   const minutes = Math.floor((remainingTime % 3600) / 60)
   const seconds = remainingTime % 60
 
