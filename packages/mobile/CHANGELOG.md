@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.3.0 (2020-07-21)
+
+
+### Bug Fixes
+
+* **mobile:** clear repeat timeout when component is unmounted, fixes [#29](https://github.com/vydimitrov/react-countdown-circle-timer/issues/29) ([76259be](https://github.com/vydimitrov/react-countdown-circle-timer/commit/76259be67bee78b03253dff2aecc175a6864aca5))
+* **mobile:** progress path is visible at the end of the countdown ([903da0b](https://github.com/vydimitrov/react-countdown-circle-timer/commit/903da0b66255bb77afdb0552c5a6510fac1645f8))
+* **mobile:** set explicitly useNativeDriver to false ([0d703b3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/0d703b38369f2dc5e3c2c538fa2203415cf4e4ea))
+* **mobile:** time props can not be changed once component is mounted ([4f9d40a](https://github.com/vydimitrov/react-countdown-circle-timer/commit/4f9d40a739c86ed9b0faed2307a81a3127701d8d))
+* add local package as dev dependancy ([cb7f3bd](https://github.com/vydimitrov/react-countdown-circle-timer/commit/cb7f3bd3fa64c1203c96743cfa9d000edf4e78e1))
+* remove publishConfig from web and mobile package.json ([f21eb65](https://github.com/vydimitrov/react-countdown-circle-timer/commit/f21eb65bfa94bf6f78b5267c0bd42a84c9ae8c80))
+
+
+### Features
+
+* **mobile:** pass totalElapsedTime as an argument to onComplete callback ([9909f01](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9909f016ea2885b3f16cc84da1c4a39125e729f6))
+* **web, mobile:** add 'rotation' prop to control progress path rotation direction ([6477bfc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/6477bfca722ace184f9d8282ba072c9e4805a645))
+* **web, mobile:** allow passing string as a single color to colors prop ([f5ba08c](https://github.com/vydimitrov/react-countdown-circle-timer/commit/f5ba08c604f89fcf42bf4dbb62f883bd7b2d1647))
+
+
+
+
+
 ## [2.2.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.2.1...react-native-countdown-circle-timer@2.2.2) (2020-06-24)
 
 
