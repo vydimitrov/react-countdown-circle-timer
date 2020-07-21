@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import { countdownCircleTimerProps } from '..'
 
 const getStopProps = (colors) => {
-  if (colors.length === 1) {
-    return [{ offset: 1, stopColor: colors[0][0], key: 0 }]
+  const isColorsString = typeof colors === 'string'
+  if (isColorsString || colors.length === 1) {
+    const stopColor = isColorsString ? colors : colors[0][0]
+    return [{ offset: 1, stopColor, key: 0 }]
   }
 
   const colorsLength = colors.length
