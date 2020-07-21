@@ -48,7 +48,8 @@ const getColorsBase = (colors, isGradient) => {
 }
 
 export const getNormalizedColors = (colors, duration, isGradient) => {
-  const colorsBase = getColorsBase(colors, isGradient)
+  const allColors = typeof colors === 'string' ? [[colors, 1]] : colors
+  const colorsBase = getColorsBase(allColors, isGradient)
   let colorsTotalDuration = 0
 
   return colorsBase.map((color, index) => {

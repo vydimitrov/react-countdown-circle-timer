@@ -9,7 +9,11 @@ Math.random = () => 0.124578
 
 const fixture = {
   duration: 10,
-  colors: [['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']],
+  colors: [
+    ['#004777', 0.33],
+    ['#F7B801', 0.33],
+    ['#A30000', 0.33],
+  ],
 }
 
 describe('snapshot tests', () => {
@@ -37,7 +41,19 @@ describe('snapshot tests', () => {
   it('renders with single color', () => {
     const tree = renderer
       .create(
-        <CountdownCircleTimer duration={5} colors={[['#004777']]}>
+        <CountdownCircleTimer duration={5} colors={[['#004777', 1]]}>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders with single color provided as a string', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer duration={5} colors="#004777">
           {({ remainingTime }) => <Text>{remainingTime}</Text>}
         </CountdownCircleTimer>
       )
@@ -51,7 +67,10 @@ describe('snapshot tests', () => {
       .create(
         <CountdownCircleTimer
           duration={5}
-          colors={[['#004777', 0.4], ['#aabbcc']]}
+          colors={[
+            ['#004777', 0.4],
+            ['#aabbcc', 0.6],
+          ]}
           isLinearGradient
         >
           {({ remainingTime }) => <Text>{remainingTime}</Text>}
@@ -74,10 +93,11 @@ describe('functional tests', () => {
     expect(getByText('4')).toBeTruthy()
   })
 
-  it('should display 0 at the end of the countdown', () => {
+  it('should call onComplete at the end of the countdown', () => {
     global.withAnimatedTimeTravelEnabled(() => {
+      const onComplete = jest.fn()
       const { getByText } = render(
-        <CountdownCircleTimer {...fixture} isPlaying>
+        <CountdownCircleTimer {...fixture} isPlaying onComplete={onComplete}>
           {({ remainingTime }) => <Text>{remainingTime}</Text>}
         </CountdownCircleTimer>
       )
@@ -87,6 +107,7 @@ describe('functional tests', () => {
       })
 
       expect(getByText('0')).toBeTruthy()
+      expect(onComplete).toHaveBeenCalledWith(10)
     })
   })
 })
@@ -145,7 +166,6 @@ describe('behaviour tests', () => {
 
   it('should clear repeat timeout when the component is unmounted', () => {
     const clearTimeoutMock = jest.fn()
-    const cancelAnimationFrameMock = jest.fn()
 
     global.clearTimeout = clearTimeoutMock
 

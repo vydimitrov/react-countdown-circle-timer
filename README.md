@@ -31,7 +31,7 @@ This component has a peer dependency on `react-native-svg`. Read the [full docum
 | Prop Name            | Type                                                                                             | Default         | Description                                                                                                                                                                                                                                                                                                                   |
 | -------------------- | ------------------------------------------------------------------------------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | duration             | number                                                                                           | _required_      | Countdown duration in seconds                                                                                                                                                                                                                                                                                                 |
-| colors               | [color HEX: string, transition duration: number 0 ~ 1][]                                         | _required_      | Array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration                                                                                                                                                                                |
+| colors               | string \| [color HEX: string, transition duration: number 0 ~ 1][]                               | _required_      | Single color as a string in HEX format or an array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration                                                                                                                                   |
 | initialRemainingTime | number                                                                                           | -               | Sets the initial remaining time when the countdown starts. By default the countdown starts at the duration provided.                                                                                                                                                                                                          |
 | size                 | number                                                                                           | 180             | Width and height of the SVG element                                                                                                                                                                                                                                                                                           |
 | strokeWidth          | number                                                                                           | 12              | Path stroke width                                                                                                                                                                                                                                                                                                             |
@@ -45,3 +45,75 @@ This component has a peer dependency on `react-native-svg`. Read the [full docum
 | onComplete           | function(totalElapsedTime: number): void \| [shouldRepeat: boolean, delay: number]               | -               | On complete handler. It can be used to repeat the countdown by returning an array where the first element `shouldRepeat` indicates if the loop should start over and second element `delay` specifies the delay before looping again in milliseconds. The callback receives as an argument the total elapsed time in seconds. |
 | ariaLabel            | string                                                                                           | Countdown timer | Aria label for the whole component                                                                                                                                                                                                                                                                                            |
 | renderAriaTime       | function({ remainingTime: number, elapsedTime: number }): string                                 | -               | Render prop function to customize the text message that will be read by the screen reader during the countdown.                                                                                                                                                                                                               |
+
+## Recipes
+
+### Change `duration` and/or `initialRemainingTime` once component is mounted
+
+Once the component is mounted `duration` and `initialRemainingTime` can not be changed to avoid any issues computing colors and progress. To set new values for any of the two props just pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
+
+### Restart timer at any given time
+
+Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer should be restarted.
+
+### Repeat timer when countdown is completed
+
+Return an array from `onComplete` handler, which indicates if the animation should be repeated. Example:
+
+```jsx
+const UrgeWithPleasureComponent = () => (
+  <CountdownCircleTimer
+    onComplete={() => {
+      // do your stuff here
+      return [true, 1500] // repeat animation in 1.5 seconds
+    }}
+    isPlaying
+    duration={10}
+    colors="#A30000"
+  />
+)
+```
+
+### Set the initial remaining time different then the duration provided
+
+Pass the remaining time to `initialRemainingTime` prop. Example:
+
+```jsx
+const UrgeWithPleasureComponent = () => (
+  <CountdownCircleTimer
+    isPlaying
+    duration={60}
+    initialRemainingTime={15}
+    colors="#A30000"
+  />
+)
+```
+
+In the example above, the countdown will start at 15 seconds (one quarter before it's done) and it will animate for 15 seconds until reaches 0.
+
+### Time formatting functions
+
+`children` prop of `CountdownCircleTimer` component will receive as a prop `remainingTime` in seconds. Below are few function that can be used to get different time formatting:
+
+- Format `mm:ss` (minutes and seconds)
+
+```js
+const children = ({ remainingTime }) => {
+  const minutes = Math.floor((remainingTime % 3600) / 60)
+  const seconds = remainingTime % 60
+
+  return `${minutes}:${seconds}`
+}
+```
+
+- Format `hh:mm:ss` (hours, minutes and seconds)
+
+```js
+const children = ({ remainingTime }) => {
+  const hours = Math.floor(remainingTime / 3600)
+  const minutes = Math.floor((remainingTime % 3600) / 60)
+  const seconds = remainingTime % 60
+
+  return `${hours}:${minutes}:${seconds}`
+}
+```

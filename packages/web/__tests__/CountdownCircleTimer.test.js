@@ -11,7 +11,11 @@ const useElapsedTime = require('use-elapsed-time')
 
 const fixture = {
   duration: 10,
-  colors: [['#004777', 0.33], ['#F7B801', 0.33], ['#A30000']],
+  colors: [
+    ['#004777', 0.33],
+    ['#F7B801', 0.33],
+    ['#A30000', 0.33],
+  ],
 }
 
 describe('snapshot tests', () => {
@@ -170,12 +174,31 @@ describe('functional tests', () => {
     expect(path).toHaveAttribute('stroke', 'rgba(163, 0, 0, 1)')
   })
 
-  it('should the same color at the beginning and end of the animation if only one color is provided', () => {
+  it('should the same color at the beginning and end of the animation if only one color in an array of colors is provided', () => {
     useElapsedTime.__setElapsedTime(0)
 
     const expectedPathProps = ['stroke', 'rgba(0, 71, 119, 1)']
     const component = () => (
       <CountdownCircleTimer {...fixture} colors={[['#004777']]} />
+    )
+    const { container, rerender } = render(component())
+
+    const pathBeginning = container.querySelectorAll('path')[1]
+    expect(pathBeginning).toHaveAttribute(...expectedPathProps)
+
+    useElapsedTime.__setElapsedTime(10)
+    rerender(component())
+
+    const pathEnd = container.querySelectorAll('path')[1]
+    expect(pathEnd).toHaveAttribute(...expectedPathProps)
+  })
+
+  it('should the same color at the beginning and end of the animation if only one color as a string is provided', () => {
+    useElapsedTime.__setElapsedTime(0)
+
+    const expectedPathProps = ['stroke', 'rgba(0, 71, 119, 1)']
+    const component = () => (
+      <CountdownCircleTimer {...fixture} colors="#004777" />
     )
     const { container, rerender } = render(component())
 

@@ -3,8 +3,11 @@ export const getStroke = ({
   animatedElapsedTime,
   durationMilliseconds,
 }) => {
-  const colorsLength = colors.length
+  if (typeof colors === 'string') {
+    return colors
+  }
 
+  const colorsLength = colors.length
   if (colorsLength === 1) {
     return colors[0][0]
   }

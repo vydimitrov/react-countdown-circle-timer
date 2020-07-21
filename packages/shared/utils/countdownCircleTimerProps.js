@@ -3,8 +3,7 @@ import { colorsValidator } from '.'
 
 export const countdownCircleTimerProps = {
   duration: PropTypes.number.isRequired,
-  colors: PropTypes.arrayOf(PropTypes.arrayOf(colorsValidator).isRequired)
-    .isRequired,
+  colors: colorsValidator,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   size: PropTypes.number,
   strokeWidth: PropTypes.number,
