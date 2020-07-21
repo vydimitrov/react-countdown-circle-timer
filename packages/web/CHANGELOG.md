@@ -5,58 +5,31 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.3.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.2...v2.3.3) (2020-07-21)
 
-**Note:** Version bump only for package react-countdown-circle-timer
-
-
+**Note:** An attempt to configure Lerna to create Github releases. No changes on component code.
 
 
 
 ## [2.3.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.1...v2.3.2) (2020-07-21)
 
-**Note:** Version bump only for package react-countdown-circle-timer
-
-
+**Note:** An attempt to configure Lerna to create Github releases. No changes on component code.
 
 
 
 ## [2.3.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.0...v2.3.1) (2020-07-21)
 
-**Note:** Version bump only for package react-countdown-circle-timer
-
-
-
+**Note:** An attempt to configure Lerna to create Github releases. No changes on component code.
 
 
 # 2.3.0 (2020-07-21)
 
-
-### Bug Fixes
-
-* **web:** Cannot read property 'duration' of undefined - fix [#20](https://github.com/vydimitrov/react-countdown-circle-timer/issues/20) ([bcdb595](https://github.com/vydimitrov/react-countdown-circle-timer/commit/bcdb59595d5fcaa9c7d7f9b357d21dc0af856dde))
-* **web:** fix edge-case issues with colors transition and improve test coverage ([979d363](https://github.com/vydimitrov/react-countdown-circle-timer/commit/979d363c2bd7105fa23abde9c3592bd094b172ad))
-* **web:** hide progress path when the duration provided is 0 ([fa48e3d](https://github.com/vydimitrov/react-countdown-circle-timer/commit/fa48e3d5e90e18c25968f0e18d0ca10931e54807))
-* **web:** progress path not hidden when countdown is done ([dfe3b2b](https://github.com/vydimitrov/react-countdown-circle-timer/commit/dfe3b2b325ab58c06afed946c9c625ae40737f22))
-* **web:** upgrade use-elapsed-time to 2.1.5, which fixes [#28](https://github.com/vydimitrov/react-countdown-circle-timer/issues/28) ([722e41e](https://github.com/vydimitrov/react-countdown-circle-timer/commit/722e41e95deb7637bcbe1fb3f3cfc8c48643cec4))
-* **web:** upgrade useElapsedTime to 2.1.3, which fixes [#24](https://github.com/vydimitrov/react-countdown-circle-timer/issues/24) and fixes [#6](https://github.com/vydimitrov/react-countdown-circle-timer/issues/6) ([0668a6d](https://github.com/vydimitrov/react-countdown-circle-timer/commit/0668a6d3e7558c94103cf40dec6ffd9ad7ddf4b7))
-* add local package as dev dependancy ([cb7f3bd](https://github.com/vydimitrov/react-countdown-circle-timer/commit/cb7f3bd3fa64c1203c96743cfa9d000edf4e78e1))
-* remove publishConfig from web and mobile package.json ([f21eb65](https://github.com/vydimitrov/react-countdown-circle-timer/commit/f21eb65bfa94bf6f78b5267c0bd42a84c9ae8c80))
-
-
 ### Features
 
-* **web:** pass totalElapsedTime as an argument to onComplete callback ([dfd33ce](https://github.com/vydimitrov/react-countdown-circle-timer/commit/dfd33ce05431c43540f384bbd554e14f620e28af))
-* **web, mobile:** add 'rotation' prop to control progress path rotation direction ([6477bfc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/6477bfca722ace184f9d8282ba072c9e4805a645))
 * **web, mobile:** allow passing string as a single color to colors prop ([f5ba08c](https://github.com/vydimitrov/react-countdown-circle-timer/commit/f5ba08c604f89fcf42bf4dbb62f883bd7b2d1647))
-
-
-
 
 
 ## [2.2.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-countdown-circle-timer@2.2.1...react-countdown-circle-timer@2.2.2) (2020-06-24)
 
 **Note:** Version bump only for package react-countdown-circle-timer
-
-
 
 
 
