@@ -5,92 +5,57 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 2.3.4 (2020-07-22)
 
-**Note:** Version bump only for package react-native-countdown-circle-timer
-
-
-
-
+**Note:** Configure Github action to release using Lerna. No changes on component code.
 
 ## [2.3.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.2...v2.3.3) (2020-07-21)
 
 **Note:** An attempt to configure Lerna to create Github releases. No changes on component code.
 
-
-
 ## [2.3.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.1...v2.3.2) (2020-07-21)
 
 **Note:** An attempt to configure Lerna to create Github releases. No changes on component code.
-
-
 
 ## [2.3.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.0...v2.3.1) (2020-07-21)
 
 **Note:** An attempt to configure Lerna to create Github releases. No changes on component code.
 
-
 # 2.3.0 (2020-07-21)
 
 ### Features
 
-* **web, mobile:** allow passing string as a single color to colors prop ([f5ba08c](https://github.com/vydimitrov/react-countdown-circle-timer/commit/f5ba08c604f89fcf42bf4dbb62f883bd7b2d1647))
-
-
+- **web, mobile:** allow passing string as a single color to colors prop ([f5ba08c](https://github.com/vydimitrov/react-countdown-circle-timer/commit/f5ba08c604f89fcf42bf4dbb62f883bd7b2d1647))
 
 ## [2.2.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.2.1...react-native-countdown-circle-timer@2.2.2) (2020-06-24)
 
-
 ### Bug Fixes
 
-* **mobile:** clear repeat timeout when component is unmounted, fixes [#29](https://github.com/vydimitrov/react-countdown-circle-timer/issues/29) ([76259be](https://github.com/vydimitrov/react-countdown-circle-timer/commit/76259be67bee78b03253dff2aecc175a6864aca5))
-
-
+- **mobile:** clear repeat timeout when component is unmounted, fixes [#29](https://github.com/vydimitrov/react-countdown-circle-timer/issues/29) ([76259be](https://github.com/vydimitrov/react-countdown-circle-timer/commit/76259be67bee78b03253dff2aecc175a6864aca5))
 
 ## [2.2.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.2.0...react-native-countdown-circle-timer@2.2.1) (2020-06-21)
 
 **Note:** Version bump only for package react-native-countdown-circle-timer
 
-
-
 # [2.2.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.3...react-native-countdown-circle-timer@2.2.0) (2020-05-31)
-
 
 ### Features
 
-* **web, mobile:** add 'rotation' prop to control progress path rotation direction ([6477bfc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/6477bfca722ace184f9d8282ba072c9e4805a645))
-
-
-
-
+- **web, mobile:** add 'rotation' prop to control progress path rotation direction ([6477bfc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/6477bfca722ace184f9d8282ba072c9e4805a645))
 
 ## [2.1.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.2...react-native-countdown-circle-timer@2.1.3) (2020-05-30)
 
 **Note:** Version bump only for package react-native-countdown-circle-timer
 
-
-
-
-
 ## [2.1.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.1...react-native-countdown-circle-timer@2.1.2) (2020-05-21)
-
 
 ### Bug Fixes
 
-* **mobile:** set explicitly useNativeDriver to false ([0d703b3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/0d703b38369f2dc5e3c2c538fa2203415cf4e4ea))
-
-
-
-
+- **mobile:** set explicitly useNativeDriver to false ([0d703b3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/0d703b38369f2dc5e3c2c538fa2203415cf4e4ea))
 
 ## [2.1.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.1.0...react-native-countdown-circle-timer@2.1.1) (2020-05-05)
 
-
 ### Bug Fixes
 
-* **mobile:** time props can not be changed once component is mounted ([4f9d40a](https://github.com/vydimitrov/react-countdown-circle-timer/commit/4f9d40a739c86ed9b0faed2307a81a3127701d8d))
-
-
-
-
+- **mobile:** time props can not be changed once component is mounted ([4f9d40a](https://github.com/vydimitrov/react-countdown-circle-timer/commit/4f9d40a739c86ed9b0faed2307a81a3127701d8d))
 
 # [2.1.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/react-native-countdown-circle-timer@2.0.5...react-native-countdown-circle-timer@2.1.0) (2020-04-28)
 
