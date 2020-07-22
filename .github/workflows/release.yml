@@ -33,7 +33,7 @@ jobs:
 
       - name: Create a release on GitHub
         if: success()
-        run: yarn lerna version --force-publish --yes
+        run: yarn lerna version --yes
 
       - name: Release packages to NPM
         if: success()
