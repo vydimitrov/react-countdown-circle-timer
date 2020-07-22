@@ -1,6 +1,6 @@
 {
   "name": "@countdown-circle-timer/shared",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "private": true,
   "main": "index.js",
   "scripts": {},
