@@ -5,19 +5,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 2.3.6 (2020-07-22)
 
-**Note:** Version bump only for package @countdown-circle-timer/shared
-
-
-
-
+**Note:** Configure Github action to release using Lerna. No changes on component code.
 
 ## 2.3.5 (2020-07-22)
 
-**Note:** Version bump only for package @countdown-circle-timer/shared
-
-
-
-
+**Note:** Configure Github action to release using Lerna. No changes on component code.
 
 ## 2.3.4 (2020-07-22)
 
