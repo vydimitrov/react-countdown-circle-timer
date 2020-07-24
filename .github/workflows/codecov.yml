@@ -1,19 +1,23 @@
 name: Codecov Coverage
 on: [push]
 jobs:
-  run:
+  report-test-coverage:
+    name: Report test coverage on push
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '13.x'
+          node-version: '12'
+
       - name: Generate coverage report
         run: |
-          yarn install
-          yarn bootstrap
+          yarn --frozen-lockfile
           yarn test-coverage
+
       - name: Upload coverage for Web package
         if: success()
         uses: codecov/codecov-action@v1
@@ -21,6 +25,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: packages/web/coverage/coverage-final.json
           flags: web
+
       - name: Upload coverage for Mobile package
         if: success()
         uses: codecov/codecov-action@v1
