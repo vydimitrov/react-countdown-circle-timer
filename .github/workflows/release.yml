@@ -2,14 +2,14 @@ name: Release
 on:
   push:
     branches:
-      - disable/master
+      - master
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build-test-release:
-    name: Build, test and release from master branch
+    name: Build, test and release from master branch on push
     runs-on: ubuntu-latest
 
     steps:
