@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - disable/master
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -11,11 +11,11 @@ jobs:
   build-test-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '13.x'
+          node-version: '12'
       - name: Build and Test
         run: |
           yarn install
