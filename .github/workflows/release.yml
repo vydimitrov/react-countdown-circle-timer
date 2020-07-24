@@ -9,17 +9,24 @@ env:
 
 jobs:
   build-test-release:
+    name: Build, test and release from master branch
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
+        with:
+          # pulls all commits (needed for lerna / semantic release to correctly version)
+          fetch-depth: 0
+
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '12'
-      - name: Build and Test
+
+      - name: Install, build and test
         run: |
-          yarn install
-          yarn bootstrap
+          yarn --frozen-lockfile
+          yarn build
           yarn test
 
       - name: Create ".npmrc" file in the project root
@@ -33,8 +40,8 @@ jobs:
 
       - name: Create a release on GitHub
         if: success()
-        run: yarn lerna version --yes
+        run: yarn lerna version
 
       - name: Release packages to NPM
         if: success()
-        run: yarn lerna publish from-package --yes
+        run: yarn lerna publish from-package

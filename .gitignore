@@ -2,3 +2,5 @@ lib
 node_modules
 .idea
 coverage
+.npmrc
+
