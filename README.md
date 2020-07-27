@@ -52,9 +52,9 @@ This component has a peer dependency on `react-native-svg`. Read the [full docum
 
 Once the component is mounted `duration` and `initialRemainingTime` can not be changed to avoid any issues computing colors and progress. To set new values for any of the two props just pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
 
-### Restart timer at any given time
+### Restart/Reset timer at any given time
 
-Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer should be restarted.
+Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer should be restarted. Check [this demo](https://codesandbox.io/s/tender-bogdan-qd35m) to find out one possible implementation.
 
 ### Repeat timer when countdown is completed
 
