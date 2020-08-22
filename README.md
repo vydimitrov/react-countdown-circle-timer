@@ -104,7 +104,7 @@ In the example above, the countdown will start at 15 seconds (one quarter before
 
 ```js
 const children = ({ remainingTime }) => {
-  const minutes = Math.floor((remainingTime % 3600) / 60)
+  const minutes = Math.floor(remainingTime / 60)
   const seconds = remainingTime % 60
 
   return `${minutes}:${seconds}`
