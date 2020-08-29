@@ -27,14 +27,18 @@ const TimeWrapper = (props) => {
   })
 
   useEffect(() => {
-    animatedElapsedTime.addListener(({ value }) => {
+    const animatedListenerId = animatedElapsedTime.addListener(({ value }) => {
       setTimeProps({
         remainingTime: Math.ceil((durationMilliseconds - value) / 1000),
         elapsedTime: value,
         animatedColor,
       })
     })
-  }, [])
+
+    return () => {
+      animatedElapsedTime.removeListener(animatedListenerId)
+    }
+  }, [animatedElapsedTime, animatedColor, durationMilliseconds])
 
   return (
     <>

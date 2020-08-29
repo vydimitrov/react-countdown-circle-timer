@@ -9,7 +9,7 @@ Math.random = () => 0.124578
 
 const fixture = {
   durationMilliseconds: 10000,
-  animatedElapsedTime: { addListener: () => {} },
+  animatedElapsedTime: { addListener: jest.fn(), removeListener: jest.fn() },
   renderAriaTime: ({ remainingTime }) => remainingTime,
   animatedColor: {},
   children: ({ remainingTime }) => <Text>{remainingTime}</Text>,
@@ -40,6 +40,7 @@ describe('behaviour tests', () => {
   it('should pass the new remaining time to the children when new value is provided by the listener', () => {
     let listener
     const animatedElapsedTime = {
+      removeListener: jest.fn(),
       addListener: (cb) => {
         listener = cb
       },
