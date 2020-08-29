@@ -67,7 +67,7 @@ export const useCountdown = ({
       animatedElapsedTime.removeAllListeners()
       clearTimeout(repeatTimeoutRef.current)
     }
-  }, [])
+  }, [animatedElapsedTime, startAt])
 
   // toggle playing effect
   useEffect(() => {
@@ -81,7 +81,7 @@ export const useCountdown = ({
         if (finished && elapsedTime.current === durationMilliseconds) {
           setIsProgressPathVisible(false)
           if (typeof onComplete === 'function') {
-            totalElapsedTime.current += duration
+            totalElapsedTime.current += durationMilliseconds / 1000
 
             const [shouldRepeat = false, delay = 0] =
               onComplete(totalElapsedTime.current) || []
@@ -106,7 +106,7 @@ export const useCountdown = ({
     return () => {
       animatedElapsedTime.stopAnimation()
     }
-  }, [isPlaying])
+  }, [isPlaying, animatedElapsedTime, durationMilliseconds, onComplete])
 
   return {
     path,
