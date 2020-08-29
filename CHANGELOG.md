@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.7...v2.3.8) (2020-08-29)
+
+
+### Bug Fixes
+
+* **mobile:** add correct dependencies in hooks ([9d77921](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9d779212419c2e7ad397cffab7a3c1aef759534f))
+* minutes formatting in recipes on Readme page ([acab4c8](https://github.com/vydimitrov/react-countdown-circle-timer/commit/acab4c85fb9106a54d0b698e45af28e2db7709eb))
+
+
+### Features
+
+* add eslint plugin:react-hooks ([288320f](https://github.com/vydimitrov/react-countdown-circle-timer/commit/288320f9d2bfca4e5f20d528221214dd06ff9f52))
+
+
+
+
+
 ## 2.3.7 (2020-07-24)
 
 **Note:** Configure Github action to release using Lerna. No changes on component code.

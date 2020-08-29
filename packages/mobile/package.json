@@ -1,6 +1,6 @@
 {
   "name": "react-native-countdown-circle-timer",
-  "version": "2.3.7",
+  "version": "2.3.8",
   "description": "Lightweight React Native countdown timer component with color and progress animation based on SVG",
   "main": "./lib/index.js",
   "scripts": {

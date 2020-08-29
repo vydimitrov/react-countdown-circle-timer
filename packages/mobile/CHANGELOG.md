@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.7...v2.3.8) (2020-08-29)
+
+
+### Bug Fixes
+
+* **mobile:** add correct dependencies in hooks ([9d77921](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9d779212419c2e7ad397cffab7a3c1aef759534f))
+
+
+
+
+
 ## 2.3.7 (2020-07-24)
 
 **Note:** Configure Github action to release using Lerna. No changes on component code.
