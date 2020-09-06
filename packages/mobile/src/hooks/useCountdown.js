@@ -20,7 +20,7 @@ export const useCountdown = ({
   rotation,
 }) => {
   const elapsedTime = useRef(0)
-  const [isProgressPathVisible, setIsProgressPathVisible] = useState(true)
+  const [isInFinishedState, setIsInFinishedState] = useState(false)
   // time related props can NOT be changed once the component is mounted because animation relays on elapsed time since the timer is running
   // to change them pass a new value to the "key" prop of the component, which will reinitialize/restart the timer and use the new props
   const { durationMilliseconds, startAt } = useRef({
@@ -64,6 +64,7 @@ export const useCountdown = ({
     // final cleanup
     return () => {
       isMountedRef.current = false
+      animatedElapsedTime.stopAnimation()
       animatedElapsedTime.removeAllListeners()
       clearTimeout(repeatTimeoutRef.current)
     }
@@ -78,8 +79,14 @@ export const useCountdown = ({
         duration: durationMilliseconds - elapsedTime.current,
         useNativeDriver: false,
       }).start(({ finished }) => {
-        if (finished && elapsedTime.current === durationMilliseconds) {
-          setIsProgressPathVisible(false)
+        const isDurationReached = elapsedTime.current === durationMilliseconds
+
+        // finished - React Native state, it is set to true even when paused
+        // isInFinishedState - keeps track if animation is currently in finished state and prevents running onComplete callback again if in finished state
+        // isDurationReached - tells us that we can fire the onComplete callback
+        if (finished && !isInFinishedState && isDurationReached) {
+          setIsInFinishedState(true)
+
           if (typeof onComplete === 'function') {
             totalElapsedTime.current += durationMilliseconds / 1000
 
@@ -88,9 +95,10 @@ export const useCountdown = ({
 
             if (shouldRepeat && isMountedRef.current) {
               repeatTimeoutRef.current = setTimeout(() => {
+                // reset animation and start over
                 elapsedTime.current = 0
                 animatedElapsedTime.resetAnimation()
-                setIsProgressPathVisible(true)
+                setIsInFinishedState(false)
                 animateTime()
               }, delay)
             }
@@ -101,12 +109,18 @@ export const useCountdown = ({
 
     if (isPlaying) {
       animateTime()
-    }
 
-    return () => {
-      animatedElapsedTime.stopAnimation()
+      return () => {
+        animatedElapsedTime.stopAnimation()
+      }
     }
-  }, [isPlaying, animatedElapsedTime, durationMilliseconds, onComplete])
+  }, [
+    isPlaying,
+    animatedElapsedTime,
+    durationMilliseconds,
+    onComplete,
+    isInFinishedState,
+  ])
 
   return {
     path,
@@ -117,6 +131,6 @@ export const useCountdown = ({
     animatedStroke,
     strokeDashoffset,
     durationMilliseconds,
-    isProgressPathVisible,
+    isProgressPathVisible: !isInFinishedState,
   }
 }
