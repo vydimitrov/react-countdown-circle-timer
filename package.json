@@ -47,7 +47,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
     "jest": "^24.9.0",
-    "lerna": "^3.20.2",
+    "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
     "path": "^0.12.7",
     "prettier": "^2.0.5",
