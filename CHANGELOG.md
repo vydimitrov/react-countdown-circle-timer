@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.10](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.9...v2.3.10) (2020-10-11)
+
+
+### Bug Fixes
+
+* **mobile:** wrong onComplete type fixes[#56](https://github.com/vydimitrov/react-countdown-circle-timer/issues/56) ([07b2a6c](https://github.com/vydimitrov/react-countdown-circle-timer/commit/07b2a6c3689a154b84f0b248ff231433d4db9912))
+
+
+
+
+
 ## [2.3.9](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.8...v2.3.9) (2020-09-06)
 
 
