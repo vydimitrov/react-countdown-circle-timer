@@ -13,7 +13,6 @@ React Native countdown timer component for iOS and Android in a circle shape wit
 - Single `react-native`'s `Animated` loop to animate color and progress
 - Support iOS and Android
 - Transition between colors during the countdown
-- Linear gradient support(currently only by Android)
 - Fully customizable content in the center of the circle
 - `a11y` support
 - Built-in and ready-to-use TypeScript type definitions.
@@ -22,12 +21,6 @@ React Native countdown timer component for iOS and Android in a circle shape wit
 
 ```
 yarn add react-native-countdown-circle-timer
-```
-
-or
-
-```
-npm install react-native-countdown-circle-timer
 ```
 
 ## Prerequisites
