@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 import renderer from 'react-test-renderer'
-import { render, act } from 'react-native-testing-library'
+import { render, act } from '@testing-library/react-native'
 
 import { TimeWrapper } from '../src/components'
 

@@ -36,12 +36,12 @@
   },
   "devDependencies": {
     "@countdown-circle-timer/shared": "^2.3.6",
-    "@testing-library/jest-native": "^3.1.0",
-    "metro-react-native-babel-preset": "^0.59.0",
-    "mockdate": "^3.0.2",
-    "react-native": ">=0.50.0",
-    "react-native-svg": ">=6.2.1",
-    "react-native-testing-library": "^2.1.0"
+    "@testing-library/jest-native": "3.4.3",
+    "metro-react-native-babel-preset": "0.64.0",
+    "mockdate": "3.0.2",
+    "react-native": "0.63.4",
+    "react-native-svg": "12.1.0",
+    "@testing-library/react-native": "7.1.0"
   },
   "files": [
     "lib",
