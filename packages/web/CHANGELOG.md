@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.11](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.10...v2.3.11) (2021-01-10)
+
+**Note:** Version bump only for package react-countdown-circle-timer
+
+
+
+
+
 ## 2.3.7 (2020-07-24)
 
 **Note:** Configure Github action to release using Lerna. No changes on component code.

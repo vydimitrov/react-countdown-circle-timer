@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.11](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.10...v2.3.11) (2021-01-10)
+
+**Note:** Version bump only for package countdown-circle-timer-monorepo
+
+
+
+
+
 ## [2.3.10](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.9...v2.3.10) (2020-10-11)
 
 
