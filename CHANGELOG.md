@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.12](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.11...v2.3.12) (2021-01-14)
+
+
+### Bug Fixes
+
+* **web:** support for IE11 ([201f996](https://github.com/vydimitrov/react-countdown-circle-timer/commit/201f996c478d961a02d90997bd4e3ef8a9ef8434))
+
+
+
+
+
 ## [2.3.11](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.10...v2.3.11) (2021-01-10)
 
 **Note:** Version bump only for package countdown-circle-timer-monorepo
