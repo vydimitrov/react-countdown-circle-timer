@@ -45,5 +45,10 @@
     "lib",
     "types"
   ],
-  "types": "types/CountdownCircleTimer.d.ts"
+  "types": "types/CountdownCircleTimer.d.ts",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
