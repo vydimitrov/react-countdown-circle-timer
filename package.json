@@ -64,5 +64,10 @@
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
