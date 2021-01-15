@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.12...v2.4.0) (2021-01-15)
+
+
+### Bug Fixes
+
+* **web:** put the browser list to the correct file ([2e4d510](https://github.com/vydimitrov/react-countdown-circle-timer/commit/2e4d510fefbd1dfce7ae2a0f58c6809268aa9f20))
+
+
+### Features
+
+* **web:** add browser list to package.json ([a88c8c8](https://github.com/vydimitrov/react-countdown-circle-timer/commit/a88c8c8a89a4a794265d333c672be02c5409bc8c))
+
+
+
+
+
 ## [2.3.12](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.11...v2.3.12) (2021-01-14)
 
 
