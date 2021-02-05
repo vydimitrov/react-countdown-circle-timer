@@ -9,8 +9,7 @@ import { useCountdown } from '../hooks'
 const CountdownCircleTimer = ({
   size,
   strokeWidth,
-  innerStrokeWidth,
-  outerStrokeWidth,
+  trailStrokeWidth,
   trailColor,
   duration,
   isPlaying,
@@ -56,14 +55,14 @@ const CountdownCircleTimer = ({
           d={path}
           fill="none"
           stroke={trailColor}
-          strokeWidth={outerStrokeWidth || strokeWidth}
+          strokeWidth={trailStrokeWidth || strokeWidth}
         />
         <path
           d={path}
           fill="none"
           stroke={isLinearGradient ? `url(#${gradientId})` : stroke}
           strokeLinecap={strokeLinecap}
-          strokeWidth={innerStrokeWidth || strokeWidth}
+          strokeWidth={strokeWidth}
           strokeDasharray={pathLength}
           strokeDashoffset={strokeDashoffset}
         />

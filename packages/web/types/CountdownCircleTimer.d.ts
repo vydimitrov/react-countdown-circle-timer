@@ -25,6 +25,8 @@ export interface CountdownCircleTimerProps {
   size?: number
   /** Path stroke width. Default: 12 */
   strokeWidth?: number
+  /** Trail stroke width Default: false */
+  trailStrokeWidth?: number | boolean
   /** Path stroke line cap. Default: "round" */
   strokeLinecap?: 'round' | 'square'
   /** Progress path rotation direction. Default: "clockwise" */

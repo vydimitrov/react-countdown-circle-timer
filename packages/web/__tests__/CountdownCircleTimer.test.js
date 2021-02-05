@@ -469,22 +469,13 @@ describe('behaviour tests', () => {
     useElapsedTime.__resetConfig()
   })
 
-  it('should set inner stroke width', () => {
+  it('should set trail stroke width', () => {
     const { container } = render(
-      <CountdownCircleTimer {...fixture} innerStrokeWidth={13} />
+      <CountdownCircleTimer {...fixture} trailStrokeWidth={14} />
     )
 
-    const path = container.querySelectorAll('path')
-    expect(path[1]).toHaveAttribute('stroke-width', '13')
-  })
-
-  it('should set outer stroke width', () => {
-    const { container } = render(
-      <CountdownCircleTimer {...fixture} outerStrokeWidth={14} />
-    )
-
-    const path = container.querySelectorAll('path')
-    expect(path[0]).toHaveAttribute('stroke-width', '14')
+    const path = container.querySelector('path')
+    expect(path).toHaveAttribute('stroke-width', '14')
   })
   
 })
