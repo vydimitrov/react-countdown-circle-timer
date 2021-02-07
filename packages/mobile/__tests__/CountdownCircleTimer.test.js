@@ -80,6 +80,18 @@ describe('snapshot tests', () => {
 
     expect(tree).toMatchSnapshot()
   })
+
+  it('renders with different trail stroke width', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer {...fixture} trailStrokeWidth={16} strokeWidth={14}>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
 })
 
 describe('functional tests', () => {
