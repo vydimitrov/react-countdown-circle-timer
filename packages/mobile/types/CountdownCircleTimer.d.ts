@@ -31,6 +31,8 @@ export interface CountdownCircleTimerProps {
   rotation?: 'clockwise' | 'counterclockwise'
   /** Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.). Default: #d9d9d9 */
   trailColor?: string
+  /** Trail stroke width. */
+  trailStrokeWidth?: number
   /** Play and pause animation. Default: false */
   isPlaying?: boolean
   /** Apples linear gradient on top of the circle. The gradient doesn't follow the circle path. Works best with two colors. Default: false */

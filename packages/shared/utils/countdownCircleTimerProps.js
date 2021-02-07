@@ -7,7 +7,7 @@ export const countdownCircleTimerProps = {
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   size: PropTypes.number,
   strokeWidth: PropTypes.number,
-  trailStrokeWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  trailStrokeWidth: PropTypes.number,
   trailColor: PropTypes.string,
   isPlaying: PropTypes.bool,
   strokeLinecap: PropTypes.oneOf(['round', 'square']),

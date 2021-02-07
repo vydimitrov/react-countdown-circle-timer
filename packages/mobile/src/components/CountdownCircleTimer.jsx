@@ -71,7 +71,7 @@ const CountdownCircleTimer = (props) => {
         )}
         <Path
           fill="none"
-          strokeWidth={trailStrokeWidth || strokeWidth}
+          strokeWidth={trailStrokeWidth ?? strokeWidth}
           stroke={trailColor}
           d={path}
         />

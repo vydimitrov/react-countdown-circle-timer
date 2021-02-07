@@ -55,7 +55,7 @@ const CountdownCircleTimer = ({
           d={path}
           fill="none"
           stroke={trailColor}
-          strokeWidth={trailStrokeWidth || strokeWidth}
+          strokeWidth={trailStrokeWidth ?? strokeWidth}
         />
         <path
           d={path}
