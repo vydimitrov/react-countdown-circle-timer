@@ -45,7 +45,9 @@ const CountdownCircleTimer = (props) => {
     isPlaying,
     duration,
     size,
-    strokeWidth,
+    // https://github.com/vydimitrov/react-countdown-circle-timer/pull/82#issuecomment-774961578
+    // Find the larger strokeWidth and calculate the path.
+    strokeWidth: Math.max(strokeWidth, trailStrokeWidth ?? 0),
     colors,
     initialRemainingTime,
     onComplete,

@@ -56,20 +56,20 @@ exports[`snapshot tests renders with different trail stroke width 1`] = `
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="m 90,6
-          a 84,84 0 1,0 0,168
-          a 84,84 0 1,0 0,-168"
+      d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
       fill="none"
       stroke="#d9d9d9"
       strokeWidth={16}
     />
     <path
-      d="m 90,6
-          a 84,84 0 1,0 0,168
-          a 84,84 0 1,0 0,-168"
+      d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
       fill="none"
       stroke="rgba(0, 71, 119, 1)"
-      strokeDasharray={527.7875658030853}
+      strokeDasharray={515.221195188726}
       strokeDashoffset={0}
       strokeLinecap="round"
       strokeWidth={12}
