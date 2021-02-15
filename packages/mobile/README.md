@@ -29,7 +29,7 @@ This component has a peer dependency on `react-native-svg` to draw the countdown
 
 ## Demo
 
-Check the [Expo Snack](https://snack.expo.io/@vydimitrov/countdown-circle-timer?session_id=snack-session-8tgDhia5f&preview=true&platform=ios&iframeId=4a80oah677&theme=light) demo to get started
+Check the [Expo Snack](https://snack.expo.io/@dimitrov/countdown-circle-timer?platform=ios) demo to get started
 
 ## Basic usage
 
