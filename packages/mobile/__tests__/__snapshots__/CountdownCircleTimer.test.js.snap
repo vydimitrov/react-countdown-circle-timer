@@ -113,9 +113,9 @@ exports[`snapshot tests renders with different trail stroke width 1`] = `
   >
     <RNSVGGroup>
       <RNSVGPath
-        d="m 90,7
-          a 83,83 0 1,0 0,166
-          a 83,83 0 1,0 0,-166"
+        d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
         fill={null}
         propList={
           Array [
@@ -128,9 +128,9 @@ exports[`snapshot tests renders with different trail stroke width 1`] = `
         strokeWidth={16}
       />
       <RNSVGPath
-        d="m 90,7
-          a 83,83 0 1,0 0,166
-          a 83,83 0 1,0 0,-166"
+        d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
         fill={null}
         propList={
           Array [
@@ -145,8 +145,8 @@ exports[`snapshot tests renders with different trail stroke width 1`] = `
         stroke={4278208375}
         strokeDasharray={
           Array [
-            521.5043804959057,
-            521.5043804959057,
+            515.221195188726,
+            515.221195188726,
           ]
         }
         strokeDashoffset={null}
