@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.4.0...v2.5.0) (2021-02-15)
+
+
+### Bug Fixes
+
+* change from or to null operator and other fixes suggested in PR. ([2e79ed3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/2e79ed3480bb723715bd287ad4e4b001a87254d4))
+* the issue of stroke overflowing when trailStrokeWidth is different from strokeWidth ([b3d3aab](https://github.com/vydimitrov/react-countdown-circle-timer/commit/b3d3aab1d175bc95478efa7f0ebf3c3d50a66c37))
+
+
+### Features
+
+* add test for trailStrokeWidth mobile ([67542b1](https://github.com/vydimitrov/react-countdown-circle-timer/commit/67542b171ad2cb041bf52d470af8142ec1d3ba3a))
+
+
+
+
+
 ## [2.3.11](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.10...v2.3.11) (2021-01-10)
 
 **Note:** Version bump only for package react-native-countdown-circle-timer
