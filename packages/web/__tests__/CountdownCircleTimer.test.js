@@ -37,6 +37,19 @@ describe('snapshot tests', () => {
 
     expect(tree).toMatchSnapshot()
   })
+
+  it('renders with different trail stroke width', () => {
+    const renderTime = ({ remainingTime }) => remainingTime
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer {...fixture} trailStrokeWidth={16}>
+          {renderTime}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
 })
 
 describe('functional tests', () => {
@@ -468,4 +481,14 @@ describe('behaviour tests', () => {
 
     useElapsedTime.__resetConfig()
   })
+
+  it('should set trail stroke width', () => {
+    const { container } = render(
+      <CountdownCircleTimer {...fixture} trailStrokeWidth={14} />
+    )
+
+    const path = container.querySelector('path')
+    expect(path).toHaveAttribute('stroke-width', '14')
+  })
+  
 })

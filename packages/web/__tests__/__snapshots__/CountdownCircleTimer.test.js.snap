@@ -39,6 +39,63 @@ exports[`snapshot tests renders 1`] = `
 </div>
 `;
 
+exports[`snapshot tests renders with different trail stroke width 1`] = `
+<div
+  aria-label="Countdown timer"
+  style={
+    Object {
+      "height": 180,
+      "position": "relative",
+      "width": 180,
+    }
+  }
+>
+  <svg
+    height={180}
+    width={180}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
+      fill="none"
+      stroke="#d9d9d9"
+      strokeWidth={16}
+    />
+    <path
+      d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
+      fill="none"
+      stroke="rgba(0, 71, 119, 1)"
+      strokeDasharray={515.221195188726}
+      strokeDashoffset={0}
+      strokeLinecap="round"
+      strokeWidth={12}
+    />
+  </svg>
+  <div
+    aria-hidden="true"
+    style={
+      Object {
+        "alignItems": "center",
+        "color": "rgba(0, 71, 119, 1)",
+        "display": "flex",
+        "height": "100%",
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  >
+    10
+  </div>
+</div>
+`;
+
 exports[`snapshot tests renders with time 1`] = `
 <div
   aria-label="Countdown timer"
