@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@countdown-circle-timer/shared": "^2.5.0",
-    "@testing-library/jest-dom": "5.11.6",
-    "@testing-library/react": "11.2.2"
+    "@testing-library/jest-dom": "5.11.9",
+    "@testing-library/react": "11.2.5"
   },
   "dependencies": {
     "use-elapsed-time": "2.1.6"
