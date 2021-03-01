@@ -30,12 +30,12 @@
   "author": "Vasil Dimitrov",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.12.17",
-    "@babel/preset-env": "7.12.17",
+    "@babel/core": "7.13.8",
+    "@babel/preset-env": "7.13.8",
     "@babel/preset-react": "7.12.13",
     "babel-loader": "8.2.2",
     "codecov": "3.8.1",
-    "eslint": "7.20.0",
+    "eslint": "7.21.0",
     "eslint-config-prettier": "7.2.0",
     "eslint-config-standard": "16.0.2",
     "eslint-plugin-import": "2.22.1",
@@ -44,7 +44,7 @@
     "eslint-plugin-promise": "4.3.1",
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "husky": "5.1.0",
+    "husky": "5.1.2",
     "jest": "26.6.3",
     "lerna": "3.22.1",
     "lint-staged": "10.5.4",
@@ -54,7 +54,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-test-renderer": "17.0.1",
-    "webpack": "5.23.0",
+    "webpack": "5.24.2",
     "webpack-cli": "4.5.0"
   },
   "lint-staged": {
