@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.0...v2.5.1) (2021-03-25)
+
+
+### Bug Fixes
+
+* **mobile:** react-native ignore pattern in tests ([16cf3cc](https://github.com/vydimitrov/react-countdown-circle-timer/commit/16cf3ccab416d258ce50d6e1bfb8fdbad9bc31a0))
+
+
+
+
+
 # [2.5.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.4.0...v2.5.0) (2021-02-15)
 
 
