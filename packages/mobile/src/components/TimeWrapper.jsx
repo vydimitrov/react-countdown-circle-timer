@@ -15,22 +15,23 @@ const TimeWrapper = (props) => {
   const {
     children,
     animatedElapsedTime,
-    durationMilliseconds,
+    duration,
     renderAriaTime,
     animatedColor,
   } = props
 
   const [timeProps, setTimeProps] = useState({
-    animatedElapsedTime: 0,
-    remainingTime: durationMilliseconds / 1000,
+    remainingTime: duration,
+    elapsedTime: 0,
     animatedColor,
   })
 
   useEffect(() => {
     const animatedListenerId = animatedElapsedTime.addListener(({ value }) => {
+      const elapsedTime = value / 1000
       setTimeProps({
-        remainingTime: Math.ceil((durationMilliseconds - value) / 1000),
-        elapsedTime: value,
+        remainingTime: Math.ceil(duration - elapsedTime),
+        elapsedTime,
         animatedColor,
       })
     })
@@ -38,7 +39,7 @@ const TimeWrapper = (props) => {
     return () => {
       animatedElapsedTime.removeListener(animatedListenerId)
     }
-  }, [animatedElapsedTime, animatedColor, durationMilliseconds])
+  }, [animatedElapsedTime, animatedColor, duration])
 
   return (
     <>
@@ -68,7 +69,7 @@ const TimeWrapper = (props) => {
 }
 
 TimeWrapper.propTypes = {
-  durationMilliseconds: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
   animatedElapsedTime: PropTypes.object.isRequired,
   // when there is a single color we just past the color string
   // when there are more colors it is an interpolate object

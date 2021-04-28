@@ -93,7 +93,7 @@ const CountdownCircleTimer = (props) => {
         <TimeWrapper
           animatedColor={animatedStroke}
           animatedElapsedTime={animatedElapsedTime}
-          durationMilliseconds={durationMilliseconds}
+          duration={durationMilliseconds / 1000} // durationMilliseconds is locked version of the duration
           renderAriaTime={renderAriaTime}
         >
           {children}

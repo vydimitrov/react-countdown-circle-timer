@@ -1,8 +1,9 @@
 import * as React from 'react'
 
 export interface TimeProps {
-  remainingTime?: number
-  elapsedTime?: number
+  remainingTime: number
+  elapsedTime: number
+  animatedColor: Animated.AnimatedInterpolation
 }
 
 type ChildAsFunc = {

@@ -8,7 +8,7 @@ import { TimeWrapper } from '../src/components'
 Math.random = () => 0.124578
 
 const fixture = {
-  durationMilliseconds: 10000,
+  duration: 10,
   animatedElapsedTime: { addListener: jest.fn(), removeListener: jest.fn() },
   renderAriaTime: ({ remainingTime }) => remainingTime,
   animatedColor: {},
@@ -50,13 +50,21 @@ describe('behaviour tests', () => {
         {...fixture}
         animatedElapsedTime={animatedElapsedTime}
         renderAriaTime={undefined}
-      />
+      >
+        {({ remainingTime, elapsedTime }) => (
+          <>
+            <Text>Remaining time - {remainingTime}</Text>
+            <Text>Elapsed time - {elapsedTime}</Text>
+          </>
+        )}
+      </TimeWrapper>
     )
 
     act(() => {
       listener({ value: 4823 })
     })
 
-    expect(getByText('6')).toBeTruthy()
+    expect(getByText('Remaining time - 6')).toBeTruthy()
+    expect(getByText('Elapsed time - 4.823')).toBeTruthy()
   })
 })
