@@ -10501,10 +10501,10 @@ urlgrey@0.4.4:
   resolved "https://registry.yarnpkg.com/urlgrey/-/urlgrey-0.4.4.tgz#892fe95960805e85519f1cd4389f2cb4cbb7652f"
   integrity sha1-iS/pWWCAXoVRnxzUOJ8stMu3ZS8=
 
-use-elapsed-time@2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/use-elapsed-time/-/use-elapsed-time-2.1.7.tgz#65f2bd1b6f6cb7fd06f302eb820c22b96ff09311"
-  integrity sha512-Kz0lzfiCzL36Uro5vBfhW9FzCMJ6UWNleYFjKPQaZ/hvtYShTcKD7EFyGGgcIsuX9/KVe25fgTTlEaGWf6EzNA==
+use-elapsed-time@2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/use-elapsed-time/-/use-elapsed-time-2.1.8.tgz#3c830ae730e2bc204f2294b66be15580f0016ea5"
+  integrity sha512-lNLTDffKHdHWweQNvnch9tFI2eRP3tXccSLrwE7U6xrfyWFNEgNQZWWsGhQvtwKa0kJ6L+7E5wKbi3jg86opjg==
 
 use-subscription@^1.0.0:
   version "1.5.1"
