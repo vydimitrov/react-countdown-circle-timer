@@ -40,6 +40,8 @@ export interface CountdownCircleTimerProps {
   isLinearGradient?: boolean
   /** Unique ID for the linearGradient element. It takes random ID if it's not provided */
   gradientUniqueKey?: string
+   /** Specify direction for linear gradient. Default: horizontal */
+  gradientDirection?: "horizontal" | "horizontal-inverse" | "vertical" | "vertical-inverse"
   /** Render function or component to customize the time/content in the center of the circle */
   children?: React.ReactNode | ChildAsFunc
   /**

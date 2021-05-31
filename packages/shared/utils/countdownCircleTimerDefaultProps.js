@@ -1,3 +1,5 @@
+import { DIRECTIONS } from '.';
+
 export const countdownCircleTimerDefaultProps = {
   size: 180,
   strokeWidth: 12,
@@ -8,4 +10,5 @@ export const countdownCircleTimerDefaultProps = {
   ariaLabel: 'Countdown timer',
   children: null,
   rotation: 'clockwise',
+  gradientDirection: DIRECTIONS.HORIZONTAL,
 }

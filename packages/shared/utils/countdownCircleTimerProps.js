@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { colorsValidator } from '.'
+import { colorsValidator, DIRECTIONS } from '.'
 
 export const countdownCircleTimerProps = {
   duration: PropTypes.number.isRequired,
@@ -18,4 +18,5 @@ export const countdownCircleTimerProps = {
   renderAriaTime: PropTypes.func,
   initialRemainingTime: PropTypes.number,
   rotation: PropTypes.oneOf(['clockwise', 'counterclockwise']),
+  gradientDirection: PropTypes.oneOf(Object.values(DIRECTIONS)),
 }

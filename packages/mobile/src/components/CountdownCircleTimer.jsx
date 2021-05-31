@@ -29,6 +29,7 @@ const CountdownCircleTimer = (props) => {
     renderAriaTime,
     initialRemainingTime,
     rotation,
+    gradientDirection,
   } = props
 
   const {
@@ -69,6 +70,7 @@ const CountdownCircleTimer = (props) => {
             defs={Defs}
             linearGradient={LinearGradient}
             stop={Stop}
+            direction={gradientDirection}
           />
         )}
         <Path

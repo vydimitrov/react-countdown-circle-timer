@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { countdownCircleTimerProps } from '..'
 
+import { DIRECTION_VALUES } from './constants';
+
 const getStopProps = (colors) => {
   const isColorsString = typeof colors === 'string'
   if (isColorsString || colors.length === 1) {
@@ -32,9 +34,13 @@ const DefsLinearGradient = ({
   defs: Defs = 'defs',
   linearGradient: LinearGradient = 'linearGradient',
   stop: Stop = 'stop',
+  direction,
 }) => (
   <Defs>
-    <LinearGradient id={gradientId} x1="1" y1="0" x2="0" y2="0">
+    <LinearGradient 
+      id={gradientId}
+      {...DIRECTION_VALUES[direction]}
+    >
       {getStopProps(colors).map((gradient) => (
         <Stop {...gradient} key={gradient.key} />
       ))}
@@ -50,6 +56,7 @@ DefsLinearGradient.propTypes = {
   defs: TagType,
   linearGradient: TagType,
   stop: TagType,
+  direction: countdownCircleTimerProps,
 }
 
 export { DefsLinearGradient }

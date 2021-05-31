@@ -6,3 +6,4 @@ export { getGradientId } from './getGradientId'
 export { getStartAt } from './getStartAt'
 export { countdownCircleTimerProps } from './countdownCircleTimerProps'
 export { countdownCircleTimerDefaultProps } from './countdownCircleTimerDefaultProps'
+export { DIRECTIONS, DIRECTION_VALUES } from './constants';
