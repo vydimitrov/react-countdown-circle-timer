@@ -20,7 +20,7 @@ jobs:
 
       - name: Upload coverage for Web package
         if: success()
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: packages/web/coverage/coverage-final.json
@@ -28,7 +28,7 @@ jobs:
 
       - name: Upload coverage for Mobile package
         if: success()
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: packages/mobile/coverage/coverage-final.json
