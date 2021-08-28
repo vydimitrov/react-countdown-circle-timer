@@ -132,7 +132,7 @@ describe('behaviour tests', () => {
     const { findByText } = render(
       <CountdownCircleTimer
         {...fixture}
-        duration={0.25}
+        duration={1}
         isPlaying
         onComplete={() => [true]}
       >
@@ -140,10 +140,10 @@ describe('behaviour tests', () => {
       </CountdownCircleTimer>
     )
 
-    await waitFor(() => {
-      expect(findByText('0')).toBeTruthy()
-      expect(findByText('0.25')).toBeTruthy()
-    })
+    const start = await findByText('0')
+    expect(start).toBeTruthy()
+    const end = await findByText('1')
+    expect(end).toBeTruthy()
   })
 
   it('should clear repeat timeout when the component is unmounted', () => {
