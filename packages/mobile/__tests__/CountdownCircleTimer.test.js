@@ -128,24 +128,6 @@ describe('behaviour tests', () => {
     expect(onComplete).toHaveBeenCalledWith(1)
   })
 
-  it('should repeat the countdown when onComplete return an array with shouldRepeat = true', async () => {
-    const { findByText } = render(
-      <CountdownCircleTimer
-        {...fixture}
-        duration={1}
-        isPlaying
-        onComplete={() => [true]}
-      >
-        {({ remainingTime }) => <Text>{remainingTime}</Text>}
-      </CountdownCircleTimer>
-    )
-
-    const start = await findByText('0')
-    expect(start).toBeTruthy()
-    const end = await findByText('1')
-    expect(end).toBeTruthy()
-  })
-
   it('should clear repeat timeout when the component is unmounted', () => {
     const clearTimeoutMock = jest.fn()
 
