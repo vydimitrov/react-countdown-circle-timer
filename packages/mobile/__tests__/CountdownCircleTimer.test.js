@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
 import renderer from 'react-test-renderer'
-import { render, act } from '@testing-library/react-native'
+import { render, waitFor } from '@testing-library/react-native'
 
 import { CountdownCircleTimer } from '../src'
 
@@ -132,7 +132,7 @@ describe('behaviour tests', () => {
     const { findByText } = render(
       <CountdownCircleTimer
         {...fixture}
-        duration={1}
+        duration={0.25}
         isPlaying
         onComplete={() => [true]}
       >
@@ -140,8 +140,10 @@ describe('behaviour tests', () => {
       </CountdownCircleTimer>
     )
 
-    expect(await findByText('0')).toBeTruthy()
-    expect(await findByText('1')).toBeTruthy()
+    await waitFor(() => {
+      expect(findByText('0')).toBeTruthy()
+      expect(findByText('0.25')).toBeTruthy()
+    })
   })
 
   it('should clear repeat timeout when the component is unmounted', () => {
