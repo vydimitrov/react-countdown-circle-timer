@@ -84,7 +84,11 @@ describe('snapshot tests', () => {
   it('renders with different trail stroke width', () => {
     const tree = renderer
       .create(
-        <CountdownCircleTimer {...fixture} trailStrokeWidth={16} strokeWidth={14}>
+        <CountdownCircleTimer
+          {...fixture}
+          trailStrokeWidth={16}
+          strokeWidth={14}
+        >
           {({ remainingTime }) => <Text>{remainingTime}</Text>}
         </CountdownCircleTimer>
       )
@@ -104,76 +108,47 @@ describe('functional tests', () => {
 
     expect(getByText('4')).toBeTruthy()
   })
-
-  it('should call onComplete at the end of the countdown', () => {
-    global.withAnimatedTimeTravelEnabled(() => {
-      const onComplete = jest.fn()
-      const { getByText } = render(
-        <CountdownCircleTimer {...fixture} isPlaying onComplete={onComplete}>
-          {({ remainingTime }) => <Text>{remainingTime}</Text>}
-        </CountdownCircleTimer>
-      )
-
-      act(() => {
-        global.timeTravel(10000)
-      })
-
-      expect(getByText('0')).toBeTruthy()
-      expect(onComplete).toHaveBeenCalledWith(10)
-    })
-  })
 })
 
 describe('behaviour tests', () => {
-  it('should call onComplete at the end of the countdown', () => {
-    global.withAnimatedTimeTravelEnabled(() => {
-      const onComplete = jest.fn()
-      const { getByText } = render(
-        <CountdownCircleTimer {...fixture} isPlaying onComplete={onComplete}>
-          {({ remainingTime }) => <Text>{remainingTime}</Text>}
-        </CountdownCircleTimer>
-      )
+  it('should call onComplete at the end of the countdown', async () => {
+    const onComplete = jest.fn()
+    const { findByText } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        duration={1}
+        isPlaying
+        onComplete={onComplete}
+      >
+        {({ remainingTime }) => <Text>{remainingTime}</Text>}
+      </CountdownCircleTimer>
+    )
 
-      act(() => {
-        global.timeTravel(10000)
-      })
-
-      expect(getByText('0')).toBeTruthy()
-      expect(onComplete).toHaveBeenCalledWith(10)
-    })
+    expect(await findByText('0')).toBeTruthy()
+    expect(onComplete).toHaveBeenCalledWith(1)
   })
 
-  it('should repeat the countdown when onComplete return an array with shouldRepeat = true', () => {
-    global.withAnimatedTimeTravelEnabled(() => {
-      const duration = 1
-      const shouldRepeat = true
-      const onComplete = jest.fn().mockReturnValueOnce([shouldRepeat])
-      const component = (isPlaying) => (
-        <CountdownCircleTimer
-          {...fixture}
-          duration={duration}
-          isPlaying={isPlaying}
-          onComplete={onComplete}
-        >
-          {({ remainingTime }) => <Text>{remainingTime}</Text>}
-        </CountdownCircleTimer>
-      )
-      const { getByText, rerender } = render(component(true))
+  it('should repeat the countdown when onComplete return an array with shouldRepeat = true', async () => {
+    const duration = 1
+    const shouldRepeat = true
+    const onComplete = jest.fn().mockReturnValueOnce([shouldRepeat])
+    const component = (isPlaying) => (
+      <CountdownCircleTimer
+        {...fixture}
+        duration={duration}
+        isPlaying={isPlaying}
+        onComplete={onComplete}
+      >
+        {({ remainingTime }) => <Text>{remainingTime}</Text>}
+      </CountdownCircleTimer>
+    )
+    const { findByText, rerender } = render(component(true))
 
-      act(() => {
-        global.timeTravel(1000)
-      })
+    expect(await findByText('0')).toBeTruthy()
+    expect(onComplete).toHaveBeenCalledWith(1)
 
-      expect(getByText('0')).toBeTruthy()
-      expect(onComplete).toHaveBeenCalledWith(1)
-
-      act(() => {
-        jest.runOnlyPendingTimers()
-      })
-
-      expect(getByText('1')).toBeTruthy()
-      rerender(component(false))
-    })
+    expect(await findByText('1')).toBeTruthy()
+    rerender(component(false))
   })
 
   it('should clear repeat timeout when the component is unmounted', () => {
