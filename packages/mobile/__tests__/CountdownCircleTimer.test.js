@@ -96,6 +96,21 @@ describe('snapshot tests', () => {
 
     expect(tree).toMatchSnapshot()
   })
+
+  it('renders correctly when color duration is not provided', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer
+          {...fixture}
+          colors={[['#047'], ['#aaa'], ['#bbb']]}
+        >
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
 })
 
 describe('functional tests', () => {
@@ -126,6 +141,21 @@ describe('behaviour tests', () => {
 
     expect(await findByText('0')).toBeTruthy()
     expect(onComplete).toHaveBeenCalledWith(1)
+  })
+
+  it('should repeat the animation when onComplete returns shouldRepeat = true', async () => {
+    const { findByText } = render(
+      <CountdownCircleTimer
+        {...fixture}
+        duration={0.5}
+        isPlaying
+        onComplete={() => [true, 0]}
+      >
+        {({ remainingTime }) => <Text>{remainingTime}</Text>}
+      </CountdownCircleTimer>
+    )
+
+    expect(await findByText('0')).toBeTruthy()
   })
 
   it('should clear repeat timeout when the component is unmounted', () => {

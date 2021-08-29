@@ -79,7 +79,205 @@ exports[`snapshot tests renders 1`] = `
 </View>
 `;
 
+exports[`snapshot tests renders correctly when color duration is not provided 1`] = `
+<View
+  accessibilityLabel="Countdown timer"
+  accessible={true}
+  style={
+    Object {
+      "height": 180,
+      "position": "relative",
+      "width": 180,
+    }
+  }
+>
+  <RNSVGSvgView
+    bbHeight={180}
+    bbWidth={180}
+    focusable={false}
+    height={180}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        Object {
+          "flex": 0,
+          "height": 180,
+          "width": 180,
+        },
+      ]
+    }
+    width={180}
+  >
+    <RNSVGGroup>
+      <RNSVGPath
+        d="m 90,6
+          a 84,84 0 1,0 0,168
+          a 84,84 0 1,0 0,-168"
+        fill={null}
+        propList={
+          Array [
+            "fill",
+            "stroke",
+            "strokeWidth",
+          ]
+        }
+        stroke={4292467161}
+        strokeWidth={12}
+      />
+      <RNSVGPath
+        d="m 90,6
+          a 84,84 0 1,0 0,168
+          a 84,84 0 1,0 0,-168"
+        fill={null}
+        propList={
+          Array [
+            "fill",
+            "stroke",
+            "strokeWidth",
+            "strokeDasharray",
+            "strokeDashoffset",
+            "strokeLinecap",
+          ]
+        }
+        stroke={4278207607}
+        strokeDasharray={
+          Array [
+            527.7875658030853,
+            527.7875658030853,
+          ]
+        }
+        strokeDashoffset={null}
+        strokeLinecap={1}
+        strokeWidth={12}
+      />
+    </RNSVGGroup>
+  </RNSVGSvgView>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no-hide-descendants"
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "height": "100%",
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  >
+    <Text>
+      10
+    </Text>
+  </View>
+</View>
+`;
+
 exports[`snapshot tests renders with different trail stroke width 1`] = `
+<View
+  accessibilityLabel="Countdown timer"
+  accessible={true}
+  style={
+    Object {
+      "height": 180,
+      "position": "relative",
+      "width": 180,
+    }
+  }
+>
+  <RNSVGSvgView
+    bbHeight={180}
+    bbWidth={180}
+    focusable={false}
+    height={180}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        Object {
+          "flex": 0,
+          "height": 180,
+          "width": 180,
+        },
+      ]
+    }
+    width={180}
+  >
+    <RNSVGGroup>
+      <RNSVGPath
+        d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
+        fill={null}
+        propList={
+          Array [
+            "fill",
+            "stroke",
+            "strokeWidth",
+          ]
+        }
+        stroke={4292467161}
+        strokeWidth={16}
+      />
+      <RNSVGPath
+        d="m 90,8
+          a 82,82 0 1,0 0,164
+          a 82,82 0 1,0 0,-164"
+        fill={null}
+        propList={
+          Array [
+            "fill",
+            "stroke",
+            "strokeWidth",
+            "strokeDasharray",
+            "strokeDashoffset",
+            "strokeLinecap",
+          ]
+        }
+        stroke={4278208375}
+        strokeDasharray={
+          Array [
+            515.221195188726,
+            515.221195188726,
+          ]
+        }
+        strokeDashoffset={null}
+        strokeLinecap={1}
+        strokeWidth={14}
+      />
+    </RNSVGGroup>
+  </RNSVGSvgView>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no-hide-descendants"
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "height": "100%",
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": "100%",
+      }
+    }
+  >
+    <Text>
+      10
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`snapshot tests renders with different trail stroke width 2`] = `
 <View
   accessibilityLabel="Countdown timer"
   accessible={true}
