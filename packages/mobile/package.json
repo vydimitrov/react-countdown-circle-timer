@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@countdown-circle-timer/shared": "^2.5.0",
-    "@testing-library/jest-native": "4.0.1",
+    "@testing-library/jest-native": "4.0.2",
     "@testing-library/react-native": "7.2.0",
     "metro-react-native-babel-preset": "0.66.2",
     "mockdate": "3.0.5",
