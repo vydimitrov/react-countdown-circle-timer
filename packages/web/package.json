@@ -39,7 +39,7 @@
     "@testing-library/react": "12.0.0"
   },
   "dependencies": {
-    "use-elapsed-time": "2.1.8"
+    "use-elapsed-time": "3.0.1"
   },
   "files": [
     "lib",
