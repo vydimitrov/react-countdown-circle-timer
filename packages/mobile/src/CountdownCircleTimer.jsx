@@ -1,36 +1,28 @@
 import React from 'react'
 import { View, Animated } from 'react-native'
-import Svg, { Path, Defs, LinearGradient, Stop } from 'react-native-svg'
-import {
-  DefsLinearGradient,
-  countdownCircleTimerProps,
-  countdownCircleTimerDefaultProps,
-} from '@countdown-circle-timer/shared'
-import { TimeWrapper } from '.'
-import { useCountdown } from '../hooks'
+import Svg, { Path } from 'react-native-svg'
+import { TimeWrapper } from './components'
+import { useCountdown } from './hooks'
 
 const AnimatedPath = Animated.createAnimatedComponent(Path)
 
-const CountdownCircleTimer = (props) => {
-  const {
-    size,
-    strokeWidth,
-    trailColor,
-    trailStrokeWidth,
-    duration,
-    isPlaying,
-    colors,
-    strokeLinecap,
-    children,
-    isLinearGradient,
-    gradientUniqueKey,
-    onComplete,
-    ariaLabel,
-    renderAriaTime,
-    initialRemainingTime,
-    rotation,
-  } = props
-
+const CountdownCircleTimer = ({
+  duration,
+  colors,
+  size = 180,
+  strokeWidth = 12,
+  trailStrokeWidth,
+  trailColor = '#d9d9d9',
+  isPlaying = false,
+  strokeLinecap = 'round',
+  ariaLabel = 'Countdown timer',
+  children = null,
+  rotation = 'clockwise',
+  gradientUniqueKey,
+  onComplete,
+  renderAriaTime,
+  initialRemainingTime,
+}) => {
   const {
     path,
     pathLength,
@@ -62,15 +54,6 @@ const CountdownCircleTimer = (props) => {
       accessibilityLabel={ariaLabel}
     >
       <Svg width={size} height={size}>
-        {isLinearGradient && (
-          <DefsLinearGradient
-            colors={colors}
-            gradientId={gradientId}
-            defs={Defs}
-            linearGradient={LinearGradient}
-            stop={Stop}
-          />
-        )}
         <Path
           fill="none"
           strokeWidth={trailStrokeWidth ?? strokeWidth}
@@ -80,7 +63,7 @@ const CountdownCircleTimer = (props) => {
         {isProgressPathVisible && (
           <AnimatedPath
             fill="none"
-            stroke={isLinearGradient ? `url(#${gradientId})` : animatedStroke}
+            stroke={animatedStroke}
             d={path}
             strokeLinecap={strokeLinecap}
             strokeWidth={strokeWidth}
@@ -103,8 +86,6 @@ const CountdownCircleTimer = (props) => {
   )
 }
 
-CountdownCircleTimer.propTypes = countdownCircleTimerProps
-CountdownCircleTimer.defaultProps = countdownCircleTimerDefaultProps
 CountdownCircleTimer.displayName = 'CountdownCircleTimer'
 
 export { CountdownCircleTimer }

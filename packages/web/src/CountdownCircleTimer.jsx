@@ -1,28 +1,22 @@
 import React from 'react'
-import {
-  DefsLinearGradient,
-  countdownCircleTimerProps,
-  countdownCircleTimerDefaultProps,
-} from '@countdown-circle-timer/shared'
-import { useCountdown } from '../hooks'
+import { useCountdown } from './hooks'
 
-const CountdownCircleTimer = ({
-  size,
-  strokeWidth,
-  trailStrokeWidth,
-  trailColor,
+export const CountdownCircleTimer = ({
   duration,
-  isPlaying,
   colors,
-  strokeLinecap,
-  children,
-  isLinearGradient,
+  size = 180,
+  strokeWidth = 12,
+  trailStrokeWidth,
+  trailColor = '#d9d9d9',
+  isPlaying = false,
+  strokeLinecap = 'round',
+  ariaLabel = 'Countdown timer',
+  children = null,
+  rotation = 'clockwise',
   gradientUniqueKey,
   onComplete,
-  ariaLabel,
   renderAriaTime,
   initialRemainingTime,
-  rotation,
 }) => {
   const {
     path,
@@ -41,7 +35,6 @@ const CountdownCircleTimer = ({
     duration,
     initialRemainingTime,
     colors,
-    isLinearGradient,
     gradientUniqueKey,
     onComplete,
     rotation,
@@ -50,9 +43,6 @@ const CountdownCircleTimer = ({
   return (
     <div style={styles.wrapperStyle} aria-label={ariaLabel}>
       <svg width={size} height={size} xmlns="http://www.w3.org/2000/svg">
-        {isLinearGradient && (
-          <DefsLinearGradient colors={colors} gradientId={gradientId} />
-        )}
         <path
           d={path}
           fill="none"
@@ -62,7 +52,7 @@ const CountdownCircleTimer = ({
         <path
           d={path}
           fill="none"
-          stroke={isLinearGradient ? `url(#${gradientId})` : stroke}
+          stroke={stroke}
           strokeLinecap={strokeLinecap}
           strokeWidth={strokeWidth}
           strokeDasharray={pathLength}
@@ -85,8 +75,4 @@ const CountdownCircleTimer = ({
   )
 }
 
-CountdownCircleTimer.propTypes = countdownCircleTimerProps
-CountdownCircleTimer.defaultProps = countdownCircleTimerDefaultProps
 CountdownCircleTimer.displayName = 'CountdownCircleTimer'
-
-export { CountdownCircleTimer }

@@ -9,10 +9,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - PNPM is now used as package manager as well as to handle the monorepo
 - Webpack is replaced by Esbuild to bundle the code and run dev server
+- PropTypes are no longer required as peerDependencies. The component will relay on the TypeScript types
 
 ### Breaking changes
 
 = IE is no longer supported
+
+- Gradient is no longer supported out of the box. The path that animates provide an id that can we used to attach the gradient from outside the CountdownCircleTimer component
 
 ## [2.5.4](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.3...v2.5.4) (2021-08-29)
 
