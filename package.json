@@ -2,15 +2,11 @@
   "name": "countdown-circle-timer-monorepo",
   "private": true,
   "description": "Lightweight React/React Native countdown timer component with color and progress animation based on SVG",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "build": "lerna run build",
-    "bootstrap": "lerna bootstrap",
-    "test": "lerna run test",
-    "test-coverage": "lerna run test-coverage",
-    "dev:push": "lerna run dev:push",
+    "build": "pnpm recursive run build",
+    "test": "pnpm recursive run test",
+    "test-coverage": "pnpm recursive run test-coverage",
+    "dev:push": "pnpm recursive run dev:push",
     "lint": "eslint --ext js,jsx ."
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
@@ -30,11 +26,8 @@
   "author": "Vasil Dimitrov",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.15.0",
-    "@babel/preset-env": "7.15.0",
-    "@babel/preset-react": "7.14.5",
-    "babel-loader": "8.2.2",
     "codecov": "3.8.3",
+    "esbuild": "0.14.2",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
@@ -45,16 +38,11 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "husky": "7.0.2",
     "jest": "27.1.0",
-    "lerna": "4.0.0",
     "lint-staged": "11.1.2",
-    "path": "0.12.7",
     "prettier": "2.3.2",
-    "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-test-renderer": "17.0.2",
-    "webpack": "5.51.1",
-    "webpack-cli": "4.8.0"
+    "react-test-renderer": "17.0.2"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix"

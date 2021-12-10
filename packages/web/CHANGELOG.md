@@ -7,89 +7,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package react-countdown-circle-timer
 
-
-
-
-
 ## [2.5.3](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.2...v2.5.3) (2021-05-13)
-
 
 ### Bug Fixes
 
-* **web:** upgrade use-elapsed-time to 2.1.8 ([9eb0166](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9eb01663e824b94779e3fdab60c31134e6448ca9))
-
-
-
-
+- **web:** upgrade use-elapsed-time to 2.1.8 ([9eb0166](https://github.com/vydimitrov/react-countdown-circle-timer/commit/9eb01663e824b94779e3fdab60c31134e6448ca9))
 
 ## [2.5.2](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.1...v2.5.2) (2021-04-28)
 
 **Note:** Version bump only for package react-countdown-circle-timer
 
-
-
-
-
 ## [2.5.1](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.0...v2.5.1) (2021-03-25)
 
 **Note:** Version bump only for package react-countdown-circle-timer
 
-
-
-
-
 # [2.5.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.4.0...v2.5.0) (2021-02-15)
-
 
 ### Bug Fixes
 
-* change from or to null operator and other fixes suggested in PR. ([2e79ed3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/2e79ed3480bb723715bd287ad4e4b001a87254d4))
-* the issue of stroke overflowing when trailStrokeWidth is different from strokeWidth ([b3d3aab](https://github.com/vydimitrov/react-countdown-circle-timer/commit/b3d3aab1d175bc95478efa7f0ebf3c3d50a66c37))
-
+- change from or to null operator and other fixes suggested in PR. ([2e79ed3](https://github.com/vydimitrov/react-countdown-circle-timer/commit/2e79ed3480bb723715bd287ad4e4b001a87254d4))
+- the issue of stroke overflowing when trailStrokeWidth is different from strokeWidth ([b3d3aab](https://github.com/vydimitrov/react-countdown-circle-timer/commit/b3d3aab1d175bc95478efa7f0ebf3c3d50a66c37))
 
 ### Features
 
-* Add inner and outer stroke width prop to timer. ([bdc35a7](https://github.com/vydimitrov/react-countdown-circle-timer/commit/bdc35a7c7ec449d452babbb8f1610e7588bca6e3))
-* add snapshots for trailStrokeWidth for web also ([ce12b54](https://github.com/vydimitrov/react-countdown-circle-timer/commit/ce12b5419a6810fbfe83bce4aa04dbd1630f04f8))
-
-
-
-
+- Add inner and outer stroke width prop to timer. ([bdc35a7](https://github.com/vydimitrov/react-countdown-circle-timer/commit/bdc35a7c7ec449d452babbb8f1610e7588bca6e3))
+- add snapshots for trailStrokeWidth for web also ([ce12b54](https://github.com/vydimitrov/react-countdown-circle-timer/commit/ce12b5419a6810fbfe83bce4aa04dbd1630f04f8))
 
 # [2.4.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.12...v2.4.0) (2021-01-15)
 
-
 ### Bug Fixes
 
-* **web:** put the browser list to the correct file ([2e4d510](https://github.com/vydimitrov/react-countdown-circle-timer/commit/2e4d510fefbd1dfce7ae2a0f58c6809268aa9f20))
-
+- **web:** put the browser list to the correct file ([2e4d510](https://github.com/vydimitrov/react-countdown-circle-timer/commit/2e4d510fefbd1dfce7ae2a0f58c6809268aa9f20))
 
 ### Features
 
-* **web:** add browser list to package.json ([a88c8c8](https://github.com/vydimitrov/react-countdown-circle-timer/commit/a88c8c8a89a4a794265d333c672be02c5409bc8c))
-
-
-
-
+- **web:** add browser list to package.json ([a88c8c8](https://github.com/vydimitrov/react-countdown-circle-timer/commit/a88c8c8a89a4a794265d333c672be02c5409bc8c))
 
 ## [2.3.12](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.11...v2.3.12) (2021-01-14)
 
-
 ### Bug Fixes
 
-* **web:** support for IE11 ([201f996](https://github.com/vydimitrov/react-countdown-circle-timer/commit/201f996c478d961a02d90997bd4e3ef8a9ef8434))
-
-
-
-
+- **web:** support for IE11 ([201f996](https://github.com/vydimitrov/react-countdown-circle-timer/commit/201f996c478d961a02d90997bd4e3ef8a9ef8434))
 
 ## [2.3.11](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.3.10...v2.3.11) (2021-01-10)
 
 **Note:** Version bump only for package react-countdown-circle-timer
-
-
-
-
 
 ## 2.3.7 (2020-07-24)
 
