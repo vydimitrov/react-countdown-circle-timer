@@ -1,26 +1,29 @@
-import * as React from 'react'
+import { Props as ElapsedTimeProps } from 'use-elapsed-time'
 
-export interface TimeProps {
-  remainingTime?: number
-  elapsedTime?: number
+type TimeProps = { remainingTime: number; elapsedTime: number }
+type ColorHex = `#${string}`
+
+type SingleColor = {
+  /** Single valid color or url to a gradient */
+  colors: ColorHex | `rgb(${string})` | `rgba(${string})` | `url(#${string})`
+  /** Colors time works only when the colors prop is an array of colors*/
+  colorsTime?: never
 }
 
-type ChildAsFunc = {
-  (props: TimeProps): number | string | React.ReactNode
+type MultipleColors = {
+  /** Array of colors in HEX format. At least 2 colors should be provided */
+  colors: { 0: ColorHex } & { 1: ColorHex } & ColorHex[]
+  /** Indicates the time when a color should switch to the next color. The first item should be the duration and the last one should be 0/goal. Example with duration of 10 seconds: [10, 6, 3, 0]  */
+  colorsTime: { 0: number } & { 1: number } & number[]
 }
 
-type Color = [string, number]
-type Colors = {
-  0: Color
-} & Array<Color>
-
-export interface CountdownCircleTimerProps {
+export type Props = {
   /** Countdown duration in seconds */
   duration: number
-  /** Single color as a string or an array of tuples: 1st param - color in HEX format; 2nd param - time to transition to next color represented as a fraction of the total duration */
-  colors: string | Colors
   /** Set the initial remaining time if it is different than the duration */
   initialRemainingTime?: number
+  /** Update interval in seconds. Determines how often the timer updates. When set to 0 the value will update on each key frame. Default: 0 */
+  updateInterval?: number
   /** Width and height of the SVG element. Default: 180 */
   size?: number
   /** Path stroke width. Default: 12 */
@@ -35,25 +38,12 @@ export interface CountdownCircleTimerProps {
   trailColor?: string
   /** Play and pause animation. Default: false */
   isPlaying?: boolean
-  /** Apples linear gradient on top of the circle. The gradient doesn't follow the circle path. Works best with two colors. Default: false */
-  isLinearGradient?: boolean
-  /** Unique ID for the linearGradient element. It takes random ID if it's not provided */
-  gradientUniqueKey?: string
+  /** Indicates if the colors should smoothly transition to the next color. Default: true */
+  isSmoothColorTransition?: boolean
   /** Render function or component to customize the time/content in the center of the circle */
-  children?: React.ReactNode | ChildAsFunc
-  /**
-   * On animation complete event handler. It can be used to restart the animation by returning an array
-   * where the first element "shouldRepeat" indicates if the loop should start over
-   * and second element "delay" specifies the delay before looping again in milliseconds.
-   * The callback receives as an argument the total elapsed time in seconds
-   *
-   */
-  onComplete?: (totalElapsedTime: number) => void | [boolean, number] // [shouldRepeat: boolean, delay: number]
-  /** Aria label for the whole component. Default: "Countdown timer" */
-  ariaLabel?: string
-  /** Render prop function to customize the text message that will be read by the screen reader during the countdown */
-  renderAriaTime?: (props: TimeProps) => string
-}
-
-declare const CountdownCircleTimer: React.FunctionComponent<CountdownCircleTimerProps>
-export { CountdownCircleTimer }
+  children?: (props: TimeProps) => React.ReactNode
+  /** On animation complete event handler */
+  onComplete?: ElapsedTimeProps['onComplete']
+  /** On remaining time update event handler */
+  onUpdate?: (remainingTime: number) => void
+} & (SingleColor | MultipleColors)

@@ -1,4 +1,4 @@
-export const getWrapperStyle = (size) => ({
+export const getWrapperStyle = (size: number) => ({
   position: 'relative',
   width: size,
   height: size,

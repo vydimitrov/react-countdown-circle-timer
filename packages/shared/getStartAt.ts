@@ -1,4 +1,4 @@
-export const getStartAt = (initialRemainingTime, duration) => {
+export const getStartAt = (initialRemainingTime: number, duration: number) => {
   if (duration === 0) {
     return 0
   }

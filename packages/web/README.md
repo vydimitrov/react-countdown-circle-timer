@@ -67,3 +67,34 @@ Check the CodeSandbox below to find out how you can implement it yourself
 
 Check the demo below for one possible solution  
 [![Edit musing-davinci-mqssz](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark)
+
+### Add `a11y` support
+
+There are 2 things that has to be done here:
+
+- Wrapper the timer in an element and add the following attribute `aria-label={your-aria-label}`
+- Add the following element with `role="timer"` to your `children` function that will make the screen reader read the remaining time while the timer is running. Make sure to [visually hide](https://css-tricks.com/inclusively-hidden/) the element.
+
+```tsx
+<div role="timer" aria-live="assertive">
+  {remainingTime} seconds
+</div>
+```
+
+### Add gradient
+
+The SVG gradient should be defined outside the Timer component pass to it as a single color:
+
+```tsx
+<svg>
+  <defs>
+    <linearGradient id="your-unique-id" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="5%" stopColor="gold" />
+      <stop offset="95%" stopColor="red" />
+    </linearGradient>
+  </defs>
+</svg>
+<CountdownCircleTimer colors="url(#your-unique-id)">
+  {({ remainingTime }) => remainingTime}
+</CountdownCircleTimer>
+```

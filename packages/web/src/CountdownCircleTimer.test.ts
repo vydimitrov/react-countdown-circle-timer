@@ -1,9 +1,8 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import { CountdownCircleTimer } from '../src'
+import { CountdownCircleTimer } from '.'
 
 Math.random = () => 0.124578
 
@@ -490,5 +489,4 @@ describe('behaviour tests', () => {
     const path = container.querySelector('path')
     expect(path).toHaveAttribute('stroke-width', '14')
   })
-  
 })

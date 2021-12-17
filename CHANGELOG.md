@@ -10,12 +10,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - PNPM is now used as package manager as well as to handle the monorepo
 - Webpack is replaced by Esbuild to bundle the code and run dev server
 - PropTypes are no longer required as peerDependencies. The component will relay on the TypeScript types
+- New prop `updateInterval` is added to control how often the timer should be updated.
+- New event handler `onUpdate` will fire every time the time changes.
 
 ### Breaking changes
 
-= IE is no longer supported
-
-- Gradient is no longer supported out of the box. The path that animates provide an id that can we used to attach the gradient from outside the CountdownCircleTimer component
+- IE is no longer supported
+- Gradient is no longer supported out of the box and `isLinearGradient` and `gradientUniqueKey` are now deprecated. The gradient can be set from out side of the component. Please refer to the recipes section.
+- `ariaLabel` and `renderAriaTime` are also deprecated. Refer to the recipes section on how this can be implemented now.
 
 ## [2.5.4](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.3...v2.5.4) (2021-08-29)
 

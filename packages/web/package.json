@@ -6,6 +6,8 @@
   "module": "./lib/index.module.js",
   "source": "./src/index.js",
   "scripts": {
+    "start": "node scripts/serve.js",
+    "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
     "build": "node scripts/build.js",
     "dev:push": "pnpm run build && yalc push",
     "test": "jest",
@@ -34,7 +36,7 @@
     "react": ">=16.8.0"
   },
   "dependencies": {
-    "use-elapsed-time": "2.1.8"
+    "use-elapsed-time": "3.0.2"
   },
   "devDependencies": {
     "@countdown-circle-timer/shared": "workspace:*",

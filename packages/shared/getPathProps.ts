@@ -1,4 +1,8 @@
-export const getPathProps = (size, strokeWidth, rotation) => {
+export const getPathProps = (
+  size: number,
+  strokeWidth: number,
+  rotation: 'clockwise' | 'counterclockwise'
+) => {
   const halfSize = size / 2
   const halfStrokeWith = strokeWidth / 2
   const arcRadius = halfSize - halfStrokeWith
