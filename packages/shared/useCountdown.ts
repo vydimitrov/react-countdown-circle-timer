@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useElapsedTime } from 'use-elapsed-time'
-import { getPathProps, getStartAt } from '@countdown-circle-timer/shared'
-import type { Props } from './types'
+import { getPathProps, getStartAt } from './utils'
+import type { Props, ColorFormat } from './types'
 
 const linearEase = (
   time: number,
@@ -27,7 +27,7 @@ const getRGB = (color: string) =>
     .match(/.{2}/g)
     ?.map((x) => parseInt(x, 16)) ?? []
 
-const getStroke = (props: Props, remainingTime: number) => {
+const getStroke = (props: Props, remainingTime: number): ColorFormat => {
   const { colors, colorsTime, isSmoothColorTransition = true } = props
   if (typeof colors === 'string') {
     return colors
@@ -52,13 +52,14 @@ const getStroke = (props: Props, remainingTime: number) => {
   const endColorRGB = getRGB(colors[index + 1])
 
   return `rgb(${startColorRGB
-    .map((color, index) =>
-      linearEase(
-        currentTime,
-        color,
-        endColorRGB[index] - color,
-        currentDuration
-      )
+    .map(
+      (color, index) =>
+        linearEase(
+          currentTime,
+          color,
+          endColorRGB[index] - color,
+          currentDuration
+        ) | 0
     )
     .join(',')})`
 }

@@ -1,9 +1,12 @@
 {
-  "name": "@countdown-circle-timer/shared",
-  "version": "2.5.0",
+  "name": "@countdown/shared",
+  "version": "3.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {},
   "author": "Vasil Dimitrov",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "use-elapsed-time": "3.0.2"
+  }
 }

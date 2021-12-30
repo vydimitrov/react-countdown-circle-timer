@@ -1,7 +1,7 @@
 require('esbuild').serve(
   {
     servedir: 'example',
-    port: 8888,
+    port: 3000,
   },
   {
     entryPoints: ['example/index.tsx'],

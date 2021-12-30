@@ -1,4 +1,7 @@
 import React from 'react'
+import { View } from 'react-native'
+import type { StyleProp, ViewStyle } from 'react-native'
+import Svg, { Path } from 'react-native-svg'
 import { useCountdown, getWrapperStyle, timeStyle } from '@countdown/shared'
 import type { Props } from '@countdown/shared'
 
@@ -16,15 +19,15 @@ export const CountdownCircleTimer = (props: Props) => {
   } = useCountdown(props)
 
   return (
-    <div style={getWrapperStyle(size)}>
-      <svg width={size} height={size} xmlns="http://www.w3.org/2000/svg">
-        <path
+    <View style={getWrapperStyle(size) as StyleProp<ViewStyle>}>
+      <Svg width={size} height={size}>
+        <Path
           d={path}
           fill="none"
           stroke={trailColor ?? '#d9d9d9'}
           strokeWidth={trailStrokeWidth ?? strokeWidth}
         />
-        <path
+        <Path
           d={path}
           fill="none"
           stroke={stroke}
@@ -33,13 +36,13 @@ export const CountdownCircleTimer = (props: Props) => {
           strokeDasharray={pathLength}
           strokeDashoffset={strokeDashoffset}
         />
-      </svg>
+      </Svg>
       {typeof children === 'function' && (
-        <div style={timeStyle}>
+        <View style={timeStyle as StyleProp<ViewStyle>}>
           {children({ remainingTime, elapsedTime, color: stroke })}
-        </div>
+        </View>
       )}
-    </div>
+    </View>
   )
 }
 

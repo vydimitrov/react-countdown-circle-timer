@@ -5,6 +5,9 @@
   "main": "./lib/index.js",
   "module": "./lib/index.module.js",
   "source": "./src/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "start": "node scripts/serve.js",
     "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
@@ -35,16 +38,9 @@
   "peerDependencies": {
     "react": ">=16.8.0"
   },
-  "dependencies": {
-    "use-elapsed-time": "3.0.2"
-  },
   "devDependencies": {
-    "@countdown-circle-timer/shared": "workspace:*",
+    "@countdown/shared": "workspace:*",
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.0.0"
-  },
-  "files": [
-    "lib",
-    "types"
-  ]
+  }
 }

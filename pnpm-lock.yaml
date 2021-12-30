@@ -24,8 +24,7 @@ importers:
       prettier: 2.3.2
       react: 17.0.2
       react-dom: 17.0.2
-      react-test-renderer: 17.0.2
-      typescript: ^4.5.3
+      typescript: 4.5.3
     devDependencies:
       '@types/jest': 27.0.3
       '@types/node': 16.11.12
@@ -47,38 +46,39 @@ importers:
       prettier: 2.3.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      react-test-renderer: 17.0.2_react@17.0.2
       typescript: 4.5.3
 
   packages/mobile:
     specifiers:
-      '@countdown-circle-timer/shared': workspace:*
+      '@countdown/shared': workspace:*
       '@testing-library/jest-native': 4.0.2
       '@testing-library/react-native': 7.2.0
+      '@types/react-native': ^0.66.10
       mockdate: 3.0.5
       react-native: 0.64.2
       react-native-svg: 12.1.1
     devDependencies:
-      '@countdown-circle-timer/shared': link:../shared
+      '@countdown/shared': link:../shared
       '@testing-library/jest-native': 4.0.2
-      '@testing-library/react-native': 7.2.0_72feb4442a9257875272743762335b9a
+      '@testing-library/react-native': 7.2.0_react-native@0.64.2+react@17.0.2
+      '@types/react-native': 0.66.10
       mockdate: 3.0.5
       react-native: 0.64.2_react@17.0.2
       react-native-svg: 12.1.1_react-native@0.64.2+react@17.0.2
 
   packages/shared:
-    specifiers: {}
-
-  packages/web:
     specifiers:
-      '@countdown-circle-timer/shared': workspace:*
-      '@testing-library/jest-dom': 5.14.1
-      '@testing-library/react': 12.0.0
       use-elapsed-time: 3.0.2
     dependencies:
       use-elapsed-time: 3.0.2_react@17.0.2
+
+  packages/web:
+    specifiers:
+      '@countdown/shared': workspace:*
+      '@testing-library/jest-dom': 5.14.1
+      '@testing-library/react': 12.0.0
     devDependencies:
-      '@countdown-circle-timer/shared': link:../shared
+      '@countdown/shared': link:../shared
       '@testing-library/jest-dom': 5.14.1
       '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
 
@@ -1575,7 +1575,7 @@ packages:
       redent: 2.0.0
     dev: true
 
-  /@testing-library/react-native/7.2.0_72feb4442a9257875272743762335b9a:
+  /@testing-library/react-native/7.2.0_react-native@0.64.2+react@17.0.2:
     resolution: {integrity: sha512-rDKzJjAAeGgyoJT0gFQiMsIL09chdWcwZyYx6WZHMgm2c5NDqY52hUuyTkzhqddMYWmSRklFphSg7B2HX+246Q==}
     peerDependencies:
       react: '>=16.0.0'
@@ -1585,7 +1585,6 @@ packages:
       pretty-format: 26.6.2
       react: 17.0.2
       react-native: 0.64.2_react@17.0.2
-      react-test-renderer: 17.0.2_react@17.0.2
     dev: true
 
   /@testing-library/react/12.0.0_react-dom@17.0.2+react@17.0.2:
@@ -1697,6 +1696,12 @@ packages:
 
   /@types/react-dom/17.0.11:
     resolution: {integrity: sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==}
+    dependencies:
+      '@types/react': 17.0.37
+    dev: true
+
+  /@types/react-native/0.66.10:
+    resolution: {integrity: sha512-3AyXa3YB918I0Mk6kyebnVJSe3JsVETestSPPzU5YFmIMnri2yS1KRIxMIpoVm2hu/as0PkIfsbjVvoEMKNT8A==}
     dependencies:
       '@types/react': 17.0.37
     dev: true
@@ -6465,28 +6470,6 @@ packages:
   /react-refresh/0.4.3:
     resolution: {integrity: sha512-Hwln1VNuGl/6bVwnd0Xdn1e84gT/8T9aYNL+HAKDArLCS7LWjwr7StE30IEYbIkx0Vi3vs+coQxe+SQDbGbbpA==}
     engines: {node: '>=0.10.0'}
-    dev: true
-
-  /react-shallow-renderer/16.14.1_react@17.0.2:
-    resolution: {integrity: sha512-rkIMcQi01/+kxiTE9D3fdS959U1g7gs+/rborw++42m1O9FAQiNI/UNRZExVUoAOprn4umcXf+pFRou8i4zuBg==}
-    peerDependencies:
-      react: ^16.0.0 || ^17.0.0
-    dependencies:
-      object-assign: 4.1.1
-      react: 17.0.2
-      react-is: 17.0.2
-    dev: true
-
-  /react-test-renderer/17.0.2_react@17.0.2:
-    resolution: {integrity: sha512-yaQ9cB89c17PUb0x6UfWRs7kQCorVdHlutU1boVPEsB8IDZH6n9tHxMacc3y0JoXOJUsZb/t/Mb8FUWMKaM7iQ==}
-    peerDependencies:
-      react: 17.0.2
-    dependencies:
-      object-assign: 4.1.1
-      react: 17.0.2
-      react-is: 17.0.2
-      react-shallow-renderer: 16.14.1_react@17.0.2
-      scheduler: 0.20.2
     dev: true
 
   /react/17.0.2:

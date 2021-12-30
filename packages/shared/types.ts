@@ -1,12 +1,15 @@
 import { Props as ElapsedTimeProps } from 'use-elapsed-time'
 
-type TimeProps = { remainingTime: number; elapsedTime: number }
 type ColorHex = `#${string}`
-type ColorFormat =
-  | ColorHex
-  | `rgb(${string})`
-  | `rgba(${string})`
-  | `url(#${string})`
+type ColorRGB = `rgb(${string})`
+type ColorRGBA = `rgba(${string})`
+type ColorURL = `url(#${string})`
+export type ColorFormat = ColorHex | ColorRGB | ColorRGBA | ColorURL
+type TimeProps = {
+  remainingTime: number
+  elapsedTime: number
+  color: ColorFormat
+}
 
 type SingleColor = {
   /** Single valid color or url to a gradient */

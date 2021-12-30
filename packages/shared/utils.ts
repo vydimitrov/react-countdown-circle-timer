@@ -16,3 +16,30 @@ export const getPathProps = (
 
   return { path, pathLength }
 }
+
+export const getStartAt = (duration: number, initialRemainingTime?: number) => {
+  if (duration === 0) {
+    return 0
+  }
+
+  return typeof initialRemainingTime === 'number'
+    ? duration - initialRemainingTime
+    : 0
+}
+
+export const getWrapperStyle = (size: number): React.CSSProperties => ({
+  position: 'relative',
+  width: size,
+  height: size,
+})
+
+export const timeStyle: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'absolute',
+  left: 0,
+  top: 0,
+  width: '100%',
+  height: '100%',
+}
