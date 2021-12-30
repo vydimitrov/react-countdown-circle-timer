@@ -1,123 +1,38 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import { CountdownCircleTimer } from '.'
 
-Math.random = () => 0.124578
-
-const useElapsedTime = require('use-elapsed-time')
-
-const fixture = {
-  duration: 10,
-  colors: [
-    ['#004777', 0.33],
-    ['#F7B801', 0.33],
-    ['#A30000', 0.33],
-  ],
-}
-
-describe('snapshot tests', () => {
-  it('renders', () => {
-    const tree = renderer.create(<CountdownCircleTimer {...fixture} />).toJSON()
-
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders with time', () => {
-    const renderTime = ({ remainingTime }) => remainingTime
-    const tree = renderer
-      .create(
-        <CountdownCircleTimer {...fixture} renderAriaTime={renderTime}>
-          {renderTime}
-        </CountdownCircleTimer>
-      )
-      .toJSON()
-
-    expect(tree).toMatchSnapshot()
-  })
-
-  it('renders with different trail stroke width', () => {
-    const renderTime = ({ remainingTime }) => remainingTime
-    const tree = renderer
-      .create(
-        <CountdownCircleTimer {...fixture} trailStrokeWidth={16}>
-          {renderTime}
-        </CountdownCircleTimer>
-      )
-      .toJSON()
-
-    expect(tree).toMatchSnapshot()
-  })
-})
-
-describe('functional tests', () => {
-  afterEach(() => {
-    useElapsedTime.__resetElapsedTime()
-  })
-
-  it('should set styles correctly on the root', () => {
-    render(<CountdownCircleTimer {...fixture} size={240} />)
+describe('CountdownCircleTimer', () => {
+  it('sets styles correctly on the root', () => {
+    render(<CountdownCircleTimer duration={1} colors="#abc" size={240} />)
 
     expect(screen.getByLabelText('Countdown timer')).toHaveStyle(`
-            position: relative;
-            width: 240px;
-            height: 240px;
-        `)
+        position: relative;
+        width: 240px;
+        height: 240px;
+    `)
   })
 
-  it('should set aria-label attribute', () => {
-    render(<CountdownCircleTimer {...fixture} ariaLabel="Nedtællingsur" />)
+  it('sets width and height attributes on the svg element', () => {
+    render(<CountdownCircleTimer duration={1} colors="#abc" size={360} />)
 
-    expect(screen.getByLabelText('Nedtællingsur')).toBeInTheDocument()
-  })
-
-  it('should set width and height attributes on the svg element', () => {
-    const { container } = render(
-      <CountdownCircleTimer {...fixture} size={360} />
-    )
-
-    const svg = container.querySelector('svg')
+    const svg = document.querySelector('svg')
     expect(svg).toHaveAttribute('width', '360')
     expect(svg).toHaveAttribute('height', '360')
   })
 
-  it('should add linearGradient tag with the ID provided when isLinearGradient is true', () => {
-    const { container } = render(
+  it('should set stroke-width, stroke, and d attributes on the trail path', () => {
+    render(
       <CountdownCircleTimer
-        {...fixture}
-        isLinearGradient
-        gradientUniqueKey="test"
+        duration={1}
+        colors="#abc"
+        strokeWidth={13}
+        trailColor="#CCC"
       />
     )
 
-    const linearGradient = container.querySelector('linearGradient')
-    expect(linearGradient).toBeInTheDocument()
-    expect(linearGradient).toHaveAttribute(
-      'id',
-      'countdown-circle-timer-gradient-test'
-    )
-  })
-
-  it('should add linearGradient tag with random ID when an ID is not provided and isLinearGradient is true', () => {
-    const { container } = render(
-      <CountdownCircleTimer {...fixture} isLinearGradient />
-    )
-
-    const linearGradient = container.querySelector('linearGradient')
-    expect(linearGradient).toBeInTheDocument()
-    expect(linearGradient).toHaveAttribute(
-      'id',
-      'countdown-circle-timer-gradient-4hgb79ur1xg'
-    )
-  })
-
-  it('should set stroke-width, stroke, and d attributes on the trail path', () => {
-    const { container } = render(
-      <CountdownCircleTimer {...fixture} strokeWidth={13} trailColor="#CCC" />
-    )
-
-    const path = container.querySelector('path')
+    const path = document.querySelector('path')!
     expect(path).toHaveAttribute('stroke-width', '13')
     expect(path).toHaveAttribute('stroke', '#CCC')
     const d = path

@@ -21,10 +21,10 @@ const Count = () => {
         duration={count}
         isSmoothColorTransition={false}
         // updateInterval={1}
-        // colors="#aabbcc"
+        colors="#aabbcc"
         // colors="url(#test-it)"
-        colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-        colorsTime={[8, 6.66, 3.33, 0]}
+        // colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+        // colorsTime={[8, 6.66, 3.33, 0]}
         onUpdate={(remainingTime) => {
           console.log('Counter is ', count)
           console.log('Remaining time is ', remainingTime)

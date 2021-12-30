@@ -2,10 +2,15 @@ import { Props as ElapsedTimeProps } from 'use-elapsed-time'
 
 type TimeProps = { remainingTime: number; elapsedTime: number }
 type ColorHex = `#${string}`
+type ColorFormat =
+  | ColorHex
+  | `rgb(${string})`
+  | `rgba(${string})`
+  | `url(#${string})`
 
 type SingleColor = {
   /** Single valid color or url to a gradient */
-  colors: ColorHex | `rgb(${string})` | `rgba(${string})` | `url(#${string})`
+  colors: ColorFormat
   /** Colors time works only when the colors prop is an array of colors*/
   colorsTime?: never
 }
@@ -35,7 +40,7 @@ export type Props = {
   /** Progress path rotation direction. Default: "clockwise" */
   rotation?: 'clockwise' | 'counterclockwise'
   /** Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.). Default: #d9d9d9 */
-  trailColor?: string
+  trailColor?: ColorFormat
   /** Play and pause animation. Default: false */
   isPlaying?: boolean
   /** Indicates if the colors should smoothly transition to the next color. Default: true */
