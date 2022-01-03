@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.0](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.1...v2.5.2) (2021-04-28)
+## [3.0.0](2021-04-28)
 
 ### Improvements
 
@@ -18,6 +18,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - IE is no longer supported
 - Gradient is no longer supported out of the box and `isLinearGradient` and `gradientUniqueKey` are now deprecated. The gradient can be set from out side of the component. Please refer to the recipes section.
 - `ariaLabel` and `renderAriaTime` are also deprecated. Refer to the recipes section on how this can be implemented now.
+
+### React Native (mobile) changes
+
+- The Mobile package does not rely on `AnimatedPath` to animate the SVG path but instead it uses the animation event loop from `use-elapsed-time`. Thus now both packages - web and mobile share the same core logic to animate the path. Performance comparison shows that the later approach is much more performant.
 
 ## [2.5.4](https://github.com/vydimitrov/react-countdown-circle-timer/compare/v2.5.3...v2.5.4) (2021-08-29)
 

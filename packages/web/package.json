@@ -1,6 +1,6 @@
 {
   "name": "react-countdown-circle-timer",
-  "version": "2.5.4",
+  "version": "3.0.0",
   "description": "Lightweight React countdown timer component with color and progress animation based on SVG",
   "main": "./lib/index.js",
   "module": "./lib/index.module.js",
@@ -11,11 +11,11 @@
   "scripts": {
     "start": "node scripts/serve.js",
     "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
-    "build": "node scripts/build.js",
+    "build": "yarn ts-declaration && node scripts/build.js",
     "dev:push": "pnpm run build && yalc push",
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\""
+    "test": "jest --collectCoverage",
+    "test:watch": "jest --watch",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -39,8 +39,6 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@countdown/shared": "workspace:*",
-    "@testing-library/jest-dom": "5.14.1",
-    "@testing-library/react": "12.0.0"
+    "@countdown/shared": "workspace:*"
   }
 }

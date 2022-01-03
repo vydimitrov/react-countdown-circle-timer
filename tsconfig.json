@@ -10,11 +10,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "declaration": true,
-    "paths": {
-      "@countdown-circle-timer/shared": ["../shared"]
-    }
+    "declaration": true
   },
-  "include": ["src"],
-  "exclude": ["src/*.test.ts"]
+  "include": ["src"]
 }
