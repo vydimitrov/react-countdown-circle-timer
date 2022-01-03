@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect'
 import { render, screen, waitFor } from '@testing-library/react'
 import { renderHook } from '@testing-library/react-hooks'
-import { getIsColorBetweenColors } from '@countdown/shared'
+import { getIsColorBetweenColors } from '@countdown/shared/src'
 
 import { CountdownCircleTimer, useCountdown } from '.'
 import type { Props } from '.'

@@ -5,7 +5,8 @@ importers:
   .:
     specifiers:
       '@testing-library/jest-dom': 5.14.1
-      '@testing-library/react-hooks': ^7.0.2
+      '@testing-library/react': 12.1.2
+      '@testing-library/react-hooks': 7.0.2
       '@types/jest': 27.0.3
       '@types/node': 16.11.12
       '@types/react': 17.0.37
@@ -25,10 +26,11 @@ importers:
       prettier: 2.3.2
       react: 17.0.2
       react-dom: 17.0.2
-      ts-jest: ^27.1.2
+      ts-jest: 27.1.2
       typescript: 4.5.3
     devDependencies:
       '@testing-library/jest-dom': 5.14.1
+      '@testing-library/react': 12.1.2_react-dom@17.0.2+react@17.0.2
       '@testing-library/react-hooks': 7.0.2_react-dom@17.0.2+react@17.0.2
       '@types/jest': 27.0.3
       '@types/node': 16.11.12
@@ -70,12 +72,9 @@ importers:
 
   packages/shared:
     specifiers:
-      '@testing-library/react': 12.0.0
       use-elapsed-time: 3.0.2
     dependencies:
       use-elapsed-time: 3.0.2_react@17.0.2
-    devDependencies:
-      '@testing-library/react': 12.0.0_react-dom@17.0.2+react@17.0.2
 
   packages/web:
     specifiers:
@@ -1610,8 +1609,8 @@ packages:
       react-native: 0.64.2_react@17.0.2
     dev: true
 
-  /@testing-library/react/12.0.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-sh3jhFgEshFyJ/0IxGltRhwZv2kFKfJ3fN1vTZ6hhMXzz9ZbbcTgmDYM4e+zJv+oiVKKEWZPyqPAh4MQBI65gA==}
+  /@testing-library/react/12.1.2_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-ihQiEOklNyHIpo2Y8FREkyD1QAea054U0MVbwH1m8N9TxeFz+KoJ9LkqoKqJlzx2JDm56DVwaJ1r36JYxZM05g==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '*'

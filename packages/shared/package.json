@@ -2,8 +2,11 @@
   "name": "@countdown/shared",
   "version": "3.0.0",
   "private": true,
-  "main": "index.ts",
-  "scripts": {},
+  "source": "./src/index.js",
+  "scripts": {
+    "test": "jest --collectCoverage",
+    "test:watch": "jest --watch"
+  },
   "author": "Vasil Dimitrov",
   "license": "MIT",
   "dependencies": {

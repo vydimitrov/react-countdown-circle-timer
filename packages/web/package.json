@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "node scripts/serve.js",
-    "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
+    "ts-declaration": "tsc --declaration --emitDeclarationOnly",
     "build": "yarn ts-declaration && node scripts/build.js",
     "dev:push": "pnpm run build && yalc push",
     "test": "jest --collectCoverage",

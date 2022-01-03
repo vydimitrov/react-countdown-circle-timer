@@ -1,9 +1,9 @@
 import { Props as ElapsedTimeProps } from 'use-elapsed-time'
 
 type ColorHex = `#${string}`
-type ColorRGB = `rgb(${string})`
 type ColorRGBA = `rgba(${string})`
 type ColorURL = `url(#${string})`
+export type ColorRGB = `rgb(${string})`
 export type ColorFormat = ColorHex | ColorRGB | ColorRGBA | ColorURL
 type TimeProps = {
   remainingTime: number

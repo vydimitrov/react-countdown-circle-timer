@@ -1,3 +1,2 @@
-export { CountdownCircleTimer } from './CountdownCircleTimer'
-export { useCountdown } from '@countdown/shared'
-export type { Props } from '@countdown/shared'
+export { CountdownCircleTimer, useCountdown } from './CountdownCircleTimer'
+export type { Props } from './CountdownCircleTimer'
