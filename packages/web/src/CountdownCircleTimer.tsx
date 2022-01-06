@@ -1,6 +1,6 @@
 import React from 'react'
-import { useCountdown, getWrapperStyle, timeStyle } from '@countdown/shared/src'
-import type { Props } from '@countdown/shared/src'
+import { useCountdown, getWrapperStyle, timeStyle } from '@countdown/shared'
+import type { Props } from '@countdown/shared'
 
 const CountdownCircleTimer = (props: Props) => {
   const { children, strokeLinecap, trailColor, trailStrokeWidth } = props
