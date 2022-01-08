@@ -1,4 +1,4 @@
-import { getIsColorBetweenColors, getWrapperStyle } from '.'
+import { getIsColorBetweenColors, getWrapperStyle } from '..'
 
 describe('getIsColorBetweenColors', () => {
   it('returns true when a color is between colors', () => {

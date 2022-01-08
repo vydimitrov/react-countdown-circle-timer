@@ -8,11 +8,12 @@
     "lib"
   ],
   "scripts": {
-    "build": "node scripts/build.js",
+    "ts-declaration": "tsc --declaration --emitDeclarationOnly",
+    "build": "yarn ts-declaration && node scripts/build.js",
     "dev:push": "pnpm run build && yalc push",
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\""
+    "test": "jest --collectCoverage",
+    "test:watch": "jest --watch",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -41,8 +42,26 @@
     "@countdown/shared": "workspace:*",
     "@testing-library/jest-native": "4.0.2",
     "@testing-library/react-native": "7.2.0",
-    "@types/react-native": "^0.66.10",
+    "@types/react-native": "0.64.2",
     "react-native": "0.64.2",
-    "react-native-svg": "12.1.1"
+    "react-native-svg": "12.1.1",
+    "@babel/core": "7.12.9",
+    "@babel/runtime": "7.12.5",
+    "@types/jest": "26.0.23",
+    "@types/react-test-renderer": "16.9.2",
+    "babel-jest": "26.6.3",
+    "metro-react-native-babel-preset": "0.64.0",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }

@@ -1,24 +1,54 @@
+import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import { Text } from 'react-native'
-import { render, waitFor } from '@testing-library/react-native'
+import { render } from '@testing-library/react-native'
+import { renderHook } from '@testing-library/react-hooks'
+import renderer from 'react-test-renderer'
 
-import { CountdownCircleTimer } from '.'
+import { CountdownCircleTimer, useCountdown } from '.'
+import type { Props } from '.'
 
-Math.random = () => 0.124578
-
-const fixture = {
-  duration: 10,
-  colors: [
-    ['#004777', 0.33],
-    ['#F7B801', 0.33],
-    ['#A30000', 0.33],
-  ],
+const fixture: Props = {
+  duration: 0.2,
+  colors: '#abc',
 }
 
-describe('functional tests', () => {
-  it('should start the timer from value provided in initialRemainingTime', () => {
+describe('CountdownCircleTimer', () => {
+  it('renders with single color', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer {...fixture}>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders with different trail stroke width', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer
+          {...fixture}
+          trailStrokeWidth={16}
+          strokeWidth={14}
+        >
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('starts the timer from value provided in initialRemainingTime', () => {
     const { getByText } = render(
-      <CountdownCircleTimer {...fixture} initialRemainingTime={3.7}>
+      <CountdownCircleTimer
+        duration={10}
+        colors="#abc"
+        initialRemainingTime={3.7}
+      >
         {({ remainingTime }) => <Text>{remainingTime}</Text>}
       </CountdownCircleTimer>
     )
@@ -27,33 +57,22 @@ describe('functional tests', () => {
   })
 })
 
-describe('behaviour tests', () => {
-  it('should call onComplete at the end of the countdown', async () => {
-    const onComplete = jest.fn()
-    const { findByText } = render(
-      <CountdownCircleTimer
-        {...fixture}
-        duration={1}
-        isPlaying
-        onComplete={onComplete}
-      >
-        {({ remainingTime }) => <Text>{remainingTime}</Text>}
-      </CountdownCircleTimer>
+describe('useCountdown', () => {
+  it('returns default values form useCountdown', () => {
+    const { result } = renderHook(() =>
+      useCountdown({ duration: 12, colors: '#f1f2f3' })
     )
 
-    expect(await findByText('0')).toBeTruthy()
-    expect(onComplete).toHaveBeenCalledWith(1)
-  })
-
-  it('should clear repeat timeout when the component is unmounted', () => {
-    const clearTimeoutMock = jest.fn()
-
-    global.clearTimeout = clearTimeoutMock
-
-    const { unmount } = render(<CountdownCircleTimer {...fixture} />)
-
-    unmount()
-
-    expect(clearTimeoutMock).toHaveBeenCalled()
+    expect(result.current).toEqual({
+      elapsedTime: 0,
+      path: 'm 90,6 a 84,84 0 1,0 0,168 a 84,84 0 1,0 0,-168',
+      pathLength: 527.7875658030853,
+      remainingTime: 12,
+      rotation: 'clockwise',
+      size: 180,
+      stroke: '#f1f2f3',
+      strokeDashoffset: 0,
+      strokeWidth: 12,
+    })
   })
 })

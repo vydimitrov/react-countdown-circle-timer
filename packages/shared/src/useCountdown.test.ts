@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react-hooks'
 import { getIsColorBetweenColors } from './utils'
 import type { Props } from './types'
 
-import { useCountdown } from '.'
+import { useCountdown } from '..'
 import { ColorRGB } from './types'
 
 describe('useCountdown', () => {
