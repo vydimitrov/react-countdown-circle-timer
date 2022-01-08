@@ -4,11 +4,10 @@ React/React Native countdown timer component in a circle shape with color and pr
 
 <img src="https://user-images.githubusercontent.com/10707142/66097204-ca68c200-e59d-11e9-9b70-688409755aaa.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65935516-a0869280-e419-11e9-9bb0-40c4d1ef2bbe.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
-- Countdown animation independently optimized for the Web and Mobile
-- Transition between colors during the countdown
-- Fully customizable content in the center of the circle
-- `a11y` support
-- Built-in and ready-to-use TypeScript type definitions.
+:zap: Performance optimized with single `requestAnimationFrame` loop to animate color and progress
+:rainbow: Transition between colors during the countdown
+:european_castle: Fully customizable content in the center of the circle
+:rocket: Support iOS and Android
 
 ## React
 
@@ -21,8 +20,6 @@ React/React Native countdown timer component in a circle shape with color and pr
 yarn add react-countdown-circle-timer
 ```
 
-Check out the [full documentation](https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/web#react-countdown-circle-timer) for demos and use cases.
-
 ## React Native
 
 [![npm](https://img.shields.io/npm/v/react-native-countdown-circle-timer)](https://www.npmjs.com/package/react-native-countdown-circle-timer)
@@ -34,7 +31,72 @@ Check out the [full documentation](https://github.com/vydimitrov/react-countdown
 yarn add react-native-countdown-circle-timer
 ```
 
-This component has a peer dependency on `react-native-svg`. Read the [full documentation](https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/mobile#react-native-countdown-circle-timer) for the installation guide, as well as demos and use cases.
+This component has a peer dependency on `react-native-svg` to draw the countdown circle. `react-native-svg` has to be installed and linked into your project
+
+## Demo
+
+### React
+
+Check the demo on CodeSandbox to get started  
+[![Edit stoic-cache-e7cie](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/stoic-cache-e7cie?fontsize=14&hidenavigation=1&theme=dark)
+
+## Basic usage
+
+```jsx
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+
+const UrgeWithPleasureComponent = () => (
+  <CountdownCircleTimer
+    isPlaying
+    duration={7}
+    colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+    colorsTime={[7, 5, 2, 0]}
+  >
+    {({ remainingTime }) => remainingTime}
+  </CountdownCircleTimer>
+)
+```
+
+### React Native
+
+Check the [Expo Snack](https://snack.expo.io/@dimitrov/countdown-circle-timer?platform=ios) demo to get started
+
+## Basic usage
+
+```jsx
+import { Text } from 'react-native'
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
+
+const UrgeWithPleasureComponent = () => (
+  <CountdownCircleTimer
+    isPlaying
+    duration={7}
+    colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+    colorsTime={[7, 5, 2, 0]}
+  >
+    {({ remainingTime }) => <Text>{remainingTime}</Text>}
+  </CountdownCircleTimer>
+)
+```
+
+### Hook
+
+Both the React and React Native packages export a hook `useCountdown`, which accepts the same props as the component and returns all props needed to render your own circle.
+
+```jsx
+import { useCountdown } from 'react-countdown-circle-timer'
+
+const {
+  path,
+  pathLength,
+  stroke,
+  strokeDashoffset,
+  remainingTime,
+  elapsedTime,
+  size,
+  strokeWidth,
+} = useCountdown({ isPlaying: true, duration: 7, colors: '#abc' })
+```
 
 ## Props for both React/React Native
 
@@ -57,11 +119,15 @@ This component has a peer dependency on `react-native-svg`. Read the [full docum
 | ariaLabel            | string                                                                                           | Countdown timer | Aria label for the whole component                                                                                                                                                                                                                                                                                            |
 | renderAriaTime       | function({ remainingTime: number, elapsedTime: number }): string                                 | -               | Render prop function to customize the text message that will be read by the screen reader during the countdown.                                                                                                                                                                                                               |
 
+## Browser support
+
+The component and hook support [all modern browsers](https://caniuse.com/?search=es6) targeting `es6`. Internet Explorer (IE) is not longer supported.
+
 ## Recipes
 
-### Change `duration` and/or `initialRemainingTime` once component is mounted
+### Changing `duration` prop
 
-Once the component is mounted `duration` and `initialRemainingTime` can not be changed to avoid any issues computing colors and progress. To set new values for any of the two props just pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
+Once the component is mounted the `duration` prop can be changed the the timer will respect the new duration. In case the new duration is bigger than the previous one then the timer will continue to the new duration. In case the new duration is smaller then the previous one then the timer will ne over. If you want to restart the timer when the duration changes then pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
 
 ### Restart/Reset timer at any given time
 
@@ -69,18 +135,18 @@ Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer 
 
 ### Repeat timer when countdown is completed
 
-Return an array from `onComplete` handler, which indicates if the animation should be repeated. Example:
+Return an object from `onComplete` handler, which indicates if the animation should be repeated. Example:
 
 ```jsx
 const UrgeWithPleasureComponent = () => (
   <CountdownCircleTimer
-    onComplete={() => {
-      // do your stuff here
-      return [true, 1500] // repeat animation in 1.5 seconds
-    }}
     isPlaying
     duration={10}
     colors="#A30000"
+    onComplete={() => {
+      // do your stuff here
+      return { shouldRepeat: true, delay: 1.5 } // repeat animation in 1.5 seconds
+    }}
   />
 )
 ```
@@ -104,7 +170,7 @@ In the example above, the countdown will start at 15 seconds (one quarter before
 
 ### Time formatting functions
 
-`children` prop of `CountdownCircleTimer` component will receive as a prop `remainingTime` in seconds. Below are few function that can be used to get different time formatting:
+`children` prop of `CountdownCircleTimer` component will receive as a prop `remainingTime` in seconds. Below are a few functions that can be used to get different time formatting:
 
 - Format `mm:ss` (minutes and seconds)
 
@@ -129,6 +195,49 @@ const children = ({ remainingTime }) => {
 }
 ```
 
-## Browser support
+### Add `a11y` support
 
-The component and hook support [all modern browsers](https://caniuse.com/?search=es6) targeting `es6`. Internet Explorer (IE) is not longer supported.
+There are 2 things that has to be done here:
+
+- Wrapper the timer in an element and add the following attribute `aria-label={your-aria-label}`
+- Add the following element with `role="timer"` to your `children` function that will make the screen reader read the remaining time while the timer is running.
+
+```jsx
+const children = ({ remainingTime }) => (
+  <div role="timer" aria-live="assertive">
+    {remainingTime} seconds
+  </div>
+)
+```
+
+### Add gradient
+
+Define the SVG gradient outside the Timer component and pass the gradient ID to the Timer component as a single color:
+
+```jsx
+<svg>
+  <defs>
+    <linearGradient id="your-unique-id" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="5%" stopColor="gold" />
+      <stop offset="95%" stopColor="red" />
+    </linearGradient>
+  </defs>
+</svg>
+<CountdownCircleTimer colors="url(#your-unique-id)">
+  {({ remainingTime }) => remainingTime}
+</CountdownCircleTimer>
+```
+
+### Web - slide down time animation
+
+<img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
+
+Check the CodeSandbox below to find out how you can implement it yourself  
+[![Edit silly-night-d3s70](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/silly-night-d3s70?fontsize=14&hidenavigation=1&theme=dark)
+
+### Web - days, hours, minutes, seconds countdown
+
+<img src="https://user-images.githubusercontent.com/10707142/80909463-efd2cf80-8d28-11ea-8592-a179f49ac4ba.gif" width="500">
+
+Check the demo below for one possible solution  
+[![Edit musing-davinci-mqssz](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark)
