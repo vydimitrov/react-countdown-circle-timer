@@ -52,7 +52,7 @@
     "typescript": "4.5.3"
   },
   "nano-staged": {
-    "*.{ts,tsx}": "eslint --fix"
+    "**/*.{ts,tsx}": "eslint --fix"
   },
   "simple-git-hooks": {
     "pre-commit": "./node_modules/.bin/nano-staged"
