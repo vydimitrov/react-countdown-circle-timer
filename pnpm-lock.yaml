@@ -18,14 +18,15 @@ importers:
       eslint-plugin-import: 2.24.2
       eslint-plugin-node: 11.1.0
       eslint-plugin-prettier: 3.4.1
+      eslint-plugin-promise: 6.0.0
       eslint-plugin-react: 7.24.0
       eslint-plugin-react-hooks: 4.2.0
       jest: 27.1.0
-      nano-staged: ^0.5.0
+      nano-staged: 0.5.0
       prettier: 2.3.2
       react: 17.0.2
       react-dom: 17.0.2
-      simple-git-hooks: ^2.7.0
+      simple-git-hooks: 2.7.0
       ts-jest: 27.1.2
       typescript: 4.5.3
     devDependencies:
@@ -39,10 +40,11 @@ importers:
       esbuild: 0.14.2
       eslint: 7.32.0
       eslint-config-prettier: 8.3.0_eslint@7.32.0
-      eslint-config-standard: 16.0.3_0eaef6f81fa21b077049a37122443b8a
+      eslint-config-standard: 16.0.3_3c00458a6517a0e2d7ae05ad92e5d43b
       eslint-plugin-import: 2.24.2_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
       eslint-plugin-prettier: 3.4.1_5a48a349ffec60f5257b5f148f5199c3
+      eslint-plugin-promise: 6.0.0_eslint@7.32.0
       eslint-plugin-react: 7.24.0_eslint@7.32.0
       eslint-plugin-react-hooks: 4.2.0_eslint@7.32.0
       jest: 27.1.0
@@ -3453,7 +3455,7 @@ packages:
       eslint: 7.32.0
     dev: true
 
-  /eslint-config-standard/16.0.3_0eaef6f81fa21b077049a37122443b8a:
+  /eslint-config-standard/16.0.3_3c00458a6517a0e2d7ae05ad92e5d43b:
     resolution: {integrity: sha512-x4fmJL5hGqNJKGHSjnLdgA6U6h1YW/G2dW9fA+cyVur4SK6lyue8+UgNKWlZtUDTXvgKDD/Oa3GQjmB5kjtVvg==}
     peerDependencies:
       eslint: ^7.12.1
@@ -3464,6 +3466,7 @@ packages:
       eslint: 7.32.0
       eslint-plugin-import: 2.24.2_eslint@7.32.0
       eslint-plugin-node: 11.1.0_eslint@7.32.0
+      eslint-plugin-promise: 6.0.0_eslint@7.32.0
     dev: true
 
   /eslint-import-resolver-node/0.3.6:
@@ -3547,6 +3550,15 @@ packages:
       eslint-config-prettier: 8.3.0_eslint@7.32.0
       prettier: 2.3.2
       prettier-linter-helpers: 1.0.0
+    dev: true
+
+  /eslint-plugin-promise/6.0.0_eslint@7.32.0:
+    resolution: {integrity: sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+    dependencies:
+      eslint: 7.32.0
     dev: true
 
   /eslint-plugin-react-hooks/4.2.0_eslint@7.32.0:

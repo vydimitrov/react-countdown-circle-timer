@@ -22,5 +22,5 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
   },
-  ignorePatterns: ['**/lib/*.js', '**/__tests__/*.js'],
+  ignorePatterns: ['**/lib/*.js'],
 }
