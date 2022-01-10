@@ -37,8 +37,7 @@ This component has a peer dependency on `react-native-svg` to draw the countdown
 
 ### React
 
-Check the demo on CodeSandbox to get started  
-[![Edit stoic-cache-e7cie](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/stoic-cache-e7cie?fontsize=14&hidenavigation=1&theme=dark)
+Check the demo on [CodeSandbox](https://codesandbox.io/s/stoic-cache-e7cie?fontsize=14&hidenavigation=1&theme=dark) to get started.
 
 ```jsx
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
@@ -57,7 +56,7 @@ const UrgeWithPleasureComponent = () => (
 
 ### React Native
 
-Check the [Expo Snack](https://snack.expo.io/@dimitrov/countdown-circle-timer?platform=ios) demo to get started
+Check the [Expo Snack](https://snack.expo.io/@dimitrov/countdown-circle-timer?platform=ios) demo to get started.
 
 ```jsx
 import { Text } from 'react-native'
