@@ -44,7 +44,7 @@ export type Props = {
   rotation?: 'clockwise' | 'counterclockwise'
   /** Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.). Default: #d9d9d9 */
   trailColor?: ColorFormat
-  /** Play and pause animation. Default: false */
+  /** Play or pause animation. Default: false */
   isPlaying?: boolean
   /** Indicates if the colors should smoothly transition to the next color. Default: true */
   isSmoothColorTransition?: boolean

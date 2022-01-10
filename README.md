@@ -95,24 +95,24 @@ const {
 
 ## Props
 
-| Prop Name               | Type                                                                                | Default     | Description                                                                                                                                                                                                                                        |
-| ----------------------- | ----------------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| duration                | number                                                                              | _required_  | Countdown duration in seconds                                                                                                                                                                                                                      |
-| colors                  | string \| string[]                                                                  | _required_  | `colors` prop is either:<br> - single valid color in any format or URL to a gradient<br> - array of colors in HEX format. At least 2 colors should be provided                                                                                     |
-| colorsTime              | number[]                                                                            | -           | Indicates the time when a color should switch to the next color. The first number is the countdown duration and the last one is 0 or goal. Example with duration of 10 seconds: [10, 6, 3, 0]. Works only when `colors` is an array of HEX colors. |
-| isPlaying               | boolean                                                                             | false       | Play and pause animation                                                                                                                                                                                                                           |
-| initialRemainingTime    | number                                                                              | -           | Set the initial remaining time if it is different than the duration                                                                                                                                                                                |
-| updateInterval          | number                                                                              | 0           | Update interval in seconds. Determines how often the timer updates. When set to 0 the value will update on each key frame                                                                                                                          |
-| size                    | number                                                                              | 180         | Width and height of the SVG element                                                                                                                                                                                                                |
-| strokeWidth             | number                                                                              | 12          | Path stroke width                                                                                                                                                                                                                                  |
-| trailStrokeWidth        | number                                                                              | strokeWidth | Trail stroke width                                                                                                                                                                                                                                 |
-| strokeLinecap           | round \| square                                                                     | round       | Path stroke line cap                                                                                                                                                                                                                               |
-| rotation                | clockwise \| counterclockwise                                                       | clockwise   | Progress path rotation direction                                                                                                                                                                                                                   |
-| trailColor              | string                                                                              | #d9d9d9     | Circle trail color - takes any valid color format                                                                                                                                                                                                  |
-| isSmoothColorTransition | boolean                                                                             | true        | Indicates if the colors should smoothly transition to the next color                                                                                                                                                                               |
-| children                | (props: { remainingTime: number, elapsedTime: number, color: string }) => ReactNode | -           | Render function to customize the time/content in the center of the circle                                                                                                                                                                          |
-| onComplete              | (totalElapsedTime: number) => void \| { shouldRepeat: boolean, delay: number }      | -           | On animation complete event handler                                                                                                                                                                                                                |
-| onUpdate                | (remainingTime: number) => void                                                     | -           | On remaining time update event handler                                                                                                                                                                                                             |
+| Prop Name               | Type                                                                                | Default     | Description                                                                                                                                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| duration                | number                                                                              | _required_  | Countdown duration in seconds                                                                                                                                                                 |
+| colors                  | string \| string[]                                                                  | _required_  | `colors` prop is either:<br> - Single valid color in any format or URL to a gradient<br> - Array of colors in HEX format. At least 2 colors should be provided                                |
+| colorsTime              | number[]                                                                            | -           | Indicates the time when a color should switch to the next color. The first number is the countdown duration and the last one is 0 or goal. Works only when `colors` is an array of HEX colors |
+| isPlaying               | boolean                                                                             | false       | Play or pause animation                                                                                                                                                                       |
+| initialRemainingTime    | number                                                                              | -           | Set the initial remaining time if it is different than the duration                                                                                                                           |
+| updateInterval          | number                                                                              | 0           | Update interval in seconds. Determines how often the timer updates. When set to 0 the value will update on each key frame                                                                     |
+| size                    | number                                                                              | 180         | Width and height of the SVG element                                                                                                                                                           |
+| strokeWidth             | number                                                                              | 12          | Path stroke width                                                                                                                                                                             |
+| trailStrokeWidth        | number                                                                              | strokeWidth | Trail stroke width                                                                                                                                                                            |
+| strokeLinecap           | round \| square                                                                     | round       | Path stroke line cap                                                                                                                                                                          |
+| rotation                | clockwise \| counterclockwise                                                       | clockwise   | Progress path rotation direction                                                                                                                                                              |
+| trailColor              | string                                                                              | #d9d9d9     | Circle trail color - takes any valid color format                                                                                                                                             |
+| isSmoothColorTransition | boolean                                                                             | true        | Indicates if the colors should smoothly transition to the next color                                                                                                                          |
+| children                | (props: { remainingTime: number, elapsedTime: number, color: string }) => ReactNode | -           | Render function to customize the time/content in the center of the circle                                                                                                                     |
+| onComplete              | (totalElapsedTime: number) => void \| { shouldRepeat: boolean, delay: number }      | -           | On animation complete event handler                                                                                                                                                           |
+| onUpdate                | (remainingTime: number) => void                                                     | -           | On remaining time update event handler                                                                                                                                                        |
 
 ## Browser support
 
@@ -192,7 +192,7 @@ const children = ({ remainingTime }) => {
 
 ### Add `a11y` support
 
-#### Web/React
+#### React
 
 - Wrapper the timer in an element and add the following attribute `aria-label={your-aria-label}`
 - Add the following element with `role="timer"` to your `children` function that will make the screen reader read the remaining time while the timer is running.
@@ -205,7 +205,7 @@ const children = ({ remainingTime }) => (
 )
 ```
 
-#### Mobile/React Native
+#### React Native
 
 - Wrapper the timer in an `View` element and add the following attributes `accessible={true} accessibilityLabel={your-aria-abel}`
 - Add the following `Text` element to your `children` function that will make the screen reader read the remaining time while the timer is running.
@@ -240,16 +240,14 @@ Define the SVG gradient outside the Timer component and pass the gradient ID to 
 </CountdownCircleTimer>
 ```
 
-### Web/React - slide down time animation
+### React - slide down time animation
 
 <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
-Check the CodeSandbox below to find out how you can implement it yourself  
-[![Edit silly-night-d3s70](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/silly-night-d3s70?fontsize=14&hidenavigation=1&theme=dark)
+Check the [CodeSandbox](https://codesandbox.io/s/silly-night-d3s70?fontsize=14&hidenavigation=1&theme=dark) demo to find out how you can implement it yourself
 
-### Web/React - days, hours, minutes, seconds countdown
+### React - days, hours, minutes, seconds countdown
 
 <img src="https://user-images.githubusercontent.com/10707142/80909463-efd2cf80-8d28-11ea-8592-a179f49ac4ba.gif" width="500">
 
-Check the demo below for one possible solution  
-[![Edit musing-davinci-mqssz](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark)
+Check the [CodeSandbox](https://codesandbox.io/s/musing-davinci-mqssz?fontsize=14&hidenavigation=1&theme=dark) demo for one possible solution
