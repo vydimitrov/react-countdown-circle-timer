@@ -55,6 +55,6 @@
     "**/*.{ts,tsx}": "eslint --fix"
   },
   "simple-git-hooks": {
-    "pre-commit": "./node_modules/.bin/nano-staged"
+    "pre-commit": "./node_modules/.bin/nano-staged --unstaged"
   }
 }
