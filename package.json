@@ -6,8 +6,7 @@
     "build": "pnpm recursive build",
     "test": "pnpm recursive test",
     "test-coverage": "pnpm recursive test-coverage",
-    "dev:push": "pnpm recursive dev:push",
-    "lint": "eslint --ext js,jsx ."
+    "dev:push": "pnpm recursive dev:push"
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer#readme",
   "repository": {
@@ -34,15 +33,6 @@
     "@types/react": "17.0.37",
     "@types/react-dom": "17.0.11",
     "esbuild": "0.14.2",
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-config-standard": "16.0.3",
-    "eslint-plugin-import": "2.24.2",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "3.4.1",
-    "eslint-plugin-promise": "6.0.0",
-    "eslint-plugin-react": "7.24.0",
-    "eslint-plugin-react-hooks": "4.2.0",
     "jest": "27.1.0",
     "nano-staged": "0.5.0",
     "prettier": "2.3.2",
@@ -53,7 +43,7 @@
     "typescript": "4.5.3"
   },
   "nano-staged": {
-    "**/*.{ts,tsx}": "eslint --fix"
+    "**/*.{ts,tsx}": "prettier --write"
   },
   "simple-git-hooks": {
     "pre-commit": "./node_modules/.bin/nano-staged --unstaged"
