@@ -3,21 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.0](2021-04-28)
+## [3.0.0](2022-01-11)
 
 ### Improvements
 
+- The Web and Mobile packages are now written in TypeScript
 - PNPM is now used as package manager as well as to handle the monorepo
 - Webpack is replaced by Esbuild to bundle the code and run dev server
-- PropTypes are no longer required as peerDependencies. The component will relay on the TypeScript types
-- New prop `updateInterval` is added to control how often the timer should be updated.
-- New event handler `onUpdate` will fire every time the time changes.
+- PropTypes are no longer required as peerDependencies. The component relays on the TypeScript types
+- New prop `updateInterval` is added to control how often the timer should be updated
+- New prop `colorsTime` is added to handle the times when a color should switch to the next color. This was part of the `colors` prop before
+- New prop `isSmoothColorTransition` indicates if the colors should smoothly transition to the next color or just change the color when the time comes
+- New event handler `onUpdate` will fire every time the time changes
+- Reduce overall bundle size and provide module export for the Web package
 
 ### Breaking changes
 
 - IE is no longer supported
-- Gradient is no longer supported out of the box and `isLinearGradient` and `gradientUniqueKey` are now deprecated. The gradient can be set from out side of the component. Please refer to the recipes section.
-- `ariaLabel` and `renderAriaTime` are also deprecated. Refer to the recipes section on how this can be implemented now.
+- `colors` prop now is either: Single color in any valid color format or URL to a gradient; Array of colors in HEX format. At least 2 colors should be provided.
+- Gradient is no longer supported out of the box and `isLinearGradient` and `gradientUniqueKey` are now deprecated. The gradient can be set from outside of the component. Please refer to the recipes section.
+- `ariaLabel` and `renderAriaTime` are also deprecated. Refer to the recipes section to check how this can be implemented.
+- `children` prop now accepts only a render function and it does not take a React component as a children
 
 ### React Native (mobile) changes
 
