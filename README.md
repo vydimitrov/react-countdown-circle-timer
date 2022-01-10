@@ -4,9 +4,9 @@ React/React Native countdown timer component in a circle shape with color and pr
 
 <img src="https://user-images.githubusercontent.com/10707142/66097204-ca68c200-e59d-11e9-9b70-688409755aaa.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65935516-a0869280-e419-11e9-9bb0-40c4d1ef2bbe.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
-:zap: Performance optimized with single `requestAnimationFrame` loop to animate color and progress
-:rainbow: Transition between colors during the countdown
-:european_castle: Fully customizable content in the center of the circle
+:zap: Performance optimized with single `requestAnimationFrame` loop to animate color and progress  
+:rainbow: Transition between colors during the countdown  
+:european_castle: Fully customizable content in the center of the circle  
 :rocket: Support iOS and Android
 
 ## React
@@ -197,7 +197,7 @@ const children = ({ remainingTime }) => {
 
 ### Add `a11y` support
 
-There are 2 things that has to be done here:
+#### Web/React
 
 - Wrapper the timer in an element and add the following attribute `aria-label={your-aria-label}`
 - Add the following element with `role="timer"` to your `children` function that will make the screen reader read the remaining time while the timer is running.
@@ -207,6 +207,23 @@ const children = ({ remainingTime }) => (
   <div role="timer" aria-live="assertive">
     {remainingTime} seconds
   </div>
+)
+```
+
+#### Mobile/React Native
+
+- Wrapper the timer in an `View` element and add the following attributes `accessible={true} accessibilityLabel={your-aria-abel}`
+- Add the following `Text` element to your `children` function that will make the screen reader read the remaining time while the timer is running.
+
+```jsx
+const children = ({ remainingTime }) => (
+  <Text
+    accessibilityRole="timer"
+    accessibilityLiveRegion="assertive"
+    importantForAccessibility="yes"
+  >
+    {remainingTime} seconds
+  </Text>
 )
 ```
 
@@ -228,14 +245,14 @@ Define the SVG gradient outside the Timer component and pass the gradient ID to 
 </CountdownCircleTimer>
 ```
 
-### Web - slide down time animation
+### Web/React - slide down time animation
 
 <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
 Check the CodeSandbox below to find out how you can implement it yourself  
 [![Edit silly-night-d3s70](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/silly-night-d3s70?fontsize=14&hidenavigation=1&theme=dark)
 
-### Web - days, hours, minutes, seconds countdown
+### Web/React - days, hours, minutes, seconds countdown
 
 <img src="https://user-images.githubusercontent.com/10707142/80909463-efd2cf80-8d28-11ea-8592-a179f49ac4ba.gif" width="500">
 
