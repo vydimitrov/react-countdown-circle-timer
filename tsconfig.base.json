@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "lib",
     "target": "es6",
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -9,8 +8,7 @@
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "isolatedModules": true,
-    "declaration": true
+    "isolatedModules": true
   },
   "include": ["packages"]
 }
