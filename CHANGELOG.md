@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](2022-01-11)
+
+### Fix
+
+- Move types close to the web and mobile packages since TypeScript can not reexport submodules. Issue https://github.com/microsoft/TypeScript/issues/8305
+- Add README to mobile package
+
 ## [3.0.1](2022-01-11)
 
 ### Fix
