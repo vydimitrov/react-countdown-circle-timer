@@ -1,14 +1,19 @@
 {
   "name": "react-native-countdown-circle-timer",
-  "version": "2.5.4",
+  "version": "3.0.0",
   "description": "Lightweight React Native countdown timer component with color and progress animation based on SVG",
   "main": "./lib/index.js",
+  "source": "./src/index.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "build": "webpack",
-    "dev:push": "yarn run build && yalc push",
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "test-coverage": "jest --collectCoverage --coverageDirectory=\"coverage\""
+    "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
+    "build": "pnpm ts-declaration && node scripts/build.js",
+    "dev:push": "pnpm run build && yalc push",
+    "test": "jest --collectCoverage",
+    "test:watch": "jest --watch",
+    "prepublish": "pnpm build"
   },
   "repository": {
     "type": "git",
@@ -29,23 +34,34 @@
   },
   "homepage": "https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/mobile#readme",
   "peerDependencies": {
-    "prop-types": ">=15.7.0",
     "react": ">=16.8.0",
     "react-native": ">=0.50.0",
     "react-native-svg": ">=6.2.1"
   },
   "devDependencies": {
-    "@countdown-circle-timer/shared": "^2.5.0",
+    "@countdown/shared": "workspace:*",
     "@testing-library/jest-native": "4.0.2",
     "@testing-library/react-native": "7.2.0",
-    "metro-react-native-babel-preset": "0.66.2",
-    "mockdate": "3.0.5",
+    "@types/react-native": "0.64.2",
     "react-native": "0.64.2",
-    "react-native-svg": "12.1.1"
+    "react-native-svg": "12.1.1",
+    "@babel/core": "7.12.9",
+    "@babel/runtime": "7.12.5",
+    "@types/jest": "26.0.23",
+    "@types/react-test-renderer": "16.9.2",
+    "babel-jest": "26.6.3",
+    "metro-react-native-babel-preset": "0.64.0",
+    "react-test-renderer": "17.0.2"
   },
-  "files": [
-    "lib",
-    "types"
-  ],
-  "types": "types/CountdownCircleTimer.d.ts"
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
 }

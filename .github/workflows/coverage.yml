@@ -1,0 +1,48 @@
+name: Test Coverage
+on: [push]
+jobs:
+  report-test-coverage:
+    name: Report test coverage on push
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.0'
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.25.0
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
+
+      - name: Run tests and generate coverage report
+        run: pnpm test
+
+      - name: Upload coverage for Web package
+        if: success()
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: packages/web/coverage/coverage-final.json
+          flags: web
+
+      - name: Upload coverage for Mobile package
+        if: success()
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: packages/mobile/coverage/coverage-final.json
+          flags: mobile

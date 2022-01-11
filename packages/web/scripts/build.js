@@ -1,0 +1,21 @@
+const esbuild = require('esbuild')
+const pkg = require('../package.json')
+
+const commonProps = {
+  entryPoints: [pkg.source],
+  bundle: true,
+  minify: true,
+  external: ['react'],
+}
+
+esbuild.build({
+  ...commonProps,
+  outfile: pkg.main,
+  format: 'cjs',
+})
+
+esbuild.build({
+  ...commonProps,
+  outfile: pkg.module,
+  format: 'esm',
+})

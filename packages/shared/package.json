@@ -1,9 +1,15 @@
 {
-  "name": "@countdown-circle-timer/shared",
-  "version": "2.5.0",
+  "name": "@countdown/shared",
+  "version": "3.0.0",
   "private": true,
-  "main": "index.js",
-  "scripts": {},
+  "source": "./src/index.js",
+  "scripts": {
+    "test": "jest --collectCoverage",
+    "test:watch": "jest --watch"
+  },
   "author": "Vasil Dimitrov",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "use-elapsed-time": "3.0.3"
+  }
 }
