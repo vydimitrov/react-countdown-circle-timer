@@ -70,9 +70,9 @@ importers:
 
   packages/shared:
     specifiers:
-      use-elapsed-time: 3.0.3
+      use-elapsed-time: 3.0.4
     dependencies:
-      use-elapsed-time: 3.0.3_react@17.0.2
+      use-elapsed-time: 3.0.4_react@17.0.2
 
   packages/web:
     specifiers:
@@ -6707,8 +6707,8 @@ packages:
     deprecated: Please see https://github.com/lydell/urix#deprecated
     dev: true
 
-  /use-elapsed-time/3.0.3_react@17.0.2:
-    resolution: {integrity: sha512-HaUJC1SV2RN/XAbcJ9UBq3SzaItxCUbAboM8S5iytmA/6bp+65WjqwCGOmZkYR5wopS/VI3pH5OVBgoVc20F7g==}
+  /use-elapsed-time/3.0.4_react@17.0.2:
+    resolution: {integrity: sha512-q9b9j0K1SfsX2B9vzfRYkNyn2kBV5YBh9oJ/+XnIPKFjLbjvnF2PnJ/08HWPfCKKBWGz8d1qAfmXiYxWAseklw==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:

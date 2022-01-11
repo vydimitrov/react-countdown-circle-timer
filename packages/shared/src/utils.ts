@@ -18,7 +18,7 @@ export const getPathProps = (
 }
 
 export const getStartAt = (duration: number, initialRemainingTime?: number) => {
-  if (duration === 0) {
+  if (duration === 0 || duration === initialRemainingTime) {
     return 0
   }
 

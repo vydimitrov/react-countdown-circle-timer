@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](2022-01-11)
+
+### Fix
+
+- Upgrade use-elapsed-time to fix an issue where the newStartAt was not respected
+
 ## [3.0.3](2022-01-11)
 
 ### Fix
