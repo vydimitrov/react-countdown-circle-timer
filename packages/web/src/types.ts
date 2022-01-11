@@ -28,6 +28,8 @@ type OnComplete = {
   shouldRepeat?: boolean
   /** Delay in seconds before looping again. Default: 0 */
   delay?: number
+  /** Set new initial remaining when starting over the animation */
+  newInitialRemainingTime?: number
 }
 
 export type Props = {

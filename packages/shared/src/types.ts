@@ -1,5 +1,3 @@
-import { Props as ElapsedTimeProps } from 'use-elapsed-time'
-
 type ColorHex = `#${string}`
 type ColorRGBA = `rgba(${string})`
 type ColorURL = `url(#${string})`
@@ -23,6 +21,15 @@ type MultipleColors = {
   colors: { 0: ColorHex } & { 1: ColorHex } & ColorHex[]
   /** Indicates the time when a color should switch to the next color. The first item should be the duration and the last one should be 0/goal. Example with duration of 10 seconds: [10, 6, 3, 0]  */
   colorsTime: { 0: number } & { 1: number } & number[]
+}
+
+type OnComplete = {
+  /** Indicates if the loop should start over. Default: false */
+  shouldRepeat?: boolean
+  /** Delay in seconds before looping again. Default: 0 */
+  delay?: number
+  /** Set new initial remaining when starting over the animation */
+  newInitialRemainingTime?: number
 }
 
 export type Props = {
@@ -51,7 +58,7 @@ export type Props = {
   /** Render function to customize the time/content in the center of the circle */
   children?: (props: TimeProps) => React.ReactNode
   /** On animation complete event handler */
-  onComplete?: ElapsedTimeProps['onComplete']
+  onComplete?: (totalElapsedTime: number) => OnComplete | void
   /** On remaining time update event handler */
   onUpdate?: (remainingTime: number) => void
 } & (SingleColor | MultipleColors)

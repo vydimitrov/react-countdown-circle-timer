@@ -80,21 +80,36 @@ export const useCountdown = (props: Props) => {
   const remainingTimeRef = useRef<number>()
   const maxStrokeWidth = Math.max(strokeWidth, trailStrokeWidth ?? 0)
   const { path, pathLength } = getPathProps(size, maxStrokeWidth, rotation)
-  const handleUpdate = (elapsedTime: number) => {
-    const remainingTime = Math.ceil(duration - elapsedTime)
-    if (remainingTime !== remainingTimeRef.current) {
-      remainingTimeRef.current = remainingTime
-      onUpdate?.(remainingTime)
-    }
-  }
 
   const { elapsedTime } = useElapsedTime({
     isPlaying,
     duration,
     startAt: getStartAt(duration, initialRemainingTime),
     updateInterval,
-    onComplete,
-    onUpdate: typeof onUpdate === 'function' ? handleUpdate : undefined,
+    onUpdate:
+      typeof onUpdate === 'function'
+        ? (elapsedTime: number) => {
+            const remainingTime = Math.ceil(duration - elapsedTime)
+            if (remainingTime !== remainingTimeRef.current) {
+              remainingTimeRef.current = remainingTime
+              onUpdate(remainingTime)
+            }
+          }
+        : undefined,
+    onComplete:
+      typeof onComplete === 'function'
+        ? (totalElapsedTime: number) => {
+            const { shouldRepeat, delay, newInitialRemainingTime } =
+              onComplete(totalElapsedTime) ?? {}
+            if (shouldRepeat) {
+              return {
+                shouldRepeat,
+                delay,
+                newStartAt: getStartAt(duration, newInitialRemainingTime),
+              }
+            }
+          }
+        : undefined,
   })
 
   const remainingTimeRow = duration - elapsedTime
