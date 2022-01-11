@@ -19,6 +19,7 @@ const Count = () => {
       <CountdownCircleTimer
         isPlaying={isPlaying}
         duration={count}
+        initialRemainingTime={6}
         isSmoothColorTransition={false}
         // updateInterval={1}
         colors="#aabbcc"
@@ -29,6 +30,7 @@ const Count = () => {
           console.log('Counter is ', count)
           console.log('Remaining time is ', remainingTime)
         }}
+        onComplete={() => ({ shouldRepeat: true })}
       >
         {({ remainingTime }) => remainingTime}
       </CountdownCircleTimer>

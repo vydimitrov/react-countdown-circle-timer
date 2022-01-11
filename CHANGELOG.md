@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](2022-01-11)
+
+### Fix(mobile)
+
+- The animating path is visible when the animation is over on Android. To fix it we check if the elapsed time is equal the duration
+
 ## [3.0.4](2022-01-11)
 
 ### Fix

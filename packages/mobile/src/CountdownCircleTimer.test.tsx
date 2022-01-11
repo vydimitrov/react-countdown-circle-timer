@@ -55,6 +55,20 @@ describe('CountdownCircleTimer', () => {
 
     expect(getByText('4')).toBeTruthy()
   })
+
+  it('does not render the animating path when the elapsed time is equal the duration', () => {
+    const tree = renderer.create(
+      <CountdownCircleTimer
+        duration={0}
+        colors="#abc"
+        initialRemainingTime={3.7}
+      >
+        {({ remainingTime }) => <Text>{remainingTime}</Text>}
+      </CountdownCircleTimer>
+    )
+
+    expect(tree).toMatchSnapshot()
+  })
 })
 
 describe('useCountdown', () => {

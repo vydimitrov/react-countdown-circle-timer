@@ -6,7 +6,8 @@ import { useCountdown, getWrapperStyle, timeStyle } from '@countdown/shared'
 import type { Props } from './types'
 
 const CountdownCircleTimer = (props: Props) => {
-  const { children, strokeLinecap, trailColor, trailStrokeWidth } = props
+  const { children, duration, strokeLinecap, trailColor, trailStrokeWidth } =
+    props
   const {
     path,
     pathLength,
@@ -27,15 +28,17 @@ const CountdownCircleTimer = (props: Props) => {
           stroke={trailColor ?? '#d9d9d9'}
           strokeWidth={trailStrokeWidth ?? strokeWidth}
         />
-        <Path
-          d={path}
-          fill="none"
-          stroke={stroke}
-          strokeLinecap={strokeLinecap ?? 'round'}
-          strokeWidth={strokeWidth}
-          strokeDasharray={pathLength}
-          strokeDashoffset={strokeDashoffset}
-        />
+        {elapsedTime !== duration && (
+          <Path
+            d={path}
+            fill="none"
+            stroke={stroke}
+            strokeLinecap={strokeLinecap ?? 'round'}
+            strokeWidth={strokeWidth}
+            strokeDasharray={pathLength}
+            strokeDashoffset={strokeDashoffset}
+          />
+        )}
       </Svg>
       {typeof children === 'function' && (
         <View style={timeStyle as StyleProp<ViewStyle>}>
