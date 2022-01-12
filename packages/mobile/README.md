@@ -9,12 +9,14 @@ React Native countdown timer component in a circle shape with color and progress
 
 <img src="https://user-images.githubusercontent.com/10707142/66097204-ca68c200-e59d-11e9-9b70-688409755aaa.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65935516-a0869280-e419-11e9-9bb0-40c4d1ef2bbe.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
+## Features
+
 :zap: Performance optimized with single `requestAnimationFrame` loop to animate color and progress  
 :rainbow: Transition between colors during the countdown  
 :european_castle: Fully customizable content in the center of the circle  
 :rocket: Support iOS and Android
 
-## Installation
+## Install
 
 ```
 yarn add react-native-countdown-circle-timer
@@ -22,7 +24,7 @@ yarn add react-native-countdown-circle-timer
 
 This component has a peer dependency on `react-native-svg` to draw the countdown circle. `react-native-svg` has to be installed and linked into your project.
 
-## Demo
+## Usage
 
 ### Component
 
@@ -90,7 +92,7 @@ const {
 
 Once the component is mounted the `duration` prop can be changed the the timer will respect the new duration. In case the new duration is bigger than the previous one then the timer will continue to the new duration. In case the new duration is smaller then the previous one then the timer will ne over. If you want to restart the timer when the duration changes then pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
 
-### Restart/Reset timer at any given time
+### Restart timer at any given time
 
 Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer should be restarted. Check [this demo](https://codesandbox.io/s/tender-bogdan-qd35m) to find out one possible implementation.
 
@@ -187,6 +189,6 @@ Define the SVG gradient outside the Timer component and pass the gradient ID to 
   </Defs>
 </Svg>
 <CountdownCircleTimer colors="url(#your-unique-id)">
-  {({ remainingTime }) => remainingTime}
+  {({ remainingTime }) => <Text>{remainingTime}</Text>}
 </CountdownCircleTimer>
 ```

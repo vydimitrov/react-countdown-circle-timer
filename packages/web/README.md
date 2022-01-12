@@ -9,17 +9,19 @@ React countdown timer component in a circle shape with color and progress animat
 
 <img src="https://user-images.githubusercontent.com/10707142/66097204-ca68c200-e59d-11e9-9b70-688409755aaa.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65935516-a0869280-e419-11e9-9bb0-40c4d1ef2bbe.gif" width="200"> <img src="https://user-images.githubusercontent.com/10707142/65963815-cfbdf380-e45b-11e9-809d-970174e88914.gif" width="200">
 
+## Features
+
 :zap: Performance optimized with single `requestAnimationFrame` loop to animate color and progress  
 :rainbow: Transition between colors during the countdown  
 :european_castle: Fully customizable content in the center of the circle
 
-## Installation
+## Install
 
 ```
 yarn add react-countdown-circle-timer
 ```
 
-## Demo
+## Usage
 
 ### Component
 
@@ -90,7 +92,7 @@ The component and hook support [all modern browsers](https://caniuse.com/?search
 
 Once the component is mounted the `duration` prop can be changed the the timer will respect the new duration. In case the new duration is bigger than the previous one then the timer will continue to the new duration. In case the new duration is smaller then the previous one then the timer will ne over. If you want to restart the timer when the duration changes then pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
 
-### Restart/Reset timer at any given time
+### Restart timer at any given time
 
 Pass a `key` prop to `CountdownCircleTimer` and change the `key` when the timer should be restarted. Check [this demo](https://codesandbox.io/s/tender-bogdan-qd35m) to find out one possible implementation.
 
