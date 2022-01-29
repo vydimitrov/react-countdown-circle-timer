@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](2022-01-29)
+
+### Fix
+
+- Draft a new release since the previous one did not include the type update
+
 ## [3.0.7](2022-01-29)
 
 ### Fix
