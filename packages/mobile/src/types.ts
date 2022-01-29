@@ -46,7 +46,7 @@ export type Props = {
   /** Trail stroke width */
   trailStrokeWidth?: number
   /** Path stroke line cap. Default: "round" */
-  strokeLinecap?: 'round' | 'square'
+  strokeLinecap?: 'round' | 'square' | 'butt'
   /** Progress path rotation direction. Default: "clockwise" */
   rotation?: 'clockwise' | 'counterclockwise'
   /** Circle trail color - takes any valid color format (HEX, rgb, rgba, etc.). Default: #d9d9d9 */
