@@ -177,18 +177,34 @@ const children = ({ remainingTime }) => (
 
 ### Add gradient
 
-Define the SVG gradient outside the Timer component and pass the gradient ID to the Timer component as a single color:
+Since the gradient definition and the usage of it has to be placed under the same SVG element we should use the `useCountdown` hook and build the countdown component ourself. Check [this demo](https://snack.expo.dev/@dimitrov/react-native-countdown-circle-timer-gradient?platform=ios) to see how it works.
 
 ```jsx
-<Svg>
-  <Defs>
-    <LinearGradient id="your-unique-id" x1="1" y1="0" x2="0" y2="0">
-      <Stop offset="5%" stopColor="gold" />
-      <Stop offset="95%" stopColor="red" />
-    </LinearGradient>
-  </Defs>
-</Svg>
-<CountdownCircleTimer colors="url(#your-unique-id)">
-  {({ remainingTime }) => <Text>{remainingTime}</Text>}
-</CountdownCircleTimer>
+const {
+    ...
+  } = useCountdown({ isPlaying: true, duration, colors: 'url(#your-unique-id)' })
+
+  <Svg width={size} height={size}>
+    <Defs>
+      <LinearGradient id="your-unique-id" x1="1" y1="0" x2="0" y2="0">
+        <Stop offset="5%" stopColor="gold"/>
+        <Stop offset="95%" stopColor="red"/>
+      </LinearGradient>
+    </Defs>
+    <Path
+      d={path}
+      fill="none"
+      stroke="#d9d9d9"
+      strokeWidth={strokeWidth}
+    />
+    <Path
+      d={path}
+      fill="none"
+      stroke={stroke}
+      strokeLinecap="butt"
+      strokeWidth={strokeWidth}
+      strokeDasharray={pathLength}
+      strokeDashoffset={strokeDashoffset}
+    />
+  </Svg>
 ```
