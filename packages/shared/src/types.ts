@@ -1,8 +1,11 @@
+/// <reference types="react" />
+
 type ColorHex = `#${string}`
 type ColorRGBA = `rgba(${string})`
 type ColorURL = `url(#${string})`
-export type ColorRGB = `rgb(${string})`
-export type ColorFormat = ColorHex | ColorRGB | ColorRGBA | ColorURL
+export declare type ColorRGB = `rgb(${string})`
+export declare type ColorFormat = ColorHex | ColorRGB | ColorRGBA | ColorURL
+
 type TimeProps = {
   remainingTime: number
   elapsedTime: number
@@ -32,7 +35,7 @@ type OnComplete = {
   newInitialRemainingTime?: number
 }
 
-export type Props = {
+export declare type Props = {
   /** Countdown duration in seconds */
   duration: number
   /** Set the initial remaining time if it is different than the duration */
@@ -62,3 +65,20 @@ export type Props = {
   /** On remaining time update event handler */
   onUpdate?: (remainingTime: number) => void
 } & (SingleColor | MultipleColors)
+
+export declare const useCountdown: (props: Props) => {
+  elapsedTime: number
+  path: string
+  pathLength: number
+  remainingTime: number
+  rotation: 'clockwise' | 'counterclockwise'
+  size: number
+  stroke: ColorFormat
+  strokeDashoffset: number
+  strokeWidth: number
+}
+
+export declare const CountdownCircleTimer: {
+  (props: Props): JSX.Element
+  displayName: 'CountdownCircleTimer'
+}
