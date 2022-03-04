@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](2022-03-04)
+
+### Fix
+
+- Fix for #193. This is fix for the issue where types for the hook are referenced by the shared package, which is not exported. To solve the problem now we copy the types from the shared package and add them to each package when bundling the code. This is not the best solution but it is the simplest. Once we have a good way to bundle types from monorepo this can be changed.
+
 ## [3.0.8](2022-01-29)
 
 ### Fix
