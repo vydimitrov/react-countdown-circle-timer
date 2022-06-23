@@ -7,13 +7,14 @@ const linearEase = (
   time: number,
   start: number,
   goal: number,
-  duration: number
+  duration: number,
+  isGrowing: boolean
 ) => {
   if (duration === 0) {
     return start
   }
 
-  const currentTime = time / duration
+  const currentTime = (isGrowing ? duration - time : time) / duration
   return start + goal * currentTime
 }
 
@@ -50,6 +51,7 @@ const getStroke = (props: Props, remainingTime: number): ColorFormat => {
   const currentDuration = colorsTime[index] - colorsTime[index + 1]
   const startColorRGB = getRGB(colors[index])
   const endColorRGB = getRGB(colors[index + 1])
+  const isGrowing = !!props.isGrowing
 
   return `rgb(${startColorRGB
     .map(
@@ -58,7 +60,8 @@ const getStroke = (props: Props, remainingTime: number): ColorFormat => {
           currentTime,
           color,
           endColorRGB[index] - color,
-          currentDuration
+          currentDuration,
+          isGrowing
         ) | 0
     )
     .join(',')})`
@@ -73,6 +76,7 @@ export const useCountdown = (props: Props) => {
     strokeWidth = 12,
     trailStrokeWidth,
     isPlaying = false,
+    isGrowing = false,
     rotation = 'clockwise',
     onComplete,
     onUpdate,
@@ -122,7 +126,13 @@ export const useCountdown = (props: Props) => {
     rotation,
     size,
     stroke: getStroke(props, remainingTimeRow),
-    strokeDashoffset: linearEase(elapsedTime, 0, pathLength, duration),
+    strokeDashoffset: linearEase(
+      elapsedTime,
+      0,
+      pathLength,
+      duration,
+      isGrowing
+    ),
     strokeWidth,
   }
 }
