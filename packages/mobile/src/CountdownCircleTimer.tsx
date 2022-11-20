@@ -21,7 +21,7 @@ const CountdownCircleTimer = (props: Props) => {
 
   return (
     <View style={getWrapperStyle(size) as StyleProp<ViewStyle>}>
-      <Svg width={size} height={size}>
+      <Svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
         <Path
           d={path}
           fill="none"
