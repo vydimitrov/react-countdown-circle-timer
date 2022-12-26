@@ -35,4 +35,10 @@ Check out the [full documentation](https://github.com/vydimitrov/react-countdown
 yarn add react-native-countdown-circle-timer
 ```
 
+or
+
+```
+npm i react-native-countdown-circle-timer
+ ```
+
 This component has a peer dependency on `react-native-svg`. Read the [full documentation](https://github.com/vydimitrov/react-countdown-circle-timer/tree/master/packages/mobile#react-native-countdown-circle-timer) for the installation guide, as well as demos and use cases.
