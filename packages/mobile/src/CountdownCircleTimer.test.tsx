@@ -42,6 +42,18 @@ describe('CountdownCircleTimer', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  it('renders with isGrowing prop when it is set', () => {
+    const tree = renderer
+      .create(
+        <CountdownCircleTimer {...fixture} isPlaying>
+          {({ remainingTime }) => <Text>{remainingTime}</Text>}
+        </CountdownCircleTimer>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
   it('starts the timer from value provided in initialRemainingTime', () => {
     const { getByText } = render(
       <CountdownCircleTimer
