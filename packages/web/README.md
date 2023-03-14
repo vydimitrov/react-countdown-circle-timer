@@ -85,13 +85,13 @@ const {
 
 ## Browser support
 
-The component and hook support [all modern browsers](https://caniuse.com/?search=es6) targeting `es6`. Internet Explorer (IE) is not longer supported.
+The component and hook support [all modern browsers](https://caniuse.com/?search=es6) targeting `ES6`. Internet Explorer (IE) is not longer supported.
 
 ## Recipes
 
 ### Changing `duration` prop
 
-Once the component is mounted the `duration` prop can be changed the the timer will respect the new duration. In case the new duration is bigger than the previous one then the timer will continue to the new duration. In case the new duration is smaller then the previous one then the timer will ne over. If you want to restart the timer when the duration changes then pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
+Once the component is mounted the `duration` prop can be changed the the timer will respect the new duration. In case the new duration is bigger than the previous one then the timer will continue to the new duration. In case the new duration is smaller then the previous one then the timer will be over. If you want to restart the timer when the duration changes then pass a new `key` prop to `CountdownCircleTimer` component and the timer will start over with the new values provided.
 
 ### Restart timer at any given time
 
@@ -130,7 +130,7 @@ const UrgeWithPleasureComponent = () => (
 )
 ```
 
-In the example above, the countdown will start at 15 seconds (one quarter before it's done) and it will animate for 15 seconds until reaches 0.
+In the example above, the countdown will start at 15 seconds (one quarter before it's done) and it will animate for 15 seconds until it reaches 0.
 
 ### Time formatting functions
 

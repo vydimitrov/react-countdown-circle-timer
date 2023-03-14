@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.0](2022-11-28)
+
+### Features
+
+- Add `viewBox` prop to the `svg` element for the wen and mobile packages. The `viewBox` prop will make the countdown timer responsive and it will adjust its size according to the element outside.
+
 ## [3.0.9](2022-03-04)
 
 ### Fix
