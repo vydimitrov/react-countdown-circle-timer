@@ -181,10 +181,14 @@ exports[`CountdownCircleTimer renders with isGrowing prop when it is set 1`] = `
   }
 >
   <RNSVGSvgView
+    align="xMidYMid"
     bbHeight={180}
     bbWidth={180}
     focusable={false}
     height={180}
+    meetOrSlice={0}
+    minX={0}
+    minY={0}
     style={
       Array [
         Object {
@@ -198,6 +202,8 @@ exports[`CountdownCircleTimer renders with isGrowing prop when it is set 1`] = `
         },
       ]
     }
+    vbHeight={180}
+    vbWidth={180}
     width={180}
   >
     <RNSVGGroup>
