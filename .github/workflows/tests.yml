@@ -35,7 +35,7 @@ jobs:
         timeout-minutes: 5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: packages/web/coverage/coverage-final.json
+          files: packages/web/coverage/coverage-final.json
           flags: web
 
       - name: Upload coverage for Mobile package
@@ -44,5 +44,5 @@ jobs:
         timeout-minutes: 5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: packages/mobile/coverage/coverage-final.json
+          files: packages/mobile/coverage/coverage-final.json
           flags: mobile
