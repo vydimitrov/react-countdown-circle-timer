@@ -240,7 +240,7 @@ exports[`CountdownCircleTimer renders with isGrowing prop when it is set 1`] = `
             527.7875658030853,
           ]
         }
-        strokeDashoffset={null}
+        strokeDashoffset={527.7875658030853}
         strokeLinecap={1}
         strokeWidth={12}
       />

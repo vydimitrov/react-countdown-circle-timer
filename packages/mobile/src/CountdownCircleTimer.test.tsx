@@ -45,7 +45,7 @@ describe('CountdownCircleTimer', () => {
   it('renders with isGrowing prop when it is set', () => {
     const tree = renderer
       .create(
-        <CountdownCircleTimer {...fixture} isPlaying>
+        <CountdownCircleTimer {...fixture} isGrowing>
           {({ remainingTime }) => <Text>{remainingTime}</Text>}
         </CountdownCircleTimer>
       )
