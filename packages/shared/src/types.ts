@@ -58,6 +58,8 @@ export declare type Props = {
   isPlaying?: boolean
   /** Indicates if the colors should smoothly transition to the next color. Default: true */
   isSmoothColorTransition?: boolean
+  /** Indicates if the progress path should be growing instead of shrinking. Default: false */
+  isGrowing?: boolean
   /** Render function to customize the time/content in the center of the circle */
   children?: (props: TimeProps) => React.ReactNode
   /** On animation complete event handler */

@@ -85,6 +85,13 @@ describe('CountdownCircleTimer', () => {
     )
   })
 
+  it('sets stroke-dashoffset to the circle length when the isGrowing prop is true', async () => {
+    render(<CountdownCircleTimer {...fixture} isGrowing />)
+
+    const path = getAnimatingPath()
+    expect(path).toHaveAttribute('stroke-dashoffset', '527.7875658030853')
+  })
+
   it('sets trail stroke width', () => {
     render(<CountdownCircleTimer {...fixture} trailStrokeWidth={14} />)
 
