@@ -1,39 +1,45 @@
-name: Test Coverage
-on: [push]
+name: Tests
+
+on: push:
+    branches:
+      - master
+
 jobs:
   report-test-coverage:
     name: Report test coverage on push
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          node-version: 16
 
       - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14.17.0'
+        uses: actions/setup-node@v3
 
       - name: Cache pnpm modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-
+            ${{ runner.os }}-pnpm-store-
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2
         with:
-          version: 6.25.0
+          version: latest
           run_install: |
             - recursive: true
               args: [--frozen-lockfile]
 
       - name: Run tests and generate coverage report
         run: pnpm test
+        timeout-minutes: 5
 
       - name: Upload coverage for Web package
         if: success()
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
+        timeout-minutes: 5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: packages/web/coverage/coverage-final.json
@@ -41,7 +47,8 @@ jobs:
 
       - name: Upload coverage for Mobile package
         if: success()
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
+        timeout-minutes: 5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: packages/mobile/coverage/coverage-final.json
